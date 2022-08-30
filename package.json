@@ -1,0 +1,29 @@
+{
+  "name": "aem-extension",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "sass dev/scss:prod/css --no-source-map --watch",
+    "ts": "tsc"
+  },
+  "keywords": [
+    "aem",
+    "extension",
+    "aem extension"
+  ],
+  "author": "Tomasz Pędzich",
+  "license": "ISC",
+  "devDependencies": {
+    "@fluentui/svg-icons": "^1.x",
+    "@popperjs/core": "^2.11.5",
+    "@types/chrome": "0.x",
+    "postcss": "8.x",
+    "postcss-scss": "4.x",
+    "sass": "1.x",
+    "stylelint": "14.x",
+    "stylelint-order": "5.x",
+    "typescript": "4.x"
+  }
+}

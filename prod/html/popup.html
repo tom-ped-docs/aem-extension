@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link href="../css/popup.css" rel="stylesheet">
+
+  <meta charset="utf-8">
+  <meta name="application-name" content="aem extension">
+  <meta name="author" content="Tomasz Pędzich">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="popup">
+  <meta name="keywords" content="aem,extension,aem extension">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Popup</title>
+</head>
+
+<body class="l-body">
+  <section class="l-wrapper">
+
+    <section class="l-section l-section--row animation-0">
+
+      <div class="l-toggle-switch-wrapper f-toggle-switch-wrapper">
+        <input class="f-toggle-switch" id="input-switch" type="checkbox">
+        <label class="f-label" id="label-switch" for="input-switch"></label>
+      </div>
+
+      <button class="l-button-options f-icon-button" id="button-options" type="button" accesskey="o">
+        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M1.91 7.38A8.5 8.5 0 013.69 4.3a.5.5 0 01.54-.13l1.92.68a1 1 0 001.32-.76l.36-2a.5.5 0 01.4-.4 8.53 8.53 0 013.55 0c.2.04.35.2.38.4l.37 2a1 1 0 001.32.76l1.92-.68a.5.5 0 01.54.13 8.5 8.5 0 011.78 3.08c.06.2 0 .4-.15.54l-1.56 1.32a1 1 0 000 1.52l1.56 1.32a.5.5 0 01.15.54 8.5 8.5 0 01-1.78 3.08.5.5 0 01-.54.13l-1.92-.68a1 1 0 00-1.32.76l-.37 2a.5.5 0 01-.38.4 8.53 8.53 0 01-3.56 0 .5.5 0 01-.39-.4l-.36-2a1 1 0 00-1.32-.76l-1.92.68a.5.5 0 01-.54-.13 8.5 8.5 0 01-1.78-3.08.5.5 0 01.15-.54l1.56-1.32a1 1 0 000-1.52L2.06 7.92a.5.5 0 01-.15-.54zm1.06 0l1.3 1.1a2 2 0 010 3.04l-1.3 1.1c.3.79.71 1.51 1.25 2.16l1.6-.58a2 2 0 012.63 1.53l.3 1.67a7.56 7.56 0 002.5 0l.3-1.67a2 2 0 012.64-1.53l1.6.58a7.5 7.5 0 001.24-2.16l-1.3-1.1a2 2 0 010-3.04l1.3-1.1a7.5 7.5 0 00-1.25-2.16l-1.6.58a2 2 0 01-2.63-1.53l-.3-1.67a7.55 7.55 0 00-2.5 0l-.3 1.67A2 2 0 015.81 5.8l-1.6-.58a7.5 7.5 0 00-1.24 2.16zM7.5 10a2.5 2.5 0 115 0 2.5 2.5 0 01-5 0zm1 0a1.5 1.5 0 103 0 1.5 1.5 0 00-3 0z" /></svg>
+      </button>
+      <!-- <div class="f-tooltip" id="tooltip-options">Options</div> -->
+
+    </section><!-- l-section--row -->
+
+    <section class="l-section l-section--rows f-app-surface f-app-surface--layer-active" id="samsung-section">
+
+      <select class="l-select-version f-dropdown" id="samsung-select-version">
+        <option label="V5 AEM" name="v5Aem" value="v5Aem"></option>
+        <option label="V5 AEM EU" name="v5AemEu" value="v5AemEu"></option>
+        <option label="V5 AEM EU SHOP" name="v5AemEuShop" value="v5AemEuShop"></option>
+
+        <option label="V6 AEM AP" name="v6AemAp" value="v6AemAp"></option>
+        <option label="V6 AEM EU" name="v6AemEu" value="v6AemEu"></option>
+        <option label="V6 AEM US" name="v6AemUs" value="v6AemUs"></option>
+      </select>
+
+      <button class="f-button f-button--standard" id="samsung-button-signin" type="button">AEM Sign In</button>
+
+      <input class="l-input-url f-text-box" id="samsung-input-url" type="url" placeholder="pl">
+
+      <button class="f-icon-button" id="samsung-button-clipboard" type="button">
+        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7.09 3c.2-.58.76-1 1.41-1h3c.65 0 1.2.42 1.41 1h1.59c.83 0 1.5.67 1.5 1.5v12c0 .83-.67 1.5-1.5 1.5h-9A1.5 1.5 0 014 16.5v-12C4 3.67 4.67 3 5.5 3h1.59zM8.5 3a.5.5 0 000 1h3a.5.5 0 000-1h-3zM7.09 4H5.5a.5.5 0 00-.5.5v12c0 .28.22.5.5.5h9a.5.5 0 00.5-.5v-12a.5.5 0 00-.5-.5h-1.59c-.2.58-.76 1-1.41 1h-3a1.5 1.5 0 01-1.41-1z" /></svg>
+      </button>
+
+      <button class="f-button f-button--standard" id="samsung-button-editor" type="button">Editor</button>
+      <button class="f-button f-button--standard" id="samsung-button-preview" type="button">Preview</button>
+      <button class="f-button f-button--standard" id="samsung-button-qa" type="button">QA</button>
+      <button class="f-button f-button--standard" id="samsung-button-published" type="button">Published</button>
+
+      <button class="f-button f-button--standard" id="samsung-button-sites" type="button">Sites</button>
+      <button class="f-button f-button--standard" id="samsung-button-assets" type="button">Assets</button>
+      <button class="f-button f-button--standard" id="samsung-button-tasks" type="button">Tasks</button>
+      <button class="f-button f-button--standard" id="samsung-button-workflows" type="button">Workflows</button>
+
+      <button class="f-button f-button--standard" id="samsung-button-purging" type="button">Purging</button>
+      <button class="f-button f-button--standard" id="samsung-button-pim-b2c" type="button">PIM B2C</button>
+      <button class="f-button f-button--standard" id="samsung-button-pim-b2b" type="button">PIM B2B</button>
+
+    </section><!-- l-section--rows -->
+
+    <section class="l-section l-section--rows f-app-surface f-app-surface--layer-active" id="iqos-section">
+
+      <select class="l-select-version f-dropdown" id="iqos-select-version">
+        <option label="AEM PRE PROD" name="ppAem" value="ppAem"></option>
+        <option label="AEM PROD" name="pAem" value="pAem"></option>
+      </select>
+
+      <button class="f-button f-button--standard" id="iqos-button-signin" type="button">AEM Sign In</button>
+
+      <select class="f-dropdown" id="iqos-select-catalog">
+        <option label="IQOS" name="catalogIqos" value="catalogIqos"></option>
+        <option label="IQOS Club" name="catalogIqosClub" value="catalogIqosClub"></option>
+        <option label="IQOS VEEV" name="catalogIqosVeev" value="catalogIqosVeev"></option>
+      </select>
+
+      <input class="l-input-url f-text-box" id="iqos-input-url" type="url" placeholder="de/en/home">
+
+      <button class="f-icon-button" id="iqos-button-clipboard" type="button">
+        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7.09 3c.2-.58.76-1 1.41-1h3c.65 0 1.2.42 1.41 1h1.59c.83 0 1.5.67 1.5 1.5v12c0 .83-.67 1.5-1.5 1.5h-9A1.5 1.5 0 014 16.5v-12C4 3.67 4.67 3 5.5 3h1.59zM8.5 3a.5.5 0 000 1h3a.5.5 0 000-1h-3zM7.09 4H5.5a.5.5 0 00-.5.5v12c0 .28.22.5.5.5h9a.5.5 0 00.5-.5v-12a.5.5 0 00-.5-.5h-1.59c-.2.58-.76 1-1.41 1h-3a1.5 1.5 0 01-1.41-1z" /></svg>
+      </button>
+
+      <button class="f-button f-button--standard" id="iqos-button-editor" type="button">Editor</button>
+      <button class="f-button f-button--standard" id="iqos-button-preview" type="button">Preview</button>
+      <button class="f-button f-button--standard" id="iqos-button-properties" type="button">Properties</button>
+
+      <button class="l-button-published-signin f-button f-button--standard" id="iqos-button-published-signin" type="button">Published Sign In</button>
+      <button class="f-button f-button--standard" id="iqos-button-published" type="button">Published</button>
+      <button class="f-button f-button--standard" id="iqos-button-sites" type="button">Sites</button>
+      <button class="f-button f-button--standard" id="iqos-button-assets" type="button">Assets</button>
+
+      <button class="f-button f-button--standard" id="iqos-button-region" type="button">'?gr = false'</button>
+      <button class="f-button f-button--standard" id="iqos-button-agegate" type="button">Age Gate</button>
+      <button class="f-button f-button--standard" id="iqos-button-hybris" type="button">Hybris</button>
+
+    </section><!-- l-section--rows -->
+
+  </section><!-- l-wrapper -->
+
+  <script src="../js/popup.js" type="module"></script>
+</body>

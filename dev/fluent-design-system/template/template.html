@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- <link href="../index.css" rel="stylesheet"> -->
+  <link href="template.css" rel="stylesheet">
+
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="light dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    .section-wrapper {
+      --_content-block-size: 128px;
+      --_content-rows: 4;
+      --_content-columns: 3;
+    }
+
+    .component-row__content:nth-child(3n) {
+      border-inline-end-color: transparent;
+    }
+
+    .component-row__content:nth-last-child(-n+3) {
+      border-block-end-color: transparent;
+    }
+
+  </style>
+
+  <title>Template</title>
+</head>
+
+<body class="body">
+  <div class="section-wrapper">
+
+    <div class="variant-row-wrapper">
+      <div class="variant-row__header">
+        <span class="subtitle">Subtitle</span>
+      </div>
+      <div class="variant-row__content-wrapper">
+        <div class="variant-row__content">
+          <span class="caption">Caption</span>
+        </div>
+        <div class="variant-row__content">
+          <span class="caption">Caption</span>
+        </div>
+        <div class="variant-row__content">
+          <span class="caption">Caption</span>
+        </div>
+      </div>
+    </div><!-- variant-row-wrapper -->
+
+    <div class="component-row-wrapper">
+      <div class="component-row__header-wrapper">
+        <div><span class="component-row__badge caption">Caption</span></div>
+        <div><span class="component-row__badge caption">Caption</span></div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--light-row" color-scheme="light">
+        <div class="component-row__content"></div>
+        <div class="component-row__content"></div>
+        <div class="component-row__content"></div>
+        <div class="component-row__content"></div>
+        <div class="component-row__content"></div>
+        <div class="component-row__content"></div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--dark-row" color-scheme="dark">
+        <div class="component-row__content"></div>
+        <div class="component-row__content"></div>
+        <div class="component-row__content"></div>
+        <div class="component-row__content"></div>
+        <div class="component-row__content"></div>
+        <div class="component-row__content"></div>
+      </div>
+    </div><!-- component-row-wrapper -->
+
+  </div><!-- section-wrapper -->
+
+  <!-- <script src=".js"></script> -->
+</body>

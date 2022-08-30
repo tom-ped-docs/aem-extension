@@ -1,0 +1,204 @@
+// stylelint-disable declaration-colon-space-after, selector-max-attribute, max-nesting-depth
+
+// TODO: 1. root, background-color: hsl(0 0% 100%), hsl(0 0% 7%)
+
+@use "../fluent-design-system/styles/typography";
+@use "../fluent-design-system/styles/color";
+@use "../fluent-design-system/animation/animation-variables" as var;
+@use "../fluent-design-system/controls/basic-input/button/button";
+@use "../fluent-design-system/controls/basic-input/hyperlink-button/hyperlink-button";
+@use "../fluent-design-system/controls/basic-input/dropdown/dropdown";
+@use "../fluent-design-system/controls/basic-input/toggle-switch/toggle-switch";
+@use "../fluent-design-system/controls/lists-collections/expander/expander";
+@use "../fluent-design-system/controls/text-fields/text-box/text-box";
+@use "../fluent-design-system/controls/scrolling/scroll-viewer/scroll-viewer";
+@use "../fluent-design-system/controls/status-info/info-bar/info-bar";
+@use "../fluent-design-system/controls/status-info/badge/badge";
+@use "../fluent-design-system/controls/primitives/surfaces/surfaces";
+@use "../fluent-design-system/controls/primitives/focus-rect/focus-rect";
+
+@use "../scss/modules/animation";
+
+@mixin _light {
+  --_root-color:              #{color.$Light_Text_Primary};
+  --_root-background-color: hsl(0 0% 93%); // <- FIXME: 1.
+  --_code-background-color: hsl(30 40% 96%);
+  --_code-border-color:     hsl(0 0% 0% / .1);
+
+  color-scheme: light;
+
+  @include button.light;
+  @include hyperlink-button.light;
+  @include dropdown.light;
+  @include toggle-switch.light;
+  @include expander.light;
+  @include text-box.light;
+  @include scroll-viewer.light;
+  @include info-bar.light;
+  @include badge.light;
+  @include surfaces.light;
+  @include focus-rect.light;
+}
+
+@mixin _dark {
+  --_root-color:              #{color.$Dark_Text_Primary};
+  --_root-background-color: hsl(0 0% 7%); // <- FIXME: 1.
+  --_code-background-color: hsl(30 40% 4%);
+  --_code-border-color:     hsl(0 0% 0% / .99);
+
+  color-scheme: dark;
+
+  @include button.dark;
+  @include hyperlink-button.dark;
+  @include dropdown.dark;
+  @include toggle-switch.dark;
+  @include expander.dark;
+  @include text-box.dark;
+  @include scroll-viewer.dark;
+  @include info-bar.dark;
+  @include badge.dark;
+  @include surfaces.dark;
+  @include focus-rect.dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    @include _light;
+  }
+
+  @include dropdown.light-dropdown-background-image;
+  @include scroll-viewer.light-scroll-viewer-background-image;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include _dark;
+  }
+
+  @include dropdown.dark-dropdown-background-image;
+  @include scroll-viewer.dark-scroll-viewer-background-image;
+}
+
+[data-color-scheme="light"] {
+  @include _light;
+  @include dropdown.light-dropdown-background-image;
+  @include scroll-viewer.light-scroll-viewer-background-image;
+}
+
+[data-color-scheme="dark"] {
+  @include _dark;
+  @include dropdown.dark-dropdown-background-image;
+  @include scroll-viewer.dark-scroll-viewer-background-image;
+}
+
+:root {
+  background-color: var(--_root-background-color);
+}
+
+// ------------------------- f == fluent -------------------------
+
+.f-body-strong {
+  color: var(--_root-color);
+
+  @include typography.body-strong;
+}
+
+.f-title {
+  color: var(--_root-color);
+
+  @include typography.title;
+}
+
+.f-expander {
+  &__wrapper-right {
+    padding-inline-end: 51px;
+  }
+
+  &__wrapper-row {
+    padding-inline: 51px;
+  }
+}
+
+.f-text-box {
+  padding-inline-end: 11px;
+}
+
+.f-info-bar {
+  &__wrapper-left {
+    padding-inline-end: 51px;
+  }
+}
+
+.n-code {
+  padding-block: 1px;
+  padding-inline: 5px;
+  font-family: "cascadia-code-regular", monospace;
+  background-color: var(--_code-background-color);
+  border-color: var(--_code-border-color);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+// ------------------------- l == layout -------------------------
+
+$_spacing: 8px;
+
+.l-body {
+  margin: 0; // reboot -> user agent stylesheet
+}
+
+.l-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.l-section-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: $_spacing;
+  padding-block: $_spacing;
+}
+
+.l-title {
+  margin-block-start: calc($_spacing * 3);
+}
+
+.l-body-strong {
+  margin-block-start: calc($_spacing * 2);
+}
+
+.l-section {
+  display: flex;
+  flex-direction: column;
+  row-gap: $_spacing;
+  padding: $_spacing;
+}
+
+.l-author {
+  display: flex;
+  justify-content: center;
+  padding: $_spacing;
+  color: var(--_root-color);
+}
+
+// ------------------------- a == animation -------------------------
+
+@for $var from 0 through 5 {
+  .animation-#{$var} {
+    @include animation.animation(slide-up-in, fade-in, var.$fast-invoke-duration-1, var.$fade-in-out-duration, var.$fast-invoke-timing-function, var.$fade-in-out-timing-function, $var, $var);
+  }
+}
+
+// ------------------------- js == JavaScript -------------------------
+
+// color-scheme.mts -> updateColorScheme
+.js-color-scheme,
+.js-color-scheme *,
+.js-color-scheme *::before,
+.js-color-scheme *::after {
+  transition-property: all;
+  transition-duration: var.$fast-invoke-duration-3;
+  transition-timing-function: var.$fast-invoke-timing-function;
+}

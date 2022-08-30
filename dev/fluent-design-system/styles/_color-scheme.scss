@@ -1,0 +1,94 @@
+// stylelint-disable selector-max-attribute
+
+@use "color";
+@use "../controls/basic-input/button/button";
+@use "../controls/basic-input/hyperlink-button/hyperlink-button";
+@use "../controls/basic-input/dropdown/dropdown";
+@use "../controls/basic-input/toggle-switch/toggle-switch";
+@use "../controls/lists-collections/expander/expander";
+@use "../controls/text-fields/text-box/text-box";
+@use "../controls/scrolling/scroll-viewer/scroll-viewer";
+@use "../controls/status-info/info-bar/info-bar";
+@use "../controls/status-info/tooltip/tooltip";
+@use "../controls/status-info/badge/badge";
+@use "../controls/primitives/surfaces/surfaces";
+@use "../controls/primitives/focus-rect/focus-rect";
+@use "../controls/primitives/icon-button/icon-button";
+
+@mixin _light {
+  --_text-color: #{color.$Light_Text_Primary};
+
+  color-scheme: light;
+
+  @include button.light;
+  @include hyperlink-button.light;
+  @include dropdown.light;
+  @include toggle-switch.light;
+  @include expander.light;
+  @include text-box.light;
+  @include scroll-viewer.light;
+  @include info-bar.light;
+  @include badge.light;
+  @include tooltip.light;
+  @include surfaces.light;
+  @include focus-rect.light;
+  @include icon-button.light;
+}
+
+@mixin _dark {
+  --_text-color: #{color.$Dark_Text_Primary};
+
+  color-scheme: dark;
+
+  @include button.dark;
+  @include hyperlink-button.dark;
+  @include dropdown.dark;
+  @include toggle-switch.dark;
+  @include expander.dark;
+  @include text-box.dark;
+  @include scroll-viewer.dark;
+  @include info-bar.dark;
+  @include badge.dark;
+  @include tooltip.dark;
+  @include surfaces.dark;
+  @include focus-rect.dark;
+  @include icon-button.dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    @include _light;
+  }
+
+  @include dropdown.light-dropdown-background-image;
+  @include text-box.light-text-box-background-image;
+  @include scroll-viewer.light-scroll-viewer-background-image;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include _dark;
+  }
+
+  @include dropdown.dark-dropdown-background-image;
+  @include text-box.dark-text-box-background-image;
+  @include scroll-viewer.dark-scroll-viewer-background-image;
+}
+
+[color-scheme="light"] {
+  @include _light;
+  @include dropdown.light-dropdown-background-image;
+  @include text-box.light-text-box-background-image;
+  @include scroll-viewer.light-scroll-viewer-background-image;
+}
+
+[color-scheme="dark"] {
+  @include _dark;
+  @include dropdown.dark-dropdown-background-image;
+  @include text-box.dark-text-box-background-image;
+  @include scroll-viewer.dark-scroll-viewer-background-image;
+}
+
+:root {
+  color: var(--_text-color);
+}

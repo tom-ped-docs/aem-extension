@@ -1,0 +1,217 @@
+// stylelint-disable declaration-colon-space-after, max-nesting-depth, no-descending-specificity, selector-max-pseudo-class, selector-max-specificity
+
+// TODO: 1. thumb, ..._CircleElevation_Border, border-color (gradient) + border-radius
+// TODO: 2. thumb, :active, inline-size (17px x 14px)
+
+@use "../../../styles/typography";
+@use "../../../styles/color";
+@use "../../../animation/animation-variables" as var;
+@use "../../controls";
+@use "../../primitives/focus-rect/focus-rect";
+
+@mixin light {
+  --_toggle-switch-background-color:                  #{color.$Light_ControlAltFill_Secondary};
+  --_toggle-switch-border-color:                      #{color.$Light_ControlStrongStroke_Default};
+  --_toggle-switch-hover-background-color:            #{color.$Light_ControlAltFill_Tertiary};
+  --_toggle-switch-active-background-color:           #{color.$Light_ControlAltFill_Quarternary};
+  --_toggle-switch-disabled-background-color:         #{color.$Light_ControlAltFill_Disabled};
+  --_toggle-switch-disabled-border-color:             #{color.$Light_ControlStrongStroke_Disabled};
+  --_toggle-switch-checked-background-color:          #{color.$Light_AccentFill_Default};
+  --_toggle-switch-checked-hover-background-color:    #{color.$Light_AccentFill_Secondary};
+  --_toggle-switch-checked-active-background-color:   #{color.$Light_AccentFill_Tertiary};
+  --_toggle-switch-checked-disabled-background-color: #{color.$Light_AccentFill_Disabled};
+
+  --_thumb-background-color:                          #{color.$Light_Text_Secondary};
+  --_thumb-disabled-background-color:                 #{color.$Light_Text_Disabled};
+  --_thumb-checked-background-color:                  #{color.$Light_TextOnAccent_Primary};
+  --_thumb-checked-border-color:                      #{controls.$Light_CircleElevation_Border_1}; // <- FIXME: 1.
+  --_thumb-checked-disabled-background-color:         #{color.$Light_TextOnAccent_Disabled};
+
+  --_label-color:                                     #{color.$Light_Text_Primary};
+  --_label-disabled-color:                            #{color.$Light_Text_Disabled};
+}
+
+@mixin dark {
+  --_toggle-switch-background-color:                  #{color.$Dark_ControlAltFill_Secondary};
+  --_toggle-switch-border-color:                      #{color.$Dark_ControlStrongStroke_Default};
+  --_toggle-switch-hover-background-color:            #{color.$Dark_ControlAltFill_Tertiary};
+  --_toggle-switch-active-background-color:           #{color.$Dark_ControlAltFill_Quarternary};
+  --_toggle-switch-disabled-background-color:         #{color.$Dark_ControlAltFill_Disabled};
+  --_toggle-switch-disabled-border-color:             #{color.$Dark_ControlStrongStroke_Disabled};
+  --_toggle-switch-checked-background-color:          #{color.$Dark_AccentFill_Default};
+  --_toggle-switch-checked-hover-background-color:    #{color.$Dark_AccentFill_Secondary};
+  --_toggle-switch-checked-active-background-color:   #{color.$Dark_AccentFill_Tertiary};
+  --_toggle-switch-checked-disabled-background-color: #{color.$Dark_AccentFill_Disabled};
+
+  --_thumb-background-color:                          #{color.$Dark_Text_Secondary};
+  --_thumb-disabled-background-color:                 #{color.$Dark_Text_Disabled};
+  --_thumb-checked-background-color:                  #{color.$Dark_TextOnAccent_Primary};
+  --_thumb-checked-border-color:                      #{controls.$Dark_CircleElevation_Border_1}; // <- FIXME: 1.
+  --_thumb-checked-disabled-background-color:         #{color.$Dark_TextOnAccent_Disabled};
+
+  --_label-color:                                     #{color.$Dark_Text_Primary};
+  --_label-disabled-color:                            #{color.$Dark_Text_Disabled};
+}
+
+$_inline-size:             40px;
+$_padding:                 3px;
+$_border-width:            1px;
+$_thumb-size:              12px;
+$_scale:                   scaleX(1.167) scaleY(1.167); // 14px x 14px
+// $_scale:                   scaleX(1.417) scaleY(1.167); // <- FIXME: 2., 17px x 14px
+$_translate-checked:       translateX(calc($_inline-size - ($_border-width * 2) - ($_padding * 2) - $_thumb-size));
+$_translate-indeterminate: translateX(calc(($_inline-size / 2) - $_border-width - $_padding - ($_thumb-size / 2)));
+
+.f-toggle-switch-wrapper {
+  display: flex;
+  column-gap: 12px;
+}
+
+.f-toggle-switch {
+  display: grid;
+  // grid-template-rows: 1fr;
+  // grid-template-columns: 1fr;
+  // grid-template-areas: "area";
+  grid-template: "area" 1fr / 1fr;
+  box-sizing: border-box; // user agent stylesheet
+  block-size: calc($_inline-size / 2);
+  inline-size: $_inline-size;
+  margin: 0; // reboot -> user agent stylesheet
+  padding: $_padding;
+  background-color: var(--_toggle-switch-background-color);
+  border-color: var(--_toggle-switch-border-color);
+  border-style: solid;
+  border-width: $_border-width;
+  border-radius: 999px;
+  appearance: none;
+
+  &::before {
+    content: "";
+    grid-area: area;
+    block-size: $_thumb-size;
+    inline-size: $_thumb-size;
+    background-color: var(--_thumb-background-color);
+    border-radius: 999px;
+    transition-property: background-color, border-color, transform;
+    transition-duration: var.$fast-invoke-duration-1, var.$fast-invoke-duration-1, var.$fast-invoke-duration-1;
+    transition-timing-function: var.$fast-invoke-timing-function, var.$fast-invoke-timing-function, var.$fast-invoke-timing-function;
+
+    // @include controls.transition;
+  }
+
+  &:hover {
+    background-color: var(--_toggle-switch-hover-background-color);
+    // border-color: ; // ..._ControlStrongStroke_Default
+
+    &::before {
+      // background-color: ; // ..._Text_Secondary
+      transform: $_scale;
+    }
+  }
+
+  &:active {
+    background-color: var(--_toggle-switch-active-background-color);
+    // border-color: ; // ..._ControlStrongStroke_Default
+
+    &::before {
+      // background-color: ; // ..._Text_Secondary
+      transform: $_scale;
+    }
+  }
+
+  &:focus-visible {
+    @include focus-rect.focus-rect;
+  }
+
+  &:disabled {
+    background-color: var(--_toggle-switch-disabled-background-color);
+    border-color: var(--_toggle-switch-disabled-border-color);
+    pointer-events: none;
+
+    &::before {
+      background-color: var(--_thumb-disabled-background-color);
+    }
+  }
+
+  &:checked {
+    padding: calc($_padding + 1px);
+    background-color: var(--_toggle-switch-checked-background-color);
+    // border-color: ; // ..._AccentFill_Default
+    border: 0 none transparent; // background-color == border-color
+
+    &::before {
+      block-size: calc($_thumb-size - 2px);
+      inline-size: calc($_thumb-size - 2px);
+      background-color: var(--_thumb-checked-background-color);
+      border-color: var(--_thumb-checked-border-color);
+      border-style: solid;
+      border-width: 1px;
+      transform: $_translate-checked;
+    }
+
+    &:hover {
+      background-color: var(--_toggle-switch-checked-hover-background-color);
+      // border-color: ; // ..._AccentFill_Secondary
+
+      &::before {
+        // background-color: ; // ..._TextOnAccent_Primary
+        // border-color: ; // ..._CircleElevation_Border
+        transform: $_translate-checked $_scale;
+      }
+    }
+
+    &:active {
+      background-color: var(--_toggle-switch-checked-active-background-color);
+      // border-color: ; // ..._AccentFill_Tertiary
+
+      &::before {
+        // background-color: ; // ..._TextOnAccent_Primary
+        // border-color: ; // ..._CircleElevation_Border
+        transform: $_translate-checked $_scale;
+      }
+    }
+
+    &:disabled {
+      background-color: var(--_toggle-switch-checked-disabled-background-color);
+      // border-color: ; // ..._AccentFill_Disabled
+
+      &::before {
+        background-color: var(--_thumb-checked-disabled-background-color);
+        border-color: transparent; // none
+      }
+    }
+  }
+
+  &:indeterminate {
+    &::before {
+      transform: $_translate-indeterminate;
+    }
+
+    &:hover {
+      &::before {
+        transform: $_translate-indeterminate $_scale;
+      }
+    }
+
+    &:active {
+      &::before {
+        transform: $_translate-indeterminate $_scale;
+      }
+    }
+  }
+}
+
+.f-label {
+  color: var(--_label-color);
+  transition-property: color;
+  transition-duration: var.$fast-invoke-duration-1;
+  transition-timing-function: var.$fast-invoke-timing-function;
+  user-select: none;
+
+  @include typography.body;
+
+  &--disabled {
+    color: var(--_label-disabled-color);
+    pointer-events: none;
+  }
+}

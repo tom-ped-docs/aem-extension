@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link href="../../../index.css" rel="stylesheet">
+  <link href="../../../template/template.css" rel="stylesheet">
+
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="light dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    .section-wrapper {
+      --_content-block-size: 128px;
+      --_content-rows: 4;
+      --_content-columns: 4;
+    }
+
+    .variant-row__content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .component-row__content {
+      display: flex;
+      column-gap: 12px;
+    }
+
+    .component-row__content:nth-child(4n) {
+      border-inline-end-color: transparent;
+    }
+
+    .component-row__content:nth-last-child(-n+4) {
+      border-block-end-color: transparent;
+    }
+
+  </style>
+
+  <title>Badge</title>
+</head>
+
+<body class="body">
+  <div class="section-wrapper">
+
+    <div class="variant-row-wrapper">
+      <div class="variant-row__header">
+        <span class="subtitle">Badge</span>
+      </div>
+      <div class="variant-row__content-wrapper">
+        <div class="variant-row__content">
+          <span class="caption">Beacon</span>
+        </div>
+        <div class="variant-row__content">
+          <span class="caption">Icon Only</span>
+          <span class="caption">Segoe Fluent Icons (fi)</span>
+          <span class="caption">Fluent UI System Icons (svg)</span>
+        </div>
+        <div class="variant-row__content">
+          <span class="caption">Numbers</span>
+        </div>
+        <div class="variant-row__content">
+          <span class="caption">Numbers Wide</span>
+        </div>
+      </div>
+    </div><!-- variant-row-wrapper -->
+
+    <div class="component-row-wrapper">
+      <div class="component-row__header-wrapper">
+        <div><span class="component-row__badge caption">Neutral Safe / Informational Safe</span></div>
+        <div><span class="component-row__badge caption">Attention</span></div>
+        <div><span class="component-row__badge caption">Caution</span></div>
+        <div><span class="component-row__badge caption">Success</span></div>
+        <div><span class="component-row__badge caption">Critical</span></div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--light-row" color-scheme="light">
+
+        <div class="component-row__content"></div>
+        <div class="component-row__content">
+
+          <span class="f-badge f-badge--icon-only f-badge--informational-safe f-fi--informational-safe"></span>
+          <span class="f-badge f-badge--icon-only f-badge--attention f-fi--attention"></span>
+          <span class="f-badge f-badge--icon-only f-badge--caution f-fi--caution"></span>
+          <span class="f-badge f-badge--icon-only f-badge--success f-fi--success"></span>
+          <span class="f-badge f-badge--icon-only f-badge--critical f-fi--critical"></span>
+
+        </div>
+        <div class="component-row__content"></div>
+        <div class="component-row__content"></div>
+        <div class="component-row__content"></div>
+
+        <div class="component-row__content">
+
+          <span class="f-badge f-badge--icon-only f-badge--informational-safe"></span>
+
+          <span class="f-badge f-badge--icon-only f-badge--attention"></span>
+
+          <span class="f-badge f-badge--icon-only f-badge--caution">
+            <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M4.28 2.98a1.73 1.73 0 113.44 0l-.58 4.03a1.15 1.15 0 01-2.28 0l-.58-4.03zm2.45-.14a.73.73 0 10-1.46 0l.58 4.03a.15.15 0 00.3 0l.58-4.03zM6 11a1 1 0 100-2 1 1 0 000 2z"/></svg>
+            <!-- <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8.2 8.83a.2.2 0 01-.4 0l-.86-4.56a1.07 1.07 0 112.12 0L8.2 8.83zM8 2a2.07 2.07 0 00-2.04 2.46l.86 4.56a1.2 1.2 0 002.36 0l.86-4.56A2.07 2.07 0 008 2zm0 11a.5.5 0 110-1 .5.5 0 010 1zm0 1a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg> -->
+          </span>
+
+          <span class="f-badge f-badge--icon-only f-badge--success">
+            <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M9.85 3.15c.2.2.2.5 0 .7l-4.5 4.5a.5.5 0 01-.7 0l-2-2a.5.5 0 11.7-.7L5 7.29l4.15-4.14c.2-.2.5-.2.7 0z"/></svg>
+            <!-- <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M13.86 3.66a.5.5 0 01-.02.7l-7.93 7.48a.6.6 0 01-.84-.02L2.4 9.1a.5.5 0 01.72-.7l2.4 2.44 7.65-7.2a.5.5 0 01.7.02z"/></svg> -->
+          </span>
+
+          <span class="f-badge f-badge--icon-only f-badge--critical">
+            <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M2.09 2.22l.06-.07a.5.5 0 01.63-.06l.07.06L6 5.29l3.15-3.14a.5.5 0 11.7.7L6.71 6l3.14 3.15c.18.17.2.44.06.63l-.06.07a.5.5 0 01-.63.06l-.07-.06L6 6.71 2.85 9.85a.5.5 0 01-.7-.7L5.29 6 2.15 2.85a.5.5 0 01-.06-.63l.06-.07-.06.07z"/></svg>
+            <!-- <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M2.59 2.72l.06-.07a.5.5 0 01.63-.06l.07.06L8 7.29l4.65-4.64a.5.5 0 01.7.7L8.71 8l4.64 4.65c.18.17.2.44.06.63l-.06.07a.5.5 0 01-.63.06l-.07-.06L8 8.71l-4.65 4.64a.5.5 0 01-.7-.7L7.29 8 2.65 3.35a.5.5 0 01-.06-.63l.06-.07-.06.07z"/></svg> -->
+          </span>
+
+        </div>
+
+        <div class="component-row__content"></div>
+        <div class="component-row__content"></div>
+
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--dark-row" color-scheme="dark">
+
+        <div class="component-row__content"></div>
+        <div class="component-row__content">
+
+          <span class="f-badge f-badge--icon-only f-badge--informational-safe f-fi--informational-safe"></span>
+          <span class="f-badge f-badge--icon-only f-badge--attention f-fi--attention"></span>
+          <span class="f-badge f-badge--icon-only f-badge--caution f-fi--caution"></span>
+          <span class="f-badge f-badge--icon-only f-badge--success f-fi--success"></span>
+          <span class="f-badge f-badge--icon-only f-badge--critical f-fi--critical"></span>
+
+        </div>
+        <div class="component-row__content"></div>
+        <div class="component-row__content"></div>
+        <div class="component-row__content"></div>
+
+        <div class="component-row__content">
+
+          <span class="f-badge f-badge--icon-only f-badge--informational-safe"></span>
+
+          <span class="f-badge f-badge--icon-only f-badge--attention"></span>
+
+          <span class="f-badge f-badge--icon-only f-badge--caution">
+            <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M4.28 2.98a1.73 1.73 0 113.44 0l-.58 4.03a1.15 1.15 0 01-2.28 0l-.58-4.03zm2.45-.14a.73.73 0 10-1.46 0l.58 4.03a.15.15 0 00.3 0l.58-4.03zM6 11a1 1 0 100-2 1 1 0 000 2z"/></svg>
+            <!-- <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8.2 8.83a.2.2 0 01-.4 0l-.86-4.56a1.07 1.07 0 112.12 0L8.2 8.83zM8 2a2.07 2.07 0 00-2.04 2.46l.86 4.56a1.2 1.2 0 002.36 0l.86-4.56A2.07 2.07 0 008 2zm0 11a.5.5 0 110-1 .5.5 0 010 1zm0 1a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg> -->
+          </span>
+
+          <span class="f-badge f-badge--icon-only f-badge--success">
+            <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M9.85 3.15c.2.2.2.5 0 .7l-4.5 4.5a.5.5 0 01-.7 0l-2-2a.5.5 0 11.7-.7L5 7.29l4.15-4.14c.2-.2.5-.2.7 0z"/></svg>
+            <!-- <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M13.86 3.66a.5.5 0 01-.02.7l-7.93 7.48a.6.6 0 01-.84-.02L2.4 9.1a.5.5 0 01.72-.7l2.4 2.44 7.65-7.2a.5.5 0 01.7.02z"/></svg> -->
+          </span>
+
+          <span class="f-badge f-badge--icon-only f-badge--critical">
+            <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M2.09 2.22l.06-.07a.5.5 0 01.63-.06l.07.06L6 5.29l3.15-3.14a.5.5 0 11.7.7L6.71 6l3.14 3.15c.18.17.2.44.06.63l-.06.07a.5.5 0 01-.63.06l-.07-.06L6 6.71 2.85 9.85a.5.5 0 01-.7-.7L5.29 6 2.15 2.85a.5.5 0 01-.06-.63l.06-.07-.06.07z"/></svg>
+            <!-- <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M2.59 2.72l.06-.07a.5.5 0 01.63-.06l.07.06L8 7.29l4.65-4.64a.5.5 0 01.7.7L8.71 8l4.64 4.65c.18.17.2.44.06.63l-.06.07a.5.5 0 01-.63.06l-.07-.06L8 8.71l-4.65 4.64a.5.5 0 01-.7-.7L7.29 8 2.65 3.35a.5.5 0 01-.06-.63l.06-.07-.06.07z"/></svg> -->
+          </span>
+
+        </div>
+
+        <div class="component-row__content"></div>
+        <div class="component-row__content"></div>
+
+      </div>
+    </div><!-- component-row-wrapper -->
+
+  </div><!-- section-wrapper -->
+</body>

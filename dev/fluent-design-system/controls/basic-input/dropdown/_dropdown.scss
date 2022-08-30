@@ -1,0 +1,137 @@
+// stylelint-disable declaration-colon-space-after
+
+// TODO: 1. ..._ControlElevation_Border, border-color (gradient) + border-radius
+// TODO: 2. Fluent UI System Icons (chevron_down_12_regular.svg) -> Segoe Fluent Icons (e972 ChevronDownMed)
+// TODO: 3. Context Menu (Flyout Surface)
+
+@use "../../../styles/typography";
+@use "../../../styles/color";
+@use "../../controls";
+@use "../../primitives/focus-rect/focus-rect";
+
+@mixin light {
+  --_dropdown-color:                     #{color.$Light_Text_Primary};
+  --_dropdown-background-color:          #{color.$Light_ControlFill_Default};
+  --_dropdown-border-color_1:            #{controls.$Light_ControlElevation_Border_1}; // <- FIXME: 1.
+  --_dropdown-border-color_2:            #{controls.$Light_ControlElevation_Border_2}; // <- FIXME: 1.
+  --_dropdown-hover-background-color:    #{color.$Light_ControlFill_Secondary};
+  --_dropdown-active-color:              #{color.$Light_Text_Secondary};
+  --_dropdown-active-background-color:   #{color.$Light_ControlFill_Tertiary};
+  --_dropdown-active-border-color:       #{color.$Light_ControlStroke_Default};
+  --_dropdown-disabled-color:            #{color.$Light_Text_Disabled};
+  --_dropdown-disabled-background-color: #{color.$Light_ControlFill_Disabled};
+  --_dropdown-disabled-border-color:     #{color.$Light_ControlStroke_Default};
+
+  --_context-menu-color:                 #{color.$Light_Text_Primary};
+  --_context-menu-background-color:    hsl(0 0% 100%); // <- FIXME: 3.
+}
+
+$_light-dropdown-background-image:          color.$Light_Text_Secondary;
+$_light-dropdown-active-background-image:   color.$Light_Text_Tertiary;
+$_light-dropdown-disabled-background-image: color.$Light_Text_Disabled;
+
+@mixin light-dropdown-background-image {
+  .f-dropdown {
+    background-image: url("data:image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='#{$_light-dropdown-background-image}' d='M2.15 4.65c.2-.2.5-.2.7 0L6 7.79l3.15-3.14a.5.5 0 11.7.7l-3.5 3.5a.5.5 0 01-.7 0l-3.5-3.5a.5.5 0 010-.7z'/></svg>");
+
+    &:active {
+      background-image: url("data:image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='#{$_light-dropdown-active-background-image}' d='M2.15 4.65c.2-.2.5-.2.7 0L6 7.79l3.15-3.14a.5.5 0 11.7.7l-3.5 3.5a.5.5 0 01-.7 0l-3.5-3.5a.5.5 0 010-.7z'/></svg>");
+    }
+
+    &:disabled {
+      background-image: url("data:image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='#{$_light-dropdown-disabled-background-image}' d='M2.15 4.65c.2-.2.5-.2.7 0L6 7.79l3.15-3.14a.5.5 0 11.7.7l-3.5 3.5a.5.5 0 01-.7 0l-3.5-3.5a.5.5 0 010-.7z'/></svg>");
+    }
+  }
+}
+
+@mixin dark {
+  --_dropdown-color:                     #{color.$Dark_Text_Primary};
+  --_dropdown-background-color:          #{color.$Dark_ControlFill_Default};
+  --_dropdown-border-color_1:            #{controls.$Dark_ControlElevation_Border_1}; // <- FIXME: 1.
+  --_dropdown-border-color_2:            #{controls.$Dark_ControlElevation_Border_2}; // <- FIXME: 1.
+  --_dropdown-hover-background-color:    #{color.$Dark_ControlFill_Secondary};
+  --_dropdown-active-color:              #{color.$Dark_Text_Secondary};
+  --_dropdown-active-background-color:   #{color.$Dark_ControlFill_Tertiary};
+  --_dropdown-active-border-color:       #{color.$Dark_ControlStroke_Default};
+  --_dropdown-disabled-color:            #{color.$Dark_Text_Disabled};
+  --_dropdown-disabled-background-color: #{color.$Dark_ControlFill_Disabled};
+  --_dropdown-disabled-border-color:     #{color.$Dark_ControlStroke_Default};
+
+  --_context-menu-color:                 #{color.$Dark_Text_Primary};
+  --_context-menu-background-color:    hsl(0 0% 0%); // <- FIXME: 3.
+}
+
+$_dark-dropdown-background-image:          color.$Dark_Text_Secondary;
+$_dark-dropdown-active-background-image:   color.$Dark_Text_Tertiary;
+$_dark-dropdown-disabled-background-image: color.$Dark_Text_Disabled;
+
+@mixin dark-dropdown-background-image {
+  .f-dropdown {
+    background-image: url("data:image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='#{$_dark-dropdown-background-image}' d='M2.15 4.65c.2-.2.5-.2.7 0L6 7.79l3.15-3.14a.5.5 0 11.7.7l-3.5 3.5a.5.5 0 01-.7 0l-3.5-3.5a.5.5 0 010-.7z'/></svg>");
+
+    &:active {
+      background-image: url("data:image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='#{$_dark-dropdown-active-background-image}' d='M2.15 4.65c.2-.2.5-.2.7 0L6 7.79l3.15-3.14a.5.5 0 11.7.7l-3.5 3.5a.5.5 0 01-.7 0l-3.5-3.5a.5.5 0 010-.7z'/></svg>");
+    }
+
+    &:disabled {
+      background-image: url("data:image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='#{$_dark-dropdown-disabled-background-image}' d='M2.15 4.65c.2-.2.5-.2.7 0L6 7.79l3.15-3.14a.5.5 0 11.7.7l-3.5 3.5a.5.5 0 01-.7 0l-3.5-3.5a.5.5 0 010-.7z'/></svg>");
+    }
+  }
+}
+
+$_padding-inline: 11px;
+$_background-size: 12px;
+
+.f-dropdown {
+  box-sizing: border-box; // user agent stylesheet
+  block-size: 32px;
+  inline-size: 120px;
+  padding-block: 5px 5px;
+  padding-inline: $_padding-inline calc(8px + $_background-size + $_padding-inline);
+  color: var(--_dropdown-color);
+  background-color: var(--_dropdown-background-color);
+  // background-image: ; // chevron_down_12_regular.svg
+  background-repeat: no-repeat;
+  background-position: right $_padding-inline center;
+  background-size: $_background-size;
+  border-color: var(--_dropdown-border-color_1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: controls.$controls-border-radius;
+  border-block-end-color: var(--_dropdown-border-color_2);
+  appearance: none;
+  user-select: none;
+
+  @include typography.body;
+  @include controls.transition;
+
+  &:hover {
+    // color: ; // ..._Text_Primary
+    background-color: var(--_dropdown-hover-background-color);
+    // border-color: ; // ..._ControlElevation_Border
+  }
+
+  &:active {
+    color: var(--_dropdown-active-color);
+    background-color: var(--_dropdown-active-background-color);
+    border-color: var(--_dropdown-active-border-color);
+  }
+
+  &:focus-visible {
+    @include focus-rect.focus-rect;
+  }
+
+  &:disabled {
+    color: var(--_dropdown-disabled-color);
+    background-color: var(--_dropdown-disabled-background-color);
+    border-color: var(--_dropdown-disabled-border-color);
+  }
+
+  optgroup,
+  option {
+    color: var(--_context-menu-color);
+    background-color: var(--_context-menu-background-color);
+
+    @include typography.body;
+  }
+}

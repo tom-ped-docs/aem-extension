@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link href="../../../index.css" rel="stylesheet">
+  <link href="../../../template/template.css" rel="stylesheet">
+
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="light dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    .section-wrapper {
+      --_content-block-size: calc(128px * 2);
+      --_content-rows: 4;
+      --_content-columns: 1;
+    }
+
+    .variant-row__content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .component-row__content:nth-child(1n) {
+      border-inline-end-color: transparent;
+    }
+
+    .component-row__content:nth-last-child(-n+1) {
+      border-block-end-color: transparent;
+    }
+
+    .f-fi--power-button::before {
+      content: "\e7e8";
+    }
+
+  </style>
+
+  <title>Expander</title>
+</head>
+
+<body class="body">
+  <div class="section-wrapper">
+
+    <div class="variant-row-wrapper">
+      <div class="variant-row__header">
+        <span class="subtitle">Expander</span>
+      </div>
+      <div class="variant-row__content-wrapper">
+        <div class="variant-row__content">
+          <span class="caption">Segoe Fluent Icons (fi)</span>
+          <span class="caption">Fluent UI System Icons (svg)</span>
+        </div>
+      </div>
+    </div><!-- variant-row-wrapper -->
+
+    <div class="component-row-wrapper">
+      <div class="component-row__header-wrapper">
+        <div><span class="component-row__badge caption">Collapsed</span></div>
+        <div><span class="component-row__badge caption">Expanded</span></div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--light-row" color-scheme="light">
+
+        <div class="component-row__content">
+
+          <section class="f-expander">
+            <section class="f-expander__wrapper-parent f-expander__wrapper-parent--collapsed">
+
+              <section class="f-expander__wrapper-left">
+                <!-- <span class="f-expander__icon f-fi--power-button"></span> -->
+                <span class="f-expander__icon">
+                  <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 2.5a.5.5 0 00-1 0v6a.5.5 0 001 0v-6zM13.74 4a.5.5 0 10-.5.87 6.5 6.5 0 11-6.49 0 .5.5 0 10-.5-.87 7.5 7.5 0 107.5 0z"/></svg>
+                </span>
+                <section class="f-expander__wrapper-text">
+                  <span class="f-body">Power button functionality</span>
+                  <span class="f-caption">Adjust what your power buttons control</span>
+                </section>
+              </section>
+
+              <section class="f-expander__wrapper-right">
+                <div class="f-toggle-switch-wrapper">
+                  <label class="f-label" for="f-toggle-switch">On</label>
+                  <input class="f-toggle-switch" id="f-toggle-switch" type="checkbox" checked>
+                </div>
+                <!-- <button class="f-icon-button f-fi--chevron" type="button"></button> -->
+                <button class="f-icon-button" type="button">
+                  <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M3.15 5.65c.2-.2.5-.2.7 0L8 9.79l4.15-4.14a.5.5 0 01.7.7l-4.5 4.5a.5.5 0 01-.7 0l-4.5-4.5a.5.5 0 010-.7z"/></svg>
+                </button>
+              </section>
+
+            </section><!-- f-expander__wrapper-parent -->
+          </section><!-- f-expander -->
+
+        </div>
+        <div class="component-row__content">
+
+          <section class="f-expander">
+            <section class="f-expander__wrapper-parent f-expander__wrapper-parent--expanded">
+
+              <section class="f-expander__wrapper-left">
+                <!-- <span class="f-expander__icon f-fi--power-button"></span> -->
+                <span class="f-expander__icon">
+                  <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 2.5a.5.5 0 00-1 0v6a.5.5 0 001 0v-6zM13.74 4a.5.5 0 10-.5.87 6.5 6.5 0 11-6.49 0 .5.5 0 10-.5-.87 7.5 7.5 0 107.5 0z"/></svg>
+                </span>
+                <section class="f-expander__wrapper-text">
+                  <span class="f-body">Power button functionality</span>
+                  <span class="f-caption">Adjust what your power buttons control</span>
+                </section>
+              </section>
+
+              <section class="f-expander__wrapper-right">
+                <div class="f-toggle-switch-wrapper">
+                  <label class="f-label" for="f-toggle-switch">On</label>
+                  <input class="f-toggle-switch" id="f-toggle-switch" type="checkbox" checked>
+                </div>
+                <!-- <button class="f-icon-button f-fi--chevron" type="button"></button> -->
+                <button class="f-icon-button" type="button">
+                  <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M3.15 10.35c.2.2.5.2.7 0L8 6.21l4.15 4.14a.5.5 0 00.7-.7l-4.5-4.5a.5.5 0 00-.7 0l-4.5 4.5a.5.5 0 000 .7z"/></svg>
+                </button>
+              </section>
+
+            </section><!-- f-expander__wrapper-parent -->
+            <section class="f-expander__wrapper-child">
+
+              <section class="f-expander__wrapper-row f-expander__wrapper-row--divider">
+                <span class="f-body">When I press the power button on battery</span>
+                <select class="f-dropdown">
+                  <option label="Sleep"></option>
+                </select>
+              </section>
+
+              <section class="f-expander__wrapper-row">
+                <span class="f-body">When I press the power button when plugged in</span>
+                <select class="f-dropdown">
+                  <option label="Sleep"></option>
+                </select>
+              </section>
+
+              <section class="f-expander__wrapper-row">
+                <span class="f-body">When I close the lid on battery</span>
+                <select class="f-dropdown">
+                  <option label="Sleep"></option>
+                </select>
+              </section>
+
+              <section class="f-expander__wrapper-row">
+                <span class="f-body">When I close the lid when plugged in</span>
+                <select class="f-dropdown">
+                  <option label="Sleep"></option>
+                </select>
+              </section>
+
+            </section><!-- f-expander__wrapper-child -->
+          </section><!-- f-expander -->
+
+        </div>
+
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--dark-row" color-scheme="dark">
+        <div class="component-row__content">
+
+          <section class="f-expander">
+            <section class="f-expander__wrapper-parent f-expander__wrapper-parent--collapsed">
+
+              <section class="f-expander__wrapper-left">
+                <span class="f-expander__icon f-fi--power-button"></span>
+                <section class="f-expander__wrapper-text">
+                  <span class="f-body">Power button functionality</span>
+                  <span class="f-caption">Adjust what your power buttons control</span>
+                </section>
+              </section>
+
+              <section class="f-expander__wrapper-right">
+                <div class="f-toggle-switch-wrapper">
+                  <label class="f-label" for="f-toggle-switch">On</label>
+                  <input class="f-toggle-switch" id="f-toggle-switch" type="checkbox" checked>
+                </div>
+                <button class="f-icon-button f-fi--chevron" type="button"></button>
+              </section>
+
+            </section><!-- f-expander__wrapper-parent -->
+          </section><!-- f-expander -->
+
+        </div>
+        <div class="component-row__content">
+
+          <section class="f-expander">
+            <section class="f-expander__wrapper-parent f-expander__wrapper-parent--expanded">
+
+              <section class="f-expander__wrapper-left">
+                <span class="f-expander__icon f-fi--power-button"></span>
+                <section class="f-expander__wrapper-text">
+                  <span class="f-body">Power button functionality</span>
+                  <span class="f-caption">Adjust what your power buttons control</span>
+                </section>
+              </section>
+
+              <section class="f-expander__wrapper-right">
+                <div class="f-toggle-switch-wrapper">
+                  <label class="f-label" for="f-toggle-switch">On</label>
+                  <input class="f-toggle-switch" id="f-toggle-switch" type="checkbox" checked>
+                </div>
+                <button class="f-icon-button f-fi--chevron" type="button"></button>
+              </section>
+
+            </section><!-- f-expander__wrapper-parent -->
+            <section class="f-expander__wrapper-child">
+
+              <section class="f-expander__wrapper-row f-expander__wrapper-row--divider">
+                <span class="f-body">When I press the power button on battery</span>
+                <select class="f-dropdown">
+                  <option label="Sleep"></option>
+                </select>
+              </section>
+
+              <section class="f-expander__wrapper-row">
+                <span class="f-body">When I press the power button when plugged in</span>
+                <select class="f-dropdown">
+                  <option label="Sleep"></option>
+                </select>
+              </section>
+
+              <section class="f-expander__wrapper-row">
+                <span class="f-body">When I close the lid on battery</span>
+                <select class="f-dropdown">
+                  <option label="Sleep"></option>
+                </select>
+              </section>
+
+              <section class="f-expander__wrapper-row">
+                <span class="f-body">When I close the lid when plugged in</span>
+                <select class="f-dropdown">
+                  <option label="Sleep"></option>
+                </select>
+              </section>
+
+            </section><!-- f-expander__wrapper-child -->
+          </section><!-- f-expander -->
+
+        </div>
+      </div>
+    </div><!-- component-row-wrapper -->
+
+  </div><!-- section-wrapper -->
+</body>

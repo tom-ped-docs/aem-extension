@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link href="../../../index.css" rel="stylesheet">
+  <link href="../../../template/template.css" rel="stylesheet">
+
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="light dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    .section-wrapper {
+      --_content-block-size: 128px;
+      --_content-rows: 2;
+      --_content-columns: 1;
+    }
+
+    .component-row__content {
+      background-image: url("../../../assets/edge.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    .component-row__content:nth-child(1n) {
+      border-inline-end-color: transparent;
+    }
+
+    .component-row__content:nth-last-child(-n+1) {
+      border-block-end-color: transparent;
+    }
+
+    .f-app-surface {
+      block-size: 80px;
+      inline-size: 160px;
+    }
+
+  </style>
+
+  <title>Surfaces</title>
+</head>
+
+<body class="body">
+  <div class="section-wrapper">
+
+    <div class="variant-row-wrapper">
+      <div class="variant-row__header">
+        <span class="subtitle">App Surface</span>
+      </div>
+      <div class="variant-row__content-wrapper">
+        <div class="variant-row__content">
+          <!-- <span class="caption">Caption</span> -->
+        </div>
+      </div>
+    </div><!-- variant-row-wrapper -->
+
+    <div class="component-row-wrapper">
+      <div class="component-row__header-wrapper">
+        <div><span class="component-row__badge caption">Base</span></div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--light-row" color-scheme="light">
+        <div class="component-row__content">
+
+          <div class="f-app-surface f-app-surface--base-active"></div>
+
+        </div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--dark-row" color-scheme="dark">
+        <div class="component-row__content">
+
+          <div class="f-app-surface f-app-surface--base-active"></div>
+
+        </div>
+      </div>
+    </div><!-- component-row-wrapper -->
+
+    <div class="component-row-wrapper">
+      <div class="component-row__header-wrapper">
+        <div><span class="component-row__badge caption">Base</span></div>
+        <div><span class="component-row__badge caption">Inactive Window</span></div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--light-row" color-scheme="light">
+        <div class="component-row__content">
+
+          <div class="f-app-surface f-app-surface--base-inactive"></div>
+
+        </div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--dark-row" color-scheme="dark">
+        <div class="component-row__content">
+
+          <div class="f-app-surface f-app-surface--base-inactive"></div>
+
+        </div>
+      </div>
+    </div><!-- component-row-wrapper -->
+
+    <div class="component-row-wrapper">
+      <div class="component-row__header-wrapper">
+        <div><span class="component-row__badge caption">Layer</span></div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--light-row" color-scheme="light">
+        <div class="component-row__content">
+
+          <div class="f-app-surface f-app-surface--layer-active"></div>
+
+        </div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--dark-row" color-scheme="dark">
+        <div class="component-row__content">
+
+          <div class="f-app-surface f-app-surface--layer-active"></div>
+
+        </div>
+      </div>
+    </div><!-- component-row-wrapper -->
+
+    <div class="component-row-wrapper">
+      <div class="component-row__header-wrapper">
+        <div><span class="component-row__badge caption">Layer</span></div>
+        <div><span class="component-row__badge caption">Fallback Color</span></div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--light-row" color-scheme="light">
+        <div class="component-row__content">
+
+          <div class="f-app-surface f-app-surface--layer-inactive"></div>
+
+        </div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--dark-row" color-scheme="dark">
+        <div class="component-row__content">
+
+          <div class="f-app-surface f-app-surface--layer-inactive"></div>
+
+        </div>
+      </div>
+    </div><!-- component-row-wrapper -->
+
+  </div><!-- section-wrapper -->
+</body>

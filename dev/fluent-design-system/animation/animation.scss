@@ -1,0 +1,113 @@
+// stylelint-disable block-closing-brace-newline-before, block-opening-brace-newline-after, block-opening-brace-space-before, declaration-colon-space-after, max-line-length
+
+@use "./animation-variables" as var;
+
+:root {
+  --_in-duration:          #{var.$fast-invoke-duration-1};
+  --_in-timing-function:   #{var.$fast-invoke-timing-function};
+  --_out-duration:         #{var.$fast-dismiss-duration-1};
+  --_out-timing-function:  #{var.$fast-dismiss-timing-function};
+  --_fade-duration:        #{var.$fade-in-out-duration};
+  --_fade-timing-function: #{var.$fade-in-out-timing-function};
+}
+
+@mixin _animation($name, $duration, $timing-function) {
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-timing-function: $timing-function;
+  animation-fill-mode: both;
+}
+
+.fadeIn  { @include _animation(fadeIn,  var(--_fade-duration), var(--_fade-timing-function)); }
+.fadeOut { @include _animation(fadeOut, var(--_fade-duration), var(--_fade-timing-function)); }
+
+@mixin _animation($name, $fade-name, $duration, $fade-duration, $timing-function, $fade-timing-function) {
+  animation-name: $name, $fade-name;
+  animation-duration: $duration, $fade-duration;
+  animation-timing-function: $timing-function, $fade-timing-function;
+  animation-fill-mode: both, both;
+}
+
+.scaleDownIn   { @include _animation(scaleDownIn,   fadeIn,  var(--_in-duration),  var(--_fade-duration), var(--_in-timing-function),  var(--_fade-timing-function)); }
+.scaleDownOut  { @include _animation(scaleDownOut,  fadeOut, var(--_out-duration), var(--_fade-duration), var(--_out-timing-function), var(--_fade-timing-function)); }
+.slideUpIn     { @include _animation(slideUpIn,     fadeIn,  var(--_in-duration),  var(--_fade-duration), var(--_in-timing-function),  var(--_fade-timing-function)); }
+.slideUpOut    { @include _animation(slideUpOut,    fadeOut, var(--_out-duration), var(--_fade-duration), var(--_out-timing-function), var(--_fade-timing-function)); }
+.slideRightIn  { @include _animation(slideRightIn,  fadeIn,  var(--_in-duration),  var(--_fade-duration), var(--_in-timing-function),  var(--_fade-timing-function)); }
+.slideRightOut { @include _animation(slideRightOut, fadeOut, var(--_out-duration), var(--_fade-duration), var(--_out-timing-function), var(--_fade-timing-function)); }
+.slideDownIn   { @include _animation(slideDownIn,   fadeIn,  var(--_in-duration),  var(--_fade-duration), var(--_in-timing-function),  var(--_fade-timing-function)); }
+.slideDownOut  { @include _animation(slideDownOut,  fadeOut, var(--_out-duration), var(--_fade-duration), var(--_out-timing-function), var(--_fade-timing-function)); }
+.slideLeftIn   { @include _animation(slideLeftIn,   fadeIn,  var(--_in-duration),  var(--_fade-duration), var(--_in-timing-function),  var(--_fade-timing-function)); }
+.slideLeftOut  { @include _animation(slideLeftOut,  fadeOut, var(--_out-duration), var(--_fade-duration), var(--_out-timing-function), var(--_fade-timing-function)); }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes scaleDownIn {
+  from { transform: scale3d(1.15, 1.15, 1); }
+  to { transform: scale3d(1, 1, 1); }
+}
+
+@keyframes scaleDownOut {
+  from { transform: scale3d(1, 1, 1); }
+  to { transform: scale3d(.9, .9, 1); }
+}
+
+@keyframes slideUpIn {
+  from { transform: translate3d(0, 48px, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes slideUpOut {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(0, -48px, 0); }
+}
+
+@keyframes slideRightIn {
+  from { transform: translate3d(-48px, 0, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes slideRightOut {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(48px, 0, 0); }
+}
+
+@keyframes slideDownIn {
+  from { transform: translate3d(0, -48px, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes slideDownOut {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(0, 48px, 0); }
+}
+
+@keyframes slideLeftIn {
+  from { transform: translate3d(48px, 0, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes slideLeftOut {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-48px, 0, 0); }
+}
+
+// .fadeIn        { animation: fadeIn        100ms cubic-bezier(0, 0, 1, 1)    both; }
+// .fadeOut       { animation: fadeOut       100ms cubic-bezier(0, 0, 1, 1)    both; }
+// .scaleDownIn   { animation: scaleDownIn   300ms cubic-bezier(.1, .9, .2, 1) both, fadeIn  100ms cubic-bezier(0, 0, 1, 1) both; }
+// .scaleDownOut  { animation: scaleDownOut  300ms cubic-bezier(.1, .9, .2, 1) both, fadeOut 100ms cubic-bezier(0, 0, 1, 1) both; }
+// .slideUpIn     { animation: slideUpIn     100ms cubic-bezier(.1, .9, .2, 1) both, fadeIn  100ms cubic-bezier(0, 0, 1, 1) both; }
+// .slideUpOut    { animation: slideUpOut    100ms cubic-bezier(.9, .1, 1, .2) both, fadeOut 100ms cubic-bezier(0, 0, 1, 1) both; }
+// .slideRightIn  { animation: slideRightIn  100ms cubic-bezier(.1, .9, .2, 1) both, fadeIn  100ms cubic-bezier(0, 0, 1, 1) both; }
+// .slideRightOut { animation: slideRightOut 100ms cubic-bezier(.9, .1, 1, .2) both, fadeOut 100ms cubic-bezier(0, 0, 1, 1) both; }
+// .slideDownIn   { animation: slideDownIn   100ms cubic-bezier(.1, .9, .2, 1) both, fadeIn  100ms cubic-bezier(0, 0, 1, 1) both; }
+// .slideDownOut  { animation: slideDownOut  100ms cubic-bezier(.9, .1, 1, .2) both, fadeOut 100ms cubic-bezier(0, 0, 1, 1) both; }
+// .slideLeftIn   { animation: slideLeftIn   100ms cubic-bezier(.1, .9, .2, 1) both, fadeIn  100ms cubic-bezier(0, 0, 1, 1) both; }
+// .slideLeftOut  { animation: slideLeftOut  100ms cubic-bezier(.9, .1, 1, .2) both, fadeOut 100ms cubic-bezier(0, 0, 1, 1) both; }

@@ -1,0 +1,69 @@
+// stylelint-disable declaration-colon-space-after
+
+@use "../../../styles/typography";
+@use "../../../styles/color";
+@use "../../controls";
+@use "../../primitives/focus-rect/focus-rect";
+
+@mixin light {
+  --_hyperlink-button-color:                     #{color.$Light_AccentText_Primary};
+  --_hyperlink-button-background-color:          #{color.$Light_SubtleFill_Transparent};
+  --_hyperlink-button-hover-color:               #{color.$Light_AccentText_Secondary};
+  --_hyperlink-button-hover-background-color:    #{color.$Light_SubtleFill_Secondary};
+  --_hyperlink-button-active-color:              #{color.$Light_AccentText_Tertiary};
+  --_hyperlink-button-active-background-color:   #{color.$Light_SubtleFill_Tertiary};
+  --_hyperlink-button-disabled-color:            #{color.$Light_AccentText_Disabled};
+  --_hyperlink-button-disabled-background-color: #{color.$Light_SubtleFill_Disabled};
+}
+
+@mixin dark {
+  --_hyperlink-button-color:                     #{color.$Dark_AccentText_Primary};
+  --_hyperlink-button-background-color:          #{color.$Dark_SubtleFill_Transparent};
+  --_hyperlink-button-hover-color:               #{color.$Dark_AccentText_Secondary};
+  --_hyperlink-button-hover-background-color:    #{color.$Dark_SubtleFill_Secondary};
+  --_hyperlink-button-active-color:              #{color.$Dark_AccentText_Tertiary};
+  --_hyperlink-button-active-background-color:   #{color.$Dark_SubtleFill_Tertiary};
+  --_hyperlink-button-disabled-color:            #{color.$Dark_AccentText_Disabled};
+  --_hyperlink-button-disabled-background-color: #{color.$Dark_SubtleFill_Disabled};
+}
+
+.f-hyperlink-button {
+  box-sizing: border-box; // user agent stylesheet
+  block-size: 32px;
+  padding-block: 4px 6px;
+  padding-inline: 11px;
+  text-align: center; // windows ui, user agent stylesheet
+  color: var(--_hyperlink-button-color);
+  background-color: var(--_hyperlink-button-background-color);
+  // border-color: ; // ..._SubtleFill_Transparent
+  border: 0 none transparent; // background-color == border-color
+  border-radius: controls.$controls-border-radius;
+  cursor: pointer; // bootstrap
+  user-select: none;
+
+  @include typography.body;
+  @include controls.transition;
+
+  &:hover {
+    color: var(--_hyperlink-button-hover-color);
+    background-color: var(--_hyperlink-button-hover-background-color);
+    // border-color: ; // ..._SubtleFill_Secondary
+  }
+
+  &:active {
+    color: var(--_hyperlink-button-active-color);
+    background-color: var(--_hyperlink-button-active-background-color);
+    // border-color: ; // ..._SubtleFill_Tertiary
+  }
+
+  &:focus-visible {
+    @include focus-rect.focus-rect;
+  }
+
+  &:disabled {
+    color: var(--_hyperlink-button-disabled-color);
+    background-color: var(--_hyperlink-button-disabled-background-color);
+    // border-color: ; // ..._SubtleFill_Disabled
+    pointer-events: none;
+  }
+}

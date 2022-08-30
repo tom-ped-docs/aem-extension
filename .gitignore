@@ -1,0 +1,7 @@
+node_modules
+dev\fluent-design-system\fonts\cascadia-code
+dev\fluent-design-system\fonts\segoe-fluent-icons
+dev\fluent-design-system\fonts\segoe-ui-variable
+prod\fonts\cascadia-code
+prod\fonts\segoe-fluent-icons
+prod\fonts\segoe-ui-variable

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link href="../../../index.css" rel="stylesheet">
+  <link href="../../../template/template.css" rel="stylesheet">
+
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="light dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    .section-wrapper {
+      --_content-block-size: 128px;
+      --_content-rows: 2;
+      --_content-columns: 2;
+    }
+
+    .component-row__content:nth-child(2n) {
+      border-inline-end-color: transparent;
+    }
+
+    .component-row__content:nth-last-child(-n+2) {
+      border-block-end-color: transparent;
+    }
+
+  </style>
+
+  <title>Dropdown</title>
+</head>
+
+<body class="body">
+  <div class="section-wrapper">
+
+    <div class="variant-row-wrapper">
+      <div class="variant-row__header">
+        <span class="subtitle">Dropdown</span>
+      </div>
+      <div class="variant-row__content-wrapper">
+        <div class="variant-row__content">
+          <span class="caption">Rest</span>
+        </div>
+        <div class="variant-row__content">
+          <span class="caption">Disabled</span>
+        </div>
+      </div>
+    </div><!-- variant-row-wrapper -->
+
+    <div class="component-row-wrapper">
+      <div class="component-row__header-wrapper">
+        <div><span class="component-row__badge caption">Standard</span></div>
+        <div><span class="component-row__badge caption">Text Only</span></div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--light-row" color-scheme="light">
+        <div class="component-row__content">
+
+          <select class="f-dropdown">
+            <optgroup label="Text">
+              <option label="Text"></option>
+            </optgroup>
+            <optgroup label="Text" disabled>
+              <option label="Text" disabled></option>
+            </optgroup>
+          </select>
+
+        </div>
+        <div class="component-row__content">
+
+          <select class="f-dropdown" disabled>
+            <optgroup>
+              <option>Text</option>
+            </optgroup>
+          </select>
+
+        </div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--dark-row" color-scheme="dark">
+        <div class="component-row__content">
+
+          <select class="f-dropdown">
+            <optgroup label="Text">
+              <option label="Text"></option>
+            </optgroup>
+            <optgroup label="Text" disabled>
+              <option label="Text" disabled></option>
+            </optgroup>
+          </select>
+
+        </div>
+        <div class="component-row__content">
+
+          <select class="f-dropdown" disabled>
+            <optgroup>
+              <option>Text</option>
+            </optgroup>
+          </select>
+
+        </div>
+      </div>
+    </div><!-- component-row-wrapper -->
+
+  </div><!-- section-wrapper -->
+</body>

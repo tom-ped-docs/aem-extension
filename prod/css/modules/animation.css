@@ -1,0 +1,70 @@
+:root {
+  --_in-duration: 187ms;
+  --_in-timing-function: cubic-bezier(0, 0, 0, 1);
+  --_fade-duration: 83ms;
+  --_fade-timing-function: linear;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes scaleDownIn {
+  from {
+    transform: scale3d(1.15, 1.15, 1);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes slideUpIn {
+  from {
+    transform: translate3d(0, 48px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+.slideUpIn-0 {
+  animation-name: slideUpIn, fadeIn;
+  animation-duration: var(--_in-duration), var(--_fade-duration);
+  animation-timing-function: var(--_in-timing-function), var(--_fade-timing-function);
+  animation-delay: calc(0 * 100ms), calc(0 * 100ms);
+  animation-fill-mode: both, both;
+}
+
+.slideUpIn-1 {
+  animation-name: slideUpIn, fadeIn;
+  animation-duration: var(--_in-duration), var(--_fade-duration);
+  animation-timing-function: var(--_in-timing-function), var(--_fade-timing-function);
+  animation-delay: calc(1 * 100ms), calc(1 * 100ms);
+  animation-fill-mode: both, both;
+}
+
+.slideUpIn-2 {
+  animation-name: slideUpIn, fadeIn;
+  animation-duration: var(--_in-duration), var(--_fade-duration);
+  animation-timing-function: var(--_in-timing-function), var(--_fade-timing-function);
+  animation-delay: calc(2 * 100ms), calc(2 * 100ms);
+  animation-fill-mode: both, both;
+}
+
+.slideUpIn-3 {
+  animation-name: slideUpIn, fadeIn;
+  animation-duration: var(--_in-duration), var(--_fade-duration);
+  animation-timing-function: var(--_in-timing-function), var(--_fade-timing-function);
+  animation-delay: calc(3 * 100ms), calc(3 * 100ms);
+  animation-fill-mode: both, both;
+}
+
+.slideUpIn-4 {
+  animation-name: slideUpIn, fadeIn;
+  animation-duration: var(--_in-duration), var(--_fade-duration);
+  animation-timing-function: var(--_in-timing-function), var(--_fade-timing-function);
+  animation-delay: calc(4 * 100ms), calc(4 * 100ms);
+  animation-fill-mode: both, both;
+}

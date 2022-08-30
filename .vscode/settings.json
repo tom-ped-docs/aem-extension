@@ -1,0 +1,14 @@
+{
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "html.format.wrapLineLength": 0,
+  "livePreview.autoRefreshPreview": "On Changes to Saved Files",
+  "stylelint.validate": [
+    "css",
+    "scss"
+  ]
+}

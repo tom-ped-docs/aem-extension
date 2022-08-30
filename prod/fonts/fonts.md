@@ -1,0 +1,3 @@
+- GitHub / microsoft / [cascadia-code](https://github.com/microsoft/cascadia-code)
+- Microsoft Docs / ... / [Segoe UI Variable](https://aka.ms/SegoeUIVariable)
+- Microsoft Docs / ... / [Segoe Fluent Icons](https://aka.ms/SegoeFluentIcons)

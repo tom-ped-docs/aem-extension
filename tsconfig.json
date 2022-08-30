@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "DOM",
+      "ESNext"
+    ],
+    "module": "ESNext",
+    "outDir": "prod/js",
+    "target": "ESNext",
+    "watch": true
+  }
+}

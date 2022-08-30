@@ -1,0 +1,60 @@
+// stylelint-disable declaration-colon-space-after
+
+@use "../../../styles/color";
+@use "../../controls";
+
+@mixin light {
+  --_app-surface-base-active-background-color:    #{color.$Light_MicaBackground_Base};
+  --_app-surface-base-active-border-color:        #{color.$Light_SurfaceStroke_Default};
+  --_app-surface-base-active-box-shadow:          #{color.$Light_ShellShadows_ActiveWindow};
+  --_app-surface-base-inactive-background-color:  #{color.$Light_SolidBackground_Base};
+  --_app-surface-base-inactive-box-shadow:        #{color.$Light_ShellShadows_InactiveWindow};
+
+  --_app-surface-layer-active-background-color:   #{color.$Light_LayerBackground_Default};
+  --_app-surface-layer-active-border-color:       #{color.$Light_CardStroke_Default};
+  --_app-surface-layer-inactive-background-color: #{color.$Light_SolidBackground_Tertiary};
+}
+
+@mixin dark {
+  --_app-surface-base-active-background-color:    #{color.$Dark_MicaBackground_Base};
+  --_app-surface-base-active-border-color:        #{color.$Dark_SurfaceStroke_Default};
+  --_app-surface-base-active-box-shadow:          #{color.$Dark_ShellShadows_ActiveWindow};
+  --_app-surface-base-inactive-background-color:  #{color.$Dark_SolidBackground_Base};
+  --_app-surface-base-inactive-box-shadow:        #{color.$Dark_ShellShadows_InactiveWindow};
+
+  --_app-surface-layer-active-background-color:   #{color.$Dark_LayerBackground_Default};
+  --_app-surface-layer-active-border-color:       #{color.$Dark_CardStroke_Default};
+  --_app-surface-layer-inactive-background-color: #{color.$Dark_SolidBackground_Tertiary};
+}
+
+.f-app-surface {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: controls.$surfaces-border-radius;
+
+  &--base-active {
+    background-image: linear-gradient(0deg, var(--_app-surface-base-active-background-color));
+    border-color: var(--_app-surface-base-active-border-color);
+    box-shadow: var(--_app-surface-base-active-box-shadow);
+    mix-blend-mode: multiply;
+    background-blend-mode: color;
+    backdrop-filter: color.$Blur_Mica;
+  }
+
+  &--base-inactive {
+    background-color: var(--_app-surface-base-inactive-background-color);
+    border-color: var(--_app-surface-base-active-border-color);
+    box-shadow: var(--_app-surface-base-inactive-box-shadow);
+    mix-blend-mode: multiply;
+  }
+
+  &--layer-active {
+    background-color: var(--_app-surface-layer-active-background-color);
+    border-color: var(--_app-surface-layer-active-border-color);
+  }
+
+  &--layer-inactive {
+    background-color: var(--_app-surface-layer-inactive-background-color);
+    border-color: var(--_app-surface-layer-active-border-color);
+  }
+}

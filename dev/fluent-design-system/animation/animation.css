@@ -1,0 +1,189 @@
+:root {
+  --_in-duration: 187ms;
+  --_in-timing-function: cubic-bezier(0, 0, 0, 1);
+  --_out-duration: 187ms;
+  --_out-timing-function: cubic-bezier(0, 0, 0, 1);
+  --_fade-duration: 83ms;
+  --_fade-timing-function: linear;
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-duration: var(--_fade-duration);
+  animation-timing-function: var(--_fade-timing-function);
+  animation-fill-mode: both;
+}
+
+.fadeOut {
+  animation-name: fadeOut;
+  animation-duration: var(--_fade-duration);
+  animation-timing-function: var(--_fade-timing-function);
+  animation-fill-mode: both;
+}
+
+.scaleDownIn {
+  animation-name: scaleDownIn, fadeIn;
+  animation-duration: var(--_in-duration), var(--_fade-duration);
+  animation-timing-function: var(--_in-timing-function), var(--_fade-timing-function);
+  animation-fill-mode: both, both;
+}
+
+.scaleDownOut {
+  animation-name: scaleDownOut, fadeOut;
+  animation-duration: var(--_out-duration), var(--_fade-duration);
+  animation-timing-function: var(--_out-timing-function), var(--_fade-timing-function);
+  animation-fill-mode: both, both;
+}
+
+.slideUpIn {
+  animation-name: slideUpIn, fadeIn;
+  animation-duration: var(--_in-duration), var(--_fade-duration);
+  animation-timing-function: var(--_in-timing-function), var(--_fade-timing-function);
+  animation-fill-mode: both, both;
+}
+
+.slideUpOut {
+  animation-name: slideUpOut, fadeOut;
+  animation-duration: var(--_out-duration), var(--_fade-duration);
+  animation-timing-function: var(--_out-timing-function), var(--_fade-timing-function);
+  animation-fill-mode: both, both;
+}
+
+.slideRightIn {
+  animation-name: slideRightIn, fadeIn;
+  animation-duration: var(--_in-duration), var(--_fade-duration);
+  animation-timing-function: var(--_in-timing-function), var(--_fade-timing-function);
+  animation-fill-mode: both, both;
+}
+
+.slideRightOut {
+  animation-name: slideRightOut, fadeOut;
+  animation-duration: var(--_out-duration), var(--_fade-duration);
+  animation-timing-function: var(--_out-timing-function), var(--_fade-timing-function);
+  animation-fill-mode: both, both;
+}
+
+.slideDownIn {
+  animation-name: slideDownIn, fadeIn;
+  animation-duration: var(--_in-duration), var(--_fade-duration);
+  animation-timing-function: var(--_in-timing-function), var(--_fade-timing-function);
+  animation-fill-mode: both, both;
+}
+
+.slideDownOut {
+  animation-name: slideDownOut, fadeOut;
+  animation-duration: var(--_out-duration), var(--_fade-duration);
+  animation-timing-function: var(--_out-timing-function), var(--_fade-timing-function);
+  animation-fill-mode: both, both;
+}
+
+.slideLeftIn {
+  animation-name: slideLeftIn, fadeIn;
+  animation-duration: var(--_in-duration), var(--_fade-duration);
+  animation-timing-function: var(--_in-timing-function), var(--_fade-timing-function);
+  animation-fill-mode: both, both;
+}
+
+.slideLeftOut {
+  animation-name: slideLeftOut, fadeOut;
+  animation-duration: var(--_out-duration), var(--_fade-duration);
+  animation-timing-function: var(--_out-timing-function), var(--_fade-timing-function);
+  animation-fill-mode: both, both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes scaleDownIn {
+  from {
+    transform: scale3d(1.15, 1.15, 1);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes scaleDownOut {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  to {
+    transform: scale3d(0.9, 0.9, 1);
+  }
+}
+@keyframes slideUpIn {
+  from {
+    transform: translate3d(0, 48px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes slideUpOut {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -48px, 0);
+  }
+}
+@keyframes slideRightIn {
+  from {
+    transform: translate3d(-48px, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes slideRightOut {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(48px, 0, 0);
+  }
+}
+@keyframes slideDownIn {
+  from {
+    transform: translate3d(0, -48px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes slideDownOut {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 48px, 0);
+  }
+}
+@keyframes slideLeftIn {
+  from {
+    transform: translate3d(48px, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes slideLeftOut {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-48px, 0, 0);
+  }
+}

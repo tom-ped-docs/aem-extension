@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link href="../index.css" rel="stylesheet">
+  <link href="animation.css" rel="stylesheet">
+  <link href="../template/template.css" rel="stylesheet">
+
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="light dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    .section-wrapper {
+      --_content-block-size: calc(128px * 2);
+      --_content-rows: 2;
+      --_content-columns: 6;
+    }
+
+    .variant-row__content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .component-row__content:nth-child(6n) {
+      border-inline-end-color: transparent;
+    }
+
+    .component-row__content:nth-last-child(-n+6) {
+      border-block-end-color: transparent;
+    }
+
+    .f-app-surface {
+      block-size: 64px;
+      inline-size: 64px;
+    }
+
+  </style>
+
+  <title>Animation</title>
+</head>
+
+<body class="body">
+  <div class="section-wrapper">
+
+    <div class="variant-row-wrapper">
+      <div class="variant-row__header">
+        <span class="subtitle">Windows Animation Values</span>
+      </div>
+      <div class="variant-row__content-wrapper">
+        <div class="variant-row__content">
+          <span class="caption">fadeIn</span>
+          <span class="caption">fadeOut</span>
+        </div>
+        <div class="variant-row__content">
+          <span class="caption">scaleDownIn</span>
+          <span class="caption">scaleDownOut</span>
+        </div>
+        <div class="variant-row__content">
+          <span class="caption">slideUpIn</span>
+          <span class="caption">slideUpOut</span>
+        </div>
+        <div class="variant-row__content">
+          <span class="caption">slideRightIn</span>
+          <span class="caption">slideRightOut</span>
+        </div>
+        <div class="variant-row__content">
+          <span class="caption">slideDownIn</span>
+          <span class="caption">slideDownOut</span>
+        </div>
+        <div class="variant-row__content">
+          <span class="caption">slideLeftIn</span>
+          <span class="caption">slideLeftOut</span>
+        </div>
+      </div>
+    </div><!-- variant-row-wrapper -->
+
+    <div class="component-row-wrapper">
+      <div class="component-row__header-wrapper">
+        <!-- <div><span class="component-row__badge caption">Caption</span></div> -->
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--light-row" color-scheme="light">
+        <div class="component-row__content">
+          <div class="f-app-surface f-app-surface--base-active fadeIn"></div>
+        </div>
+        <div class="component-row__content">
+          <div class="f-app-surface f-app-surface--base-active scaleDownIn"></div>
+        </div>
+        <div class="component-row__content">
+          <div class="f-app-surface f-app-surface--base-active slideUpIn"></div>
+        </div>
+        <div class="component-row__content">
+          <div class="f-app-surface f-app-surface--base-active slideRightIn"></div>
+        </div>
+        <div class="component-row__content">
+          <div class="f-app-surface f-app-surface--base-active slideDownIn"></div>
+        </div>
+        <div class="component-row__content">
+          <div class="f-app-surface f-app-surface--base-active slideLeftIn"></div>
+        </div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--dark-row" color-scheme="dark">
+        <div class="component-row__content">
+          <div class="f-app-surface f-app-surface--base-active fadeOut"></div>
+        </div>
+        <div class="component-row__content">
+          <div class="f-app-surface f-app-surface--base-active scaleDownOut"></div>
+        </div>
+        <div class="component-row__content">
+          <div class="f-app-surface f-app-surface--base-active slideUpOut"></div>
+        </div>
+        <div class="component-row__content">
+          <div class="f-app-surface f-app-surface--base-active slideRightOut"></div>
+        </div>
+        <div class="component-row__content">
+          <div class="f-app-surface f-app-surface--base-active slideDownOut"></div>
+        </div>
+        <div class="component-row__content">
+          <div class="f-app-surface f-app-surface--base-active slideLeftOut"></div>
+        </div>
+      </div>
+    </div><!-- component-row-wrapper -->
+
+  </div><!-- section-wrapper -->
+</body>

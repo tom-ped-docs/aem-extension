@@ -1,0 +1,115 @@
+// stylelint-disable declaration-colon-space-after, max-nesting-depth
+
+// TODO: 1. Beacon
+// TODO: 2. Numbers
+// TODO: 3. Numbers Wide
+
+@use "../../../styles/typography";
+@use "../../../styles/color";
+
+@mixin light {
+  --_badge-color:                               #{color.$Light_TextOnAccent_Primary};
+  --_badge-informational-safe-background-color: #{color.$Light_System_SolidNeutral};
+  --_badge-attention-background-color:          #{color.$Light_System_Attention};
+  --_badge-caution-background-color:            #{color.$Light_System_Caution};
+  --_badge-success-background-color:            #{color.$Light_System_Success};
+  --_badge-critical-background-color:           #{color.$Light_System_Critical};
+}
+
+@mixin dark {
+  --_badge-color:                               #{color.$Dark_TextOnAccent_Primary};
+  --_badge-informational-safe-background-color: #{color.$Dark_System_SolidNeutral};
+  --_badge-attention-background-color:          #{color.$Dark_System_Attention};
+  --_badge-caution-background-color:            #{color.$Dark_System_Caution};
+  --_badge-success-background-color:            #{color.$Dark_System_Success};
+  --_badge-critical-background-color:           #{color.$Dark_System_Critical};
+}
+
+.f-badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  block-size: 16px;
+  inline-size: 16px;
+  border-radius: 999px;
+
+  &--icon-only::before {
+    font-size: 12px;
+    color: var(--_badge-color);
+
+    @include typography.fi;
+  }
+
+  // ...
+  // ...
+  // important_12_regular
+  // checkmark_12_regular
+  // dismiss_12_regular
+
+  // pause_12_regular
+  // mail_12_regular
+  // play_12_regular
+  // alert_12_regular
+  // arrow_sync_12_regular
+
+  svg {
+    path {
+      color: var(--_badge-color);
+      fill: currentColor;
+    }
+  }
+
+  &--informational-safe {
+    background-color: var(--_badge-informational-safe-background-color);
+    // border-color: ; // ..._System_SolidNeutral
+  }
+
+  &--attention {
+    background-color: var(--_badge-attention-background-color);
+    // border-color: ; // ..._System_Attention
+  }
+
+  &--caution {
+    background-color: var(--_badge-caution-background-color);
+    // border-color: ; // ..._System_Caution
+  }
+
+  &--success {
+    background-color: var(--_badge-success-background-color);
+    // border-color: ; // ..._System_Success
+  }
+
+  &--critical {
+    background-color: var(--_badge-critical-background-color);
+    // border-color: ; // ..._System_Critical
+  }
+}
+
+.f-fi {
+  &--informational-safe::before {
+    content: "\e625"; // InfoBadge12
+  }
+
+  &--attention::before {
+    content: "\edad"; // AsteriskBadge12
+  }
+
+  &--caution::before {
+    content: "\edb1"; // ImportantBadge12
+  }
+
+  &--success::before {
+    content: "\e65f"; // CheckmarkBadge12
+  }
+
+  &--critical::before {
+    content: "\edae"; // ErrorBadge12
+  }
+
+  // edb4 PauseBadge12
+  // edb3 MailBadge12
+  // edb5 PlayBadge12
+  // edac RingerBadge12
+  // edab SyncBadge12
+}

@@ -1,0 +1,53 @@
+{
+  "action": {
+    "default_icon": {
+      "176": "prod/assets/icons/surface128.png"
+    },
+    "default_popup": "prod/html/popup.html",
+    "default_title": "Adobe Experience Manager (AEM) extension"
+  },
+  "background": {
+    "service_worker": "prod/js/background.js",
+    "type": "module"
+  },
+  "commands": {
+    "_execute_action": {
+      "description": "Activate the extension",
+      "global": true,
+      "suggested_key": "Alt+1"
+    },
+    "unlock_age_gate": {
+      "description": "IQOS AEM: Unlock Age Gate & Cookies",
+      "suggested_key": "Alt+2"
+    },
+    "unlock_region": {
+      "description": "IQOS AEM: Unlock Region ('?gr = false')",
+      "suggested_key": "Alt+3"
+    }
+  },
+  "description": "Adobe Experience Manager (AEM) extension",
+  "host_permissions": [
+    "https://*/"
+  ],
+  "icons": {
+    "176": "prod/assets/icons/surface128.png"
+  },
+  "manifest_version": 3,
+  "name": "Adobe Experience Manager (AEM) extension",
+  "optional_host_permissions": [],
+  "optional_permissions": [],
+  "options_page": "prod/html/options.html",
+  "options_ui": {
+    "page": "prod/html/options.html",
+    "open_in_tab": true
+  },
+  "permissions": [
+    "commands",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "short_name": "AEM extension",
+  "version": "3.0.0.0",
+  "version_name": "3.0.0 alpha"
+}

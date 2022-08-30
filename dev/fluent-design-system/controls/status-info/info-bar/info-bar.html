@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link href="../../../index.css" rel="stylesheet">
+  <link href="../../../template/template.css" rel="stylesheet">
+
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="light dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    .section-wrapper {
+      --_content-block-size: calc(128px * 4);
+      --_content-rows: 2;
+      --_content-columns: 1;
+    }
+
+    .variant-row__content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .component-row__content {
+      display: flex;
+      flex-direction: column;
+      row-gap: 12px;
+    }
+
+    .component-row__content:nth-child(1n) {
+      border-inline-end-color: transparent;
+    }
+
+    .component-row__content:nth-last-child(-n+1) {
+      border-block-end-color: transparent;
+    }
+
+  </style>
+
+  <title>Info Bar</title>
+</head>
+
+<body class="body">
+  <div class="section-wrapper">
+
+    <div class="variant-row-wrapper">
+      <div class="variant-row__header">
+        <span class="subtitle">Info Bar</span>
+      </div>
+      <div class="variant-row__content-wrapper">
+        <div class="variant-row__content">
+          <span class="caption">Segoe Fluent Icons (fi)</span>
+          <span class="caption">Fluent UI System Icons (svg)</span>
+        </div>
+      </div>
+    </div><!-- variant-row-wrapper -->
+
+    <!-- ------------------------- Single Line, Multi Line ------------------------- -->
+
+    <div class="component-row-wrapper">
+      <div class="component-row__header-wrapper">
+        <div><span class="component-row__badge caption">Single Line</span></div>
+        <div><span class="component-row__badge caption">Multi Line</span></div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--light-row" color-scheme="light">
+        <div class="component-row__content">
+
+          <section class="f-info-bar f-info-bar--single-line f-info-bar--informational">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--informational-safe f-fi--informational-safe"></span>
+              <section class="f-info-bar__wrapper-text--single-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 is faster and more intuitive.</span>
+              </section>
+            </section>
+            <!-- <button class="f-icon-button f-fi--chrome-close" type="button"></button> -->
+            <button class="f-icon-button" type="button">
+              <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M2.59 2.72l.06-.07a.5.5 0 01.63-.06l.07.06L8 7.29l4.65-4.64a.5.5 0 01.7.7L8.71 8l4.64 4.65c.18.17.2.44.06.63l-.06.07a.5.5 0 01-.63.06l-.07-.06L8 8.71l-4.65 4.64a.5.5 0 01-.7-.7L7.29 8 2.65 3.35a.5.5 0 01-.06-.63l.06-.07-.06.07z"/></svg>
+            </button>
+          </section>
+
+          <section class="f-info-bar f-info-bar--multi-line f-info-bar--informational">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--informational-safe f-fi--informational-safe"></span>
+              <section class="f-info-bar__wrapper-text--multi-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 marks a visual evolution of the operating system. We have evolved our design language alongside with Fluent to create a design which is human, universal and truly feels like Windows.</span>
+              </section>
+            </section>
+            <!-- <button class="f-icon-button f-fi--chrome-close" type="button"></button> -->
+            <button class="f-icon-button" type="button">
+              <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M2.59 2.72l.06-.07a.5.5 0 01.63-.06l.07.06L8 7.29l4.65-4.64a.5.5 0 01.7.7L8.71 8l4.64 4.65c.18.17.2.44.06.63l-.06.07a.5.5 0 01-.63.06l-.07-.06L8 8.71l-4.65 4.64a.5.5 0 01-.7-.7L7.29 8 2.65 3.35a.5.5 0 01-.06-.63l.06-.07-.06.07z"/></svg>
+            </button>
+          </section>
+
+        </div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--dark-row" color-scheme="dark">
+        <div class="component-row__content">
+
+          <section class="f-info-bar f-info-bar--single-line f-info-bar--informational">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--informational-safe f-fi--informational-safe"></span>
+              <section class="f-info-bar__wrapper-text--single-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 is faster and more intuitive.</span>
+              </section>
+            </section>
+            <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+          </section>
+
+          <section class="f-info-bar f-info-bar--multi-line f-info-bar--informational">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--informational-safe f-fi--informational-safe"></span>
+              <section class="f-info-bar__wrapper-text--multi-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 marks a visual evolution of the operating system. We have evolved our design language alongside with Fluent to create a design which is human, universal and truly feels like Windows.</span>
+              </section>
+            </section>
+            <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+          </section>
+
+        </div>
+      </div>
+    </div><!-- component-row-wrapper -->
+
+    <!-- ------------------------- Informational, Success, Warning, Critical ------------------------- -->
+
+    <div class="component-row-wrapper">
+      <div class="component-row__header-wrapper">
+        <div><span class="component-row__badge caption">Informational</span></div>
+        <div><span class="component-row__badge caption">Success</span></div>
+        <div><span class="component-row__badge caption">Warning</span></div>
+        <div><span class="component-row__badge caption">Critical</span></div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--light-row" color-scheme="light">
+        <div class="component-row__content">
+
+          <section class="f-info-bar f-info-bar--single-line f-info-bar--informational">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--informational-safe f-fi--informational-safe"></span>
+              <section class="f-info-bar__wrapper-text--single-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 is faster and more intuitive.</span>
+              </section>
+            </section>
+            <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+          </section>
+
+          <section class="f-info-bar f-info-bar--single-line f-info-bar--success">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--success f-fi--success"></span>
+              <section class="f-info-bar__wrapper-text--single-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 is faster and more intuitive.</span>
+              </section>
+            </section>
+            <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+          </section>
+
+          <section class="f-info-bar f-info-bar--single-line f-info-bar--warning">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--caution f-fi--caution"></span>
+              <section class="f-info-bar__wrapper-text--single-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 is faster and more intuitive.</span>
+              </section>
+            </section>
+            <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+          </section>
+
+          <section class="f-info-bar f-info-bar--single-line f-info-bar--critical">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--critical f-fi--critical"></span>
+              <section class="f-info-bar__wrapper-text--single-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 is faster and more intuitive.</span>
+              </section>
+            </section>
+            <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+          </section>
+
+        </div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--dark-row" color-scheme="dark">
+        <div class="component-row__content">
+
+          <section class="f-info-bar f-info-bar--single-line f-info-bar--informational">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--informational-safe f-fi--informational-safe"></span>
+              <section class="f-info-bar__wrapper-text--single-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 is faster and more intuitive.</span>
+              </section>
+            </section>
+            <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+          </section>
+
+          <section class="f-info-bar f-info-bar--single-line f-info-bar--success">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--success f-fi--success"></span>
+              <section class="f-info-bar__wrapper-text--single-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 is faster and more intuitive.</span>
+              </section>
+            </section>
+            <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+          </section>
+
+          <section class="f-info-bar f-info-bar--single-line f-info-bar--warning">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--caution f-fi--caution"></span>
+              <section class="f-info-bar__wrapper-text--single-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 is faster and more intuitive.</span>
+              </section>
+            </section>
+            <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+          </section>
+
+          <section class="f-info-bar f-info-bar--single-line f-info-bar--critical">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--critical f-fi--critical"></span>
+              <section class="f-info-bar__wrapper-text--single-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 is faster and more intuitive.</span>
+              </section>
+            </section>
+            <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+          </section>
+
+        </div>
+      </div>
+    </div><!-- component-row-wrapper -->
+
+    <!-- ------------------------- Single Line: None, Hyperlink Button, Button ------------------------- -->
+
+    <div class="component-row-wrapper">
+      <div class="component-row__header-wrapper">
+        <div><span class="component-row__badge caption">None</span></div>
+        <div><span class="component-row__badge caption">Hyperlink Button</span></div>
+        <div><span class="component-row__badge caption">Button</span></div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--light-row" color-scheme="light">
+        <div class="component-row__content">
+
+          <section class="f-info-bar f-info-bar--single-line f-info-bar--informational">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--informational-safe f-fi--informational-safe"></span>
+              <section class="f-info-bar__wrapper-text--single-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 is faster and more intuitive.</span>
+              </section>
+            </section>
+            <!-- <section class="f-info-bar__wrapper-right--single-line"> -->
+            <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+            <!-- </section> -->
+          </section>
+
+          <section class="f-info-bar f-info-bar--single-line f-info-bar--informational">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--informational-safe f-fi--informational-safe"></span>
+              <section class="f-info-bar__wrapper-text--single-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 is faster and more intuitive.</span>
+              </section>
+            </section>
+            <section class="f-info-bar__wrapper-right--single-line">
+              <button class="f-hyperlink-button" type="button">Text</button>
+              <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+            </section>
+          </section>
+
+          <section class="f-info-bar f-info-bar--single-line f-info-bar--informational">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--informational-safe f-fi--informational-safe"></span>
+              <section class="f-info-bar__wrapper-text--single-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text.</span>
+              </section>
+            </section>
+            <section class="f-info-bar__wrapper-right--single-line">
+              <button class="f-button f-button--accent" type="button">Text</button>
+              <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+            </section>
+          </section>
+
+        </div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--dark-row" color-scheme="dark">
+        <div class="component-row__content">
+
+          <section class="f-info-bar f-info-bar--single-line f-info-bar--informational">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--informational-safe f-fi--informational-safe"></span>
+              <section class="f-info-bar__wrapper-text--single-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 is faster and more intuitive.</span>
+              </section>
+            </section>
+            <!-- <section class="f-info-bar__wrapper-right--single-line"> -->
+            <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+            <!-- </section> -->
+          </section>
+
+          <section class="f-info-bar f-info-bar--single-line f-info-bar--informational">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--informational-safe f-fi--informational-safe"></span>
+              <section class="f-info-bar__wrapper-text--single-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 is faster and more intuitive.</span>
+              </section>
+            </section>
+            <section class="f-info-bar__wrapper-right--single-line">
+              <button class="f-hyperlink-button" type="button">Text</button>
+              <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+            </section>
+          </section>
+
+          <section class="f-info-bar f-info-bar--single-line f-info-bar--informational">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--informational-safe f-fi--informational-safe"></span>
+              <section class="f-info-bar__wrapper-text--single-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text.</span>
+              </section>
+            </section>
+            <section class="f-info-bar__wrapper-right--single-line">
+              <button class="f-button f-button--accent" type="button">Text</button>
+              <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+            </section>
+          </section>
+
+        </div>
+      </div>
+    </div><!-- component-row-wrapper -->
+
+    <!-- ------------------------- Multi Line: None, Hyperlink Button, Button ------------------------- -->
+
+    <div class="component-row-wrapper">
+      <div class="component-row__header-wrapper">
+        <div><span class="component-row__badge caption">None</span></div>
+        <div><span class="component-row__badge caption">Hyperlink Button</span></div>
+        <div><span class="component-row__badge caption">Button</span></div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--light-row" color-scheme="light">
+        <div class="component-row__content">
+
+          <section class="f-info-bar f-info-bar--multi-line f-info-bar--informational">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--informational-safe f-fi--informational-safe"></span>
+              <section class="f-info-bar__wrapper-text--multi-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 marks a visual evolution of the operating system. We have evolved our design language alongside with Fluent to create a design which is human, universal and truly feels like Windows.</span>
+              </section>
+            </section>
+            <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+          </section>
+
+          <section class="f-info-bar f-info-bar--multi-line f-info-bar--informational">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--informational-safe f-fi--informational-safe"></span>
+              <section class="f-info-bar__wrapper-text--multi-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 marks a visual evolution of the operating system. We have evolved our design language alongside with Fluent to create a design which is human, universal and truly feels like Windows.</span>
+                <button class="f-hyperlink-button" type="button">Text</button>
+              </section>
+            </section>
+            <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+          </section>
+
+          <section class="f-info-bar f-info-bar--multi-line f-info-bar--informational">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--informational-safe f-fi--informational-safe"></span>
+              <section class="f-info-bar__wrapper-text--multi-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 marks a visual evolution of the operating system. We have evolved our design language alongside with Fluent to create a design which is human, universal and truly feels like Windows.</span>
+                <button class="f-button f-button--accent" type="button">Text</button>
+              </section>
+            </section>
+            <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+          </section>
+
+        </div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--dark-row" color-scheme="dark">
+        <div class="component-row__content">
+
+          <section class="f-info-bar f-info-bar--multi-line f-info-bar--informational">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--informational-safe f-fi--informational-safe"></span>
+              <section class="f-info-bar__wrapper-text--multi-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 marks a visual evolution of the operating system. We have evolved our design language alongside with Fluent to create a design which is human, universal and truly feels like Windows.</span>
+              </section>
+            </section>
+            <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+          </section>
+
+          <section class="f-info-bar f-info-bar--multi-line f-info-bar--informational">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--informational-safe f-fi--informational-safe"></span>
+              <section class="f-info-bar__wrapper-text--multi-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 marks a visual evolution of the operating system. We have evolved our design language alongside with Fluent to create a design which is human, universal and truly feels like Windows.</span>
+                <button class="f-hyperlink-button" type="button">Text</button>
+              </section>
+            </section>
+            <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+          </section>
+
+          <section class="f-info-bar f-info-bar--multi-line f-info-bar--informational">
+            <section class="f-info-bar__wrapper-left">
+              <span class="f-badge f-badge--icon-only f-badge--informational-safe f-fi--informational-safe"></span>
+              <section class="f-info-bar__wrapper-text--multi-line">
+                <span class="f-body-strong">Title</span>
+                <span class="f-body">This is Body text. Windows 11 marks a visual evolution of the operating system. We have evolved our design language alongside with Fluent to create a design which is human, universal and truly feels like Windows.</span>
+                <button class="f-button f-button--accent" type="button">Text</button>
+              </section>
+            </section>
+            <button class="f-icon-button f-fi--chrome-close" type="button"></button>
+          </section>
+
+        </div>
+      </div>
+    </div><!-- component-row-wrapper -->
+
+  </div><!-- section-wrapper -->
+</body>

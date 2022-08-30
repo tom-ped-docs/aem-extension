@@ -1,0 +1,974 @@
+@font-face {
+  font-family: "cascadia-code-regular";
+  src: url("../fonts/cascadia-code/woff2/CascadiaCode.woff2") format("woff2"), local("Cascadia Code Regular");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "cascadia-code-italic";
+  src: url("../fonts/cascadia-code/woff2/CascadiaCodeItalic.woff2") format("woff2"), local("Cascadia Code Italic");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "segoe-ui-variable";
+  src: url("../fonts/segoe-ui-variable/SegoeUI-VF.ttf") format("truetype") tech("variations"), url("../fonts/segoe-ui-variable/SegoeUI-VF.ttf") format("truetype-variations");
+  font-weight: 300 700;
+  font-optical-sizing: auto;
+}
+@font-face {
+  font-family: "segoe-fluent-icons";
+  src: url("../fonts/segoe-fluent-icons/Segoe Fluent Icons.ttf") format("truetype"), local("Segoe Fluent Icons");
+}
+.f-caption {
+  font-family: "segoe-ui-variable", "Segoe UI Variable Small", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.f-body {
+  font-family: "segoe-ui-variable", "Segoe UI Variable Text", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.f-body-strong {
+  font-family: "segoe-ui-variable", "Segoe UI Variable Text Semibold", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.f-button {
+  box-sizing: border-box;
+  block-size: 32px;
+  inline-size: 120px;
+  padding-block: 4px 6px;
+  padding-inline: 11px;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  font-family: "segoe-ui-variable", "Segoe UI Variable Text", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  transition-property: color, background-color, border-color;
+  transition-duration: 187ms, 187ms, 187ms;
+  transition-timing-function: cubic-bezier(0, 0, 0, 1), cubic-bezier(0, 0, 0, 1), cubic-bezier(0, 0, 0, 1);
+}
+.f-button:disabled {
+  pointer-events: none;
+}
+
+.f-button--standard {
+  color: var(--_button-standard-color);
+  background-color: var(--_button-standard-background-color);
+  border-color: var(--_button-standard-border-color_1);
+  border-block-end-color: var(--_button-standard-border-color_2);
+}
+.f-button--standard:hover {
+  background-color: var(--_button-standard-hover-background-color);
+}
+.f-button--standard:active {
+  color: var(--_button-standard-active-color);
+  background-color: var(--_button-standard-active-background-color);
+  border-color: var(--_button-standard-active-border-color);
+}
+.f-button--standard:focus-visible {
+  outline: var(--_focus-rect-outline-color-outer) solid 2px;
+  outline-offset: 1px;
+}
+.f-button--standard:disabled {
+  color: var(--_button-standard-disabled-color);
+  background-color: var(--_button-standard-disabled-background-color);
+  border-color: var(--_button-standard-disabled-border-color);
+}
+
+.f-button--accent {
+  color: var(--_button-accent-color);
+  background-color: var(--_button-accent-background-color);
+  border-color: var(--_button-accent-border-color_1);
+  border-block-end-color: var(--_button-accent-border-color_2);
+}
+.f-button--accent:hover {
+  background-color: var(--_button-accent-hover-background-color);
+}
+.f-button--accent:active {
+  color: var(--_button-accent-active-color);
+  background-color: var(--_button-accent-active-background-color);
+  border-color: var(--_button-accent-active-border-color);
+}
+.f-button--accent:focus-visible {
+  outline: var(--_focus-rect-outline-color-outer) solid 2px;
+  outline-offset: 1px;
+}
+.f-button--accent:disabled {
+  color: var(--_button-accent-disabled-color);
+  background-color: var(--_button-accent-disabled-background-color);
+  border-color: transparent;
+}
+
+.f-dropdown {
+  box-sizing: border-box;
+  block-size: 32px;
+  inline-size: 120px;
+  padding-block: 5px 5px;
+  padding-inline: 11px 31px;
+  color: var(--_dropdown-color);
+  background-color: var(--_dropdown-background-color);
+  background-repeat: no-repeat;
+  background-position: right 11px center;
+  background-size: 12px;
+  border-color: var(--_dropdown-border-color_1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  border-block-end-color: var(--_dropdown-border-color_2);
+  appearance: none;
+  user-select: none;
+  font-family: "segoe-ui-variable", "Segoe UI Variable Text", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  transition-property: color, background-color, border-color;
+  transition-duration: 187ms, 187ms, 187ms;
+  transition-timing-function: cubic-bezier(0, 0, 0, 1), cubic-bezier(0, 0, 0, 1), cubic-bezier(0, 0, 0, 1);
+}
+.f-dropdown:hover {
+  background-color: var(--_dropdown-hover-background-color);
+}
+.f-dropdown:active {
+  color: var(--_dropdown-active-color);
+  background-color: var(--_dropdown-active-background-color);
+  border-color: var(--_dropdown-active-border-color);
+}
+.f-dropdown:focus-visible {
+  outline: var(--_focus-rect-outline-color-outer) solid 2px;
+  outline-offset: 1px;
+}
+.f-dropdown:disabled {
+  color: var(--_dropdown-disabled-color);
+  background-color: var(--_dropdown-disabled-background-color);
+  border-color: var(--_dropdown-disabled-border-color);
+}
+.f-dropdown optgroup,
+.f-dropdown option {
+  color: var(--_context-menu-color);
+  background-color: var(--_context-menu-background-color);
+  font-family: "segoe-ui-variable", "Segoe UI Variable Text", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.f-toggle-switch-wrapper {
+  display: flex;
+  column-gap: 12px;
+}
+
+.f-toggle-switch {
+  display: grid;
+  grid-template: "area" 1fr/1fr;
+  box-sizing: border-box;
+  block-size: 20px;
+  inline-size: 40px;
+  margin: 0;
+  padding: 3px;
+  background-color: var(--_toggle-switch-background-color);
+  border-color: var(--_toggle-switch-border-color);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 999px;
+  appearance: none;
+}
+.f-toggle-switch::before {
+  content: "";
+  grid-area: area;
+  block-size: 12px;
+  inline-size: 12px;
+  background-color: var(--_thumb-background-color);
+  border-radius: 999px;
+  transition-property: background-color, border-color, transform;
+  transition-duration: 187ms, 187ms, 187ms;
+  transition-timing-function: cubic-bezier(0, 0, 0, 1), cubic-bezier(0, 0, 0, 1), cubic-bezier(0, 0, 0, 1);
+}
+.f-toggle-switch:hover {
+  background-color: var(--_toggle-switch-hover-background-color);
+}
+.f-toggle-switch:hover::before {
+  transform: scaleX(1.167) scaleY(1.167);
+}
+.f-toggle-switch:active {
+  background-color: var(--_toggle-switch-active-background-color);
+}
+.f-toggle-switch:active::before {
+  transform: scaleX(1.167) scaleY(1.167);
+}
+.f-toggle-switch:focus-visible {
+  outline: var(--_focus-rect-outline-color-outer) solid 2px;
+  outline-offset: 1px;
+}
+.f-toggle-switch:disabled {
+  background-color: var(--_toggle-switch-disabled-background-color);
+  border-color: var(--_toggle-switch-disabled-border-color);
+  pointer-events: none;
+}
+.f-toggle-switch:disabled::before {
+  background-color: var(--_thumb-disabled-background-color);
+}
+.f-toggle-switch:checked {
+  padding: 4px;
+  background-color: var(--_toggle-switch-checked-background-color);
+  border: 0 none transparent;
+}
+.f-toggle-switch:checked::before {
+  block-size: 10px;
+  inline-size: 10px;
+  background-color: var(--_thumb-checked-background-color);
+  border-color: var(--_thumb-checked-border-color);
+  border-style: solid;
+  border-width: 1px;
+  transform: translateX(20px);
+}
+.f-toggle-switch:checked:hover {
+  background-color: var(--_toggle-switch-checked-hover-background-color);
+}
+.f-toggle-switch:checked:hover::before {
+  transform: translateX(20px) scaleX(1.167) scaleY(1.167);
+}
+.f-toggle-switch:checked:active {
+  background-color: var(--_toggle-switch-checked-active-background-color);
+}
+.f-toggle-switch:checked:active::before {
+  transform: translateX(20px) scaleX(1.167) scaleY(1.167);
+}
+.f-toggle-switch:checked:disabled {
+  background-color: var(--_toggle-switch-checked-disabled-background-color);
+}
+.f-toggle-switch:checked:disabled::before {
+  background-color: var(--_thumb-checked-disabled-background-color);
+  border-color: transparent;
+}
+.f-toggle-switch:indeterminate::before {
+  transform: translateX(10px);
+}
+.f-toggle-switch:indeterminate:hover::before {
+  transform: translateX(10px) scaleX(1.167) scaleY(1.167);
+}
+.f-toggle-switch:indeterminate:active::before {
+  transform: translateX(10px) scaleX(1.167) scaleY(1.167);
+}
+
+.f-label {
+  color: var(--_label-color);
+  transition-property: color;
+  transition-duration: 187ms;
+  transition-timing-function: cubic-bezier(0, 0, 0, 1);
+  user-select: none;
+  font-family: "segoe-ui-variable", "Segoe UI Variable Text", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+.f-label--disabled {
+  color: var(--_label-disabled-color);
+  pointer-events: none;
+}
+
+.f-text-box {
+  box-sizing: border-box;
+  block-size: 32px;
+  inline-size: 160px;
+  padding-block: 5px;
+  padding-inline: 11px 31px;
+  color: var(--_text-box-color);
+  background-color: var(--_text-box-background-color);
+  border-color: var(--_text-box-border-color_1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  border-block-end-color: var(--_text-box-border-color_2);
+  appearance: none;
+  caret-color: currentColor;
+  font-family: "segoe-ui-variable", "Segoe UI Variable Text", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  transition-property: color, background-color, border-color;
+  transition-duration: 187ms, 187ms, 187ms;
+  transition-timing-function: cubic-bezier(0, 0, 0, 1), cubic-bezier(0, 0, 0, 1), cubic-bezier(0, 0, 0, 1);
+}
+.f-text-box::placeholder {
+  color: var(--_text-box-placeholder-color);
+}
+.f-text-box::selection {
+  color: var(--_text-box-selection-color);
+  background-color: var(--_text-box-selection-background-color);
+}
+.f-text-box:hover {
+  background-color: var(--_text-box-hover-background-color);
+}
+.f-text-box:active, .f-text-box:focus {
+  padding-block-end: 4px;
+  background-color: var(--_text-box-active-focus-background-color);
+  background-repeat: no-repeat;
+  background-position: right 11px center;
+  background-size: 12px;
+  border-color: var(--_text-box-active-focus-border-color_1);
+  border-block-end-width: 2px;
+  border-block-end-color: var(--_text-box-active-focus-border-color_2);
+}
+.f-text-box:focus-visible {
+  outline: transparent none 0;
+}
+.f-text-box:disabled {
+  color: var(--_text-box-disabled-color);
+  background-color: var(--_text-box-disabled-background-color);
+  border-color: var(--_text-box-disabled-border-color);
+  pointer-events: none;
+}
+.f-text-box:disabled::placeholder {
+  color: var(--_text-box-disabled-placeholder-color);
+}
+
+.f-app-surface {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+}
+.f-app-surface--base-active {
+  background-image: linear-gradient(0deg, var(--_app-surface-base-active-background-color));
+  border-color: var(--_app-surface-base-active-border-color);
+  box-shadow: var(--_app-surface-base-active-box-shadow);
+  mix-blend-mode: multiply;
+  background-blend-mode: color;
+  backdrop-filter: blur(240px);
+}
+.f-app-surface--base-inactive {
+  background-color: var(--_app-surface-base-inactive-background-color);
+  border-color: var(--_app-surface-base-active-border-color);
+  box-shadow: var(--_app-surface-base-inactive-box-shadow);
+  mix-blend-mode: multiply;
+}
+.f-app-surface--layer-active {
+  background-color: var(--_app-surface-layer-active-background-color);
+  border-color: var(--_app-surface-layer-active-border-color);
+}
+.f-app-surface--layer-inactive {
+  background-color: var(--_app-surface-layer-inactive-background-color);
+  border-color: var(--_app-surface-layer-active-border-color);
+}
+
+.f-icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  block-size: 30px;
+  inline-size: 30px;
+  margin: 5px;
+  padding: 0;
+  line-height: 0;
+  text-align: center;
+  color: var(--_icon-button-color);
+  background-color: var(--_icon-button-background-color);
+  border: 0 none transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  transition-property: color, background-color, border-color;
+  transition-duration: 187ms, 187ms, 187ms;
+  transition-timing-function: cubic-bezier(0, 0, 0, 1), cubic-bezier(0, 0, 0, 1), cubic-bezier(0, 0, 0, 1);
+}
+.f-icon-button::before {
+  font-size: 16px;
+  color: var(--_icon-button-color);
+  font-family: "segoe-fluent-icons";
+  font-weight: 400;
+  line-height: 100%;
+}
+.f-icon-button svg path {
+  fill: currentColor;
+}
+.f-icon-button:hover {
+  background-color: var(--_icon-button-hover-background-color);
+}
+.f-icon-button:active {
+  color: var(--_icon-button-active-color);
+  background-color: var(--_icon-button-active-background-color);
+}
+.f-icon-button:active::before {
+  color: var(--_icon-button-active-color);
+}
+.f-icon-button:focus-visible {
+  outline: var(--_focus-rect-outline-color-outer) solid 2px;
+  outline-offset: 1px;
+}
+.f-icon-button:disabled {
+  color: var(--_icon-button-disabled-color);
+  background-color: var(--_icon-button-disabled-background-color);
+  pointer-events: none;
+}
+.f-icon-button:disabled::before {
+  color: var(--_icon-button-disabled-color);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slide-up-in {
+  from {
+    transform: translate3d(0, 48px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes slide-down-in {
+  from {
+    transform: translate3d(0, -48px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --_root-background-color: hsl(0 0% 93%);
+    --_section-critical-background-color: hsl(355deg, 85%, 95%);
+    color-scheme: light;
+    --_button-standard-color: hsla(0deg, 0%, 0%, 0.896);
+    --_button-standard-background-color: hsla(0deg, 0%, 100%, 0.7);
+    --_button-standard-border-color_1: hsla(0deg, 0%, 0%, 0.058);
+    --_button-standard-border-color_2: hsla(0deg, 0%, 0%, 0.162);
+    --_button-standard-hover-background-color: hsla(0deg, 0%, 98%, 0.5);
+    --_button-standard-active-color: hsla(0deg, 0%, 0%, 0.606);
+    --_button-standard-active-background-color: hsla(0deg, 0%, 98%, 0.3);
+    --_button-standard-active-border-color: hsla(0deg, 0%, 0%, 0.058);
+    --_button-standard-disabled-color: hsla(0deg, 0%, 0%, 0.361);
+    --_button-standard-disabled-background-color: hsla(0deg, 0%, 98%, 0.3);
+    --_button-standard-disabled-border-color: hsla(0deg, 0%, 0%, 0.058);
+    --_button-accent-color: hsl(0deg, 0%, 100%);
+    --_button-accent-background-color: hsl(209deg, 100%, 36%);
+    --_button-accent-border-color_1: hsla(0deg, 0%, 100%, 0.08);
+    --_button-accent-border-color_2: hsla(0deg, 0%, 0%, 0.4);
+    --_button-accent-hover-background-color: hsla(209deg, 100%, 36%, 0.9);
+    --_button-accent-active-color: hsla(0deg, 0%, 100%, 0.7);
+    --_button-accent-active-background-color: hsla(209deg, 100%, 36%, 0.8);
+    --_button-accent-active-border-color: hsla(0deg, 0%, 100%, 0.08);
+    --_button-accent-disabled-color: hsl(0deg, 0%, 100%);
+    --_button-accent-disabled-background-color: hsla(0deg, 0%, 0%, 0.217);
+    --_dropdown-color: hsla(0deg, 0%, 0%, 0.896);
+    --_dropdown-background-color: hsla(0deg, 0%, 100%, 0.7);
+    --_dropdown-border-color_1: hsla(0deg, 0%, 0%, 0.058);
+    --_dropdown-border-color_2: hsla(0deg, 0%, 0%, 0.162);
+    --_dropdown-hover-background-color: hsla(0deg, 0%, 98%, 0.5);
+    --_dropdown-active-color: hsla(0deg, 0%, 0%, 0.606);
+    --_dropdown-active-background-color: hsla(0deg, 0%, 98%, 0.3);
+    --_dropdown-active-border-color: hsla(0deg, 0%, 0%, 0.058);
+    --_dropdown-disabled-color: hsla(0deg, 0%, 0%, 0.361);
+    --_dropdown-disabled-background-color: hsla(0deg, 0%, 98%, 0.3);
+    --_dropdown-disabled-border-color: hsla(0deg, 0%, 0%, 0.058);
+    --_context-menu-color: hsla(0deg, 0%, 0%, 0.896);
+    --_context-menu-background-color: hsl(0 0% 100%);
+    --_toggle-switch-background-color: hsla(0deg, 0%, 0%, 0.024);
+    --_toggle-switch-border-color: hsla(0deg, 0%, 0%, 0.446);
+    --_toggle-switch-hover-background-color: hsla(0deg, 0%, 0%, 0.058);
+    --_toggle-switch-active-background-color: hsla(0deg, 0%, 0%, 0.092);
+    --_toggle-switch-disabled-background-color: hsla(0deg, 0%, 100%, 0);
+    --_toggle-switch-disabled-border-color: hsla(0deg, 0%, 0%, 0.217);
+    --_toggle-switch-checked-background-color: hsl(209deg, 100%, 36%);
+    --_toggle-switch-checked-hover-background-color: hsla(209deg, 100%, 36%, 0.9);
+    --_toggle-switch-checked-active-background-color: hsla(209deg, 100%, 36%, 0.8);
+    --_toggle-switch-checked-disabled-background-color: hsla(0deg, 0%, 0%, 0.217);
+    --_thumb-background-color: hsla(0deg, 0%, 0%, 0.606);
+    --_thumb-disabled-background-color: hsla(0deg, 0%, 0%, 0.361);
+    --_thumb-checked-background-color: hsl(0deg, 0%, 100%);
+    --_thumb-checked-border-color: hsla(0deg, 0%, 0%, 0.058);
+    --_thumb-checked-disabled-background-color: hsl(0deg, 0%, 100%);
+    --_label-color: hsla(0deg, 0%, 0%, 0.896);
+    --_label-disabled-color: hsla(0deg, 0%, 0%, 0.361);
+    --_text-box-color: hsla(0deg, 0%, 0%, 0.896);
+    --_text-box-background-color: hsla(0deg, 0%, 100%, 0.7);
+    --_text-box-border-color_1: hsla(0deg, 0%, 0%, 0.058);
+    --_text-box-border-color_2: hsla(0deg, 0%, 0%, 0.446);
+    --_text-box-placeholder-color: hsla(0deg, 0%, 0%, 0.606);
+    --_text-box-selection-color: hsl(0deg, 0%, 100%);
+    --_text-box-selection-background-color: hsl(206deg, 100%, 42%);
+    --_text-box-hover-background-color: hsla(0deg, 0%, 98%, 0.5);
+    --_text-box-active-focus-background-color: hsl(0deg, 0%, 100%);
+    --_text-box-active-focus-border-color_1: hsla(0deg, 0%, 0%, 0.058);
+    --_text-box-active-focus-border-color_2: hsl(209deg, 100%, 36%);
+    --_text-box-disabled-color: hsla(0deg, 0%, 0%, 0.361);
+    --_text-box-disabled-background-color: hsla(0deg, 0%, 98%, 0.3);
+    --_text-box-disabled-border-color: hsla(0deg, 0%, 0%, 0.058);
+    --_text-box-disabled-placeholder-color: hsla(0deg, 0%, 0%, 0.361);
+    --_app-surface-base-active-background-color: hsla(0deg, 0%, 95%, 0.5), hsl(0deg, 0%, 95%);
+    --_app-surface-base-active-border-color: hsla(0deg, 0%, 46%, 0.4);
+    --_app-surface-base-active-box-shadow: 0 32px 64px hsla(0deg, 0%, 0%, 0.28), 0 2px 21px hsla(0deg, 0%, 0%, 0.22);
+    --_app-surface-base-inactive-background-color: hsl(0deg, 0%, 95%);
+    --_app-surface-base-inactive-box-shadow: 0 16px 32px hsla(0deg, 0%, 0%, 0.188), 0 2px 10.67px hsla(0deg, 0%, 0%, 0.147);
+    --_app-surface-layer-active-background-color: hsla(0deg, 0%, 100%, 0.5);
+    --_app-surface-layer-active-border-color: hsla(0deg, 0%, 0%, 0.058);
+    --_app-surface-layer-inactive-background-color: hsl(0deg, 0%, 98%);
+    --_focus-rect-outline-color-outer: hsla(0deg, 0%, 0%, 0.896);
+    --_focus-rect-outline-color-inner: hsl(0deg, 0%, 100%);
+    --_icon-button-color: hsla(0deg, 0%, 0%, 0.896);
+    --_icon-button-background-color: hsla(0deg, 0%, 100%, 0);
+    --_icon-button-hover-background-color: hsla(0deg, 0%, 0%, 0.037);
+    --_icon-button-active-color: hsla(0deg, 0%, 0%, 0.606);
+    --_icon-button-active-background-color: hsla(0deg, 0%, 0%, 0.024);
+    --_icon-button-disabled-color: hsla(0deg, 0%, 0%, 0.361);
+    --_icon-button-disabled-background-color: hsla(0deg, 0%, 0%, 0);
+  }
+  .f-dropdown {
+    background-image: url("data:image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='hsla(0deg, 0%, 0%, 0.606)' d='M2.15 4.65c.2-.2.5-.2.7 0L6 7.79l3.15-3.14a.5.5 0 11.7.7l-3.5 3.5a.5.5 0 01-.7 0l-3.5-3.5a.5.5 0 010-.7z'/></svg>");
+  }
+  .f-dropdown:active {
+    background-image: url("data:image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='hsla(0deg, 0%, 0%, 0.446)' d='M2.15 4.65c.2-.2.5-.2.7 0L6 7.79l3.15-3.14a.5.5 0 11.7.7l-3.5 3.5a.5.5 0 01-.7 0l-3.5-3.5a.5.5 0 010-.7z'/></svg>");
+  }
+  .f-dropdown:disabled {
+    background-image: url("data:image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='hsla(0deg, 0%, 0%, 0.361)' d='M2.15 4.65c.2-.2.5-.2.7 0L6 7.79l3.15-3.14a.5.5 0 11.7.7l-3.5 3.5a.5.5 0 01-.7 0l-3.5-3.5a.5.5 0 010-.7z'/></svg>");
+  }
+  .js-fi--new-tab {
+    background-image: url("data:image/svg+xml, <svg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><path fill='hsla(0deg, 0%, 0%, 0.896)' d='M3 5.5A2.5 2.5 0 015.5 3h9A2.5 2.5 0 0117 5.5v9a2.5 2.5 0 01-2.5 2.5h-9A2.5 2.5 0 013 14.5v-9zM16 6v-.5c0-.83-.67-1.5-1.5-1.5H9v1.5c0 .28.22.5.5.5H16zM8 4H5.5C4.67 4 4 4.67 4 5.5v9c0 .83.67 1.5 1.5 1.5h9c.83 0 1.5-.67 1.5-1.5V7H9.5A1.5 1.5 0 018 5.5V4z'/></svg>");
+  }
+  .js-fi--current-tab {
+    background-image: url("data:image/svg+xml, <svg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><path fill='hsla(0deg, 0%, 0%, 0.896)' d='M5.5 3h9A2.5 2.5 0 0117 5.5v9a2.5 2.5 0 01-2.5 2.5h-9A2.5 2.5 0 013 14.5v-9A2.5 2.5 0 015.5 3zM4 5.5v1.8L7.3 4H5.5C4.67 4 4 4.67 4 5.5zm0 3.2v2.6L11.3 4H8.7L4 8.7zM12.7 4L4 12.7v1.8c0 .23.05.45.15.65l11-11A1.5 1.5 0 0014.5 4h-1.8zm3.15.85l-11 11c.2.1.42.15.65.15h1.8L16 7.3V5.5c0-.23-.05-.45-.15-.65zM16 8.71L8.7 16h2.6l4.7-4.7V8.7zm0 4L12.7 16h1.8c.83 0 1.5-.67 1.5-1.5v-1.8z'/></svg>");
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --_root-background-color: hsl(0 0% 7%);
+    --_section-critical-background-color: hsl(2deg, 28%, 21%);
+    color-scheme: dark;
+    --_button-standard-color: hsl(0deg, 0%, 100%);
+    --_button-standard-background-color: hsla(0deg, 0%, 100%, 0.061);
+    --_button-standard-border-color_1: hsla(0deg, 0%, 100%, 0.093);
+    --_button-standard-border-color_2: hsla(0deg, 0%, 100%, 0.07);
+    --_button-standard-hover-background-color: hsla(0deg, 0%, 100%, 0.084);
+    --_button-standard-active-color: hsla(0deg, 0%, 100%, 0.786);
+    --_button-standard-active-background-color: hsla(0deg, 0%, 100%, 0.033);
+    --_button-standard-active-border-color: hsla(0deg, 0%, 100%, 0.07);
+    --_button-standard-disabled-color: hsla(0deg, 0%, 100%, 0.363);
+    --_button-standard-disabled-background-color: hsla(0deg, 0%, 100%, 0.042);
+    --_button-standard-disabled-border-color: hsla(0deg, 0%, 100%, 0.07);
+    --_button-accent-color: hsl(0deg, 0%, 0%);
+    --_button-accent-background-color: hsl(199deg, 100%, 69%);
+    --_button-accent-border-color_1: hsla(0deg, 0%, 100%, 0.08);
+    --_button-accent-border-color_2: hsla(0deg, 0%, 0%, 0.14);
+    --_button-accent-hover-background-color: hsla(199deg, 100%, 69%, 0.9);
+    --_button-accent-active-color: hsla(0deg, 0%, 0%, 0.5);
+    --_button-accent-active-background-color: hsla(199deg, 100%, 69%, 0.8);
+    --_button-accent-active-border-color: hsla(0deg, 0%, 100%, 0.08);
+    --_button-accent-disabled-color: hsla(0deg, 0%, 100%, 0.53);
+    --_button-accent-disabled-background-color: hsla(0deg, 0%, 100%, 0.158);
+    --_dropdown-color: hsl(0deg, 0%, 100%);
+    --_dropdown-background-color: hsla(0deg, 0%, 100%, 0.061);
+    --_dropdown-border-color_1: hsla(0deg, 0%, 100%, 0.093);
+    --_dropdown-border-color_2: hsla(0deg, 0%, 100%, 0.07);
+    --_dropdown-hover-background-color: hsla(0deg, 0%, 100%, 0.084);
+    --_dropdown-active-color: hsla(0deg, 0%, 100%, 0.786);
+    --_dropdown-active-background-color: hsla(0deg, 0%, 100%, 0.033);
+    --_dropdown-active-border-color: hsla(0deg, 0%, 100%, 0.07);
+    --_dropdown-disabled-color: hsla(0deg, 0%, 100%, 0.363);
+    --_dropdown-disabled-background-color: hsla(0deg, 0%, 100%, 0.042);
+    --_dropdown-disabled-border-color: hsla(0deg, 0%, 100%, 0.07);
+    --_context-menu-color: hsl(0deg, 0%, 100%);
+    --_context-menu-background-color: hsl(0 0% 0%);
+    --_toggle-switch-background-color: hsla(0deg, 0%, 0%, 0.1);
+    --_toggle-switch-border-color: hsla(0deg, 0%, 100%, 0.544);
+    --_toggle-switch-hover-background-color: hsla(0deg, 0%, 100%, 0.042);
+    --_toggle-switch-active-background-color: hsla(0deg, 0%, 100%, 0.07);
+    --_toggle-switch-disabled-background-color: hsla(0deg, 0%, 100%, 0);
+    --_toggle-switch-disabled-border-color: hsla(0deg, 0%, 100%, 0.158);
+    --_toggle-switch-checked-background-color: hsl(199deg, 100%, 69%);
+    --_toggle-switch-checked-hover-background-color: hsla(199deg, 100%, 69%, 0.9);
+    --_toggle-switch-checked-active-background-color: hsla(199deg, 100%, 69%, 0.8);
+    --_toggle-switch-checked-disabled-background-color: hsla(0deg, 0%, 100%, 0.158);
+    --_thumb-background-color: hsla(0deg, 0%, 100%, 0.786);
+    --_thumb-disabled-background-color: hsla(0deg, 0%, 100%, 0.363);
+    --_thumb-checked-background-color: hsl(0deg, 0%, 0%);
+    --_thumb-checked-border-color: hsla(0deg, 0%, 100%, 0.093);
+    --_thumb-checked-disabled-background-color: hsla(0deg, 0%, 100%, 0.53);
+    --_label-color: hsl(0deg, 0%, 100%);
+    --_label-disabled-color: hsla(0deg, 0%, 100%, 0.363);
+    --_text-box-color: hsl(0deg, 0%, 100%);
+    --_text-box-background-color: hsla(0deg, 0%, 100%, 0.061);
+    --_text-box-border-color_1: hsla(0deg, 0%, 100%, 0.08);
+    --_text-box-border-color_2: hsla(0deg, 0%, 100%, 0.544);
+    --_text-box-placeholder-color: hsla(0deg, 0%, 100%, 0.786);
+    --_text-box-selection-color: hsl(0deg, 0%, 100%);
+    --_text-box-selection-background-color: hsl(206deg, 100%, 42%);
+    --_text-box-hover-background-color: hsla(0deg, 0%, 100%, 0.084);
+    --_text-box-active-focus-background-color: hsla(0deg, 0%, 12%, 0.7);
+    --_text-box-active-focus-border-color_1: hsla(0deg, 0%, 100%, 0.07);
+    --_text-box-active-focus-border-color_2: hsl(199deg, 100%, 69%);
+    --_text-box-disabled-color: hsla(0deg, 0%, 100%, 0.363);
+    --_text-box-disabled-background-color: hsla(0deg, 0%, 100%, 0.042);
+    --_text-box-disabled-border-color: hsla(0deg, 0%, 100%, 0.07);
+    --_text-box-disabled-placeholder-color: hsla(0deg, 0%, 100%, 0.363);
+    --_app-surface-base-active-background-color: hsla(0deg, 0%, 13%, 0.8), hsl(0deg, 0%, 13%);
+    --_app-surface-base-active-border-color: hsla(0deg, 0%, 46%, 0.4);
+    --_app-surface-base-active-box-shadow: 0 32px 64px hsla(0deg, 0%, 0%, 0.56), 0 2px 21px hsla(0deg, 0%, 0%, 0.55);
+    --_app-surface-base-inactive-background-color: hsl(0deg, 0%, 13%);
+    --_app-surface-base-inactive-box-shadow: 0 16px 32px hsla(0deg, 0%, 0%, 0.37), 0 2px 10.67px hsla(0deg, 0%, 0%, 0.37);
+    --_app-surface-layer-active-background-color: hsla(0deg, 0%, 23%, 0.3);
+    --_app-surface-layer-active-border-color: hsla(0deg, 0%, 0%, 0.1);
+    --_app-surface-layer-inactive-background-color: hsl(0deg, 0%, 16%);
+    --_focus-rect-outline-color-outer: hsl(0deg, 0%, 100%);
+    --_focus-rect-outline-color-inner: hsla(0deg, 0%, 0%, 0.7);
+    --_icon-button-color: hsl(0deg, 0%, 100%);
+    --_icon-button-background-color: hsla(0deg, 0%, 100%, 0);
+    --_icon-button-hover-background-color: hsla(0deg, 0%, 100%, 0.061);
+    --_icon-button-active-color: hsla(0deg, 0%, 100%, 0.786);
+    --_icon-button-active-background-color: hsla(0deg, 0%, 100%, 0.042);
+    --_icon-button-disabled-color: hsla(0deg, 0%, 100%, 0.363);
+    --_icon-button-disabled-background-color: hsla(0deg, 0%, 100%, 0);
+  }
+  .f-dropdown {
+    background-image: url("data:image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='hsla(0deg, 0%, 100%, 0.786)' d='M2.15 4.65c.2-.2.5-.2.7 0L6 7.79l3.15-3.14a.5.5 0 11.7.7l-3.5 3.5a.5.5 0 01-.7 0l-3.5-3.5a.5.5 0 010-.7z'/></svg>");
+  }
+  .f-dropdown:active {
+    background-image: url("data:image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='hsla(0deg, 0%, 100%, 0.544)' d='M2.15 4.65c.2-.2.5-.2.7 0L6 7.79l3.15-3.14a.5.5 0 11.7.7l-3.5 3.5a.5.5 0 01-.7 0l-3.5-3.5a.5.5 0 010-.7z'/></svg>");
+  }
+  .f-dropdown:disabled {
+    background-image: url("data:image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='hsla(0deg, 0%, 100%, 0.363)' d='M2.15 4.65c.2-.2.5-.2.7 0L6 7.79l3.15-3.14a.5.5 0 11.7.7l-3.5 3.5a.5.5 0 01-.7 0l-3.5-3.5a.5.5 0 010-.7z'/></svg>");
+  }
+  .js-fi--new-tab {
+    background-image: url("data:image/svg+xml, <svg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><path fill='hsl(0deg, 0%, 100%)' d='M3 5.5A2.5 2.5 0 015.5 3h9A2.5 2.5 0 0117 5.5v9a2.5 2.5 0 01-2.5 2.5h-9A2.5 2.5 0 013 14.5v-9zM16 6v-.5c0-.83-.67-1.5-1.5-1.5H9v1.5c0 .28.22.5.5.5H16zM8 4H5.5C4.67 4 4 4.67 4 5.5v9c0 .83.67 1.5 1.5 1.5h9c.83 0 1.5-.67 1.5-1.5V7H9.5A1.5 1.5 0 018 5.5V4z'/></svg>");
+  }
+  .js-fi--current-tab {
+    background-image: url("data:image/svg+xml, <svg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><path fill='hsl(0deg, 0%, 100%)' d='M5.5 3h9A2.5 2.5 0 0117 5.5v9a2.5 2.5 0 01-2.5 2.5h-9A2.5 2.5 0 013 14.5v-9A2.5 2.5 0 015.5 3zM4 5.5v1.8L7.3 4H5.5C4.67 4 4 4.67 4 5.5zm0 3.2v2.6L11.3 4H8.7L4 8.7zM12.7 4L4 12.7v1.8c0 .23.05.45.15.65l11-11A1.5 1.5 0 0014.5 4h-1.8zm3.15.85l-11 11c.2.1.42.15.65.15h1.8L16 7.3V5.5c0-.23-.05-.45-.15-.65zM16 8.71L8.7 16h2.6l4.7-4.7V8.7zm0 4L12.7 16h1.8c.83 0 1.5-.67 1.5-1.5v-1.8z'/></svg>");
+  }
+}
+[data-color-scheme=light] {
+  --_root-background-color: hsl(0 0% 93%);
+  --_section-critical-background-color: hsl(355deg, 85%, 95%);
+  color-scheme: light;
+  --_button-standard-color: hsla(0deg, 0%, 0%, 0.896);
+  --_button-standard-background-color: hsla(0deg, 0%, 100%, 0.7);
+  --_button-standard-border-color_1: hsla(0deg, 0%, 0%, 0.058);
+  --_button-standard-border-color_2: hsla(0deg, 0%, 0%, 0.162);
+  --_button-standard-hover-background-color: hsla(0deg, 0%, 98%, 0.5);
+  --_button-standard-active-color: hsla(0deg, 0%, 0%, 0.606);
+  --_button-standard-active-background-color: hsla(0deg, 0%, 98%, 0.3);
+  --_button-standard-active-border-color: hsla(0deg, 0%, 0%, 0.058);
+  --_button-standard-disabled-color: hsla(0deg, 0%, 0%, 0.361);
+  --_button-standard-disabled-background-color: hsla(0deg, 0%, 98%, 0.3);
+  --_button-standard-disabled-border-color: hsla(0deg, 0%, 0%, 0.058);
+  --_button-accent-color: hsl(0deg, 0%, 100%);
+  --_button-accent-background-color: hsl(209deg, 100%, 36%);
+  --_button-accent-border-color_1: hsla(0deg, 0%, 100%, 0.08);
+  --_button-accent-border-color_2: hsla(0deg, 0%, 0%, 0.4);
+  --_button-accent-hover-background-color: hsla(209deg, 100%, 36%, 0.9);
+  --_button-accent-active-color: hsla(0deg, 0%, 100%, 0.7);
+  --_button-accent-active-background-color: hsla(209deg, 100%, 36%, 0.8);
+  --_button-accent-active-border-color: hsla(0deg, 0%, 100%, 0.08);
+  --_button-accent-disabled-color: hsl(0deg, 0%, 100%);
+  --_button-accent-disabled-background-color: hsla(0deg, 0%, 0%, 0.217);
+  --_dropdown-color: hsla(0deg, 0%, 0%, 0.896);
+  --_dropdown-background-color: hsla(0deg, 0%, 100%, 0.7);
+  --_dropdown-border-color_1: hsla(0deg, 0%, 0%, 0.058);
+  --_dropdown-border-color_2: hsla(0deg, 0%, 0%, 0.162);
+  --_dropdown-hover-background-color: hsla(0deg, 0%, 98%, 0.5);
+  --_dropdown-active-color: hsla(0deg, 0%, 0%, 0.606);
+  --_dropdown-active-background-color: hsla(0deg, 0%, 98%, 0.3);
+  --_dropdown-active-border-color: hsla(0deg, 0%, 0%, 0.058);
+  --_dropdown-disabled-color: hsla(0deg, 0%, 0%, 0.361);
+  --_dropdown-disabled-background-color: hsla(0deg, 0%, 98%, 0.3);
+  --_dropdown-disabled-border-color: hsla(0deg, 0%, 0%, 0.058);
+  --_context-menu-color: hsla(0deg, 0%, 0%, 0.896);
+  --_context-menu-background-color: hsl(0 0% 100%);
+  --_toggle-switch-background-color: hsla(0deg, 0%, 0%, 0.024);
+  --_toggle-switch-border-color: hsla(0deg, 0%, 0%, 0.446);
+  --_toggle-switch-hover-background-color: hsla(0deg, 0%, 0%, 0.058);
+  --_toggle-switch-active-background-color: hsla(0deg, 0%, 0%, 0.092);
+  --_toggle-switch-disabled-background-color: hsla(0deg, 0%, 100%, 0);
+  --_toggle-switch-disabled-border-color: hsla(0deg, 0%, 0%, 0.217);
+  --_toggle-switch-checked-background-color: hsl(209deg, 100%, 36%);
+  --_toggle-switch-checked-hover-background-color: hsla(209deg, 100%, 36%, 0.9);
+  --_toggle-switch-checked-active-background-color: hsla(209deg, 100%, 36%, 0.8);
+  --_toggle-switch-checked-disabled-background-color: hsla(0deg, 0%, 0%, 0.217);
+  --_thumb-background-color: hsla(0deg, 0%, 0%, 0.606);
+  --_thumb-disabled-background-color: hsla(0deg, 0%, 0%, 0.361);
+  --_thumb-checked-background-color: hsl(0deg, 0%, 100%);
+  --_thumb-checked-border-color: hsla(0deg, 0%, 0%, 0.058);
+  --_thumb-checked-disabled-background-color: hsl(0deg, 0%, 100%);
+  --_label-color: hsla(0deg, 0%, 0%, 0.896);
+  --_label-disabled-color: hsla(0deg, 0%, 0%, 0.361);
+  --_text-box-color: hsla(0deg, 0%, 0%, 0.896);
+  --_text-box-background-color: hsla(0deg, 0%, 100%, 0.7);
+  --_text-box-border-color_1: hsla(0deg, 0%, 0%, 0.058);
+  --_text-box-border-color_2: hsla(0deg, 0%, 0%, 0.446);
+  --_text-box-placeholder-color: hsla(0deg, 0%, 0%, 0.606);
+  --_text-box-selection-color: hsl(0deg, 0%, 100%);
+  --_text-box-selection-background-color: hsl(206deg, 100%, 42%);
+  --_text-box-hover-background-color: hsla(0deg, 0%, 98%, 0.5);
+  --_text-box-active-focus-background-color: hsl(0deg, 0%, 100%);
+  --_text-box-active-focus-border-color_1: hsla(0deg, 0%, 0%, 0.058);
+  --_text-box-active-focus-border-color_2: hsl(209deg, 100%, 36%);
+  --_text-box-disabled-color: hsla(0deg, 0%, 0%, 0.361);
+  --_text-box-disabled-background-color: hsla(0deg, 0%, 98%, 0.3);
+  --_text-box-disabled-border-color: hsla(0deg, 0%, 0%, 0.058);
+  --_text-box-disabled-placeholder-color: hsla(0deg, 0%, 0%, 0.361);
+  --_app-surface-base-active-background-color: hsla(0deg, 0%, 95%, 0.5), hsl(0deg, 0%, 95%);
+  --_app-surface-base-active-border-color: hsla(0deg, 0%, 46%, 0.4);
+  --_app-surface-base-active-box-shadow: 0 32px 64px hsla(0deg, 0%, 0%, 0.28), 0 2px 21px hsla(0deg, 0%, 0%, 0.22);
+  --_app-surface-base-inactive-background-color: hsl(0deg, 0%, 95%);
+  --_app-surface-base-inactive-box-shadow: 0 16px 32px hsla(0deg, 0%, 0%, 0.188), 0 2px 10.67px hsla(0deg, 0%, 0%, 0.147);
+  --_app-surface-layer-active-background-color: hsla(0deg, 0%, 100%, 0.5);
+  --_app-surface-layer-active-border-color: hsla(0deg, 0%, 0%, 0.058);
+  --_app-surface-layer-inactive-background-color: hsl(0deg, 0%, 98%);
+  --_focus-rect-outline-color-outer: hsla(0deg, 0%, 0%, 0.896);
+  --_focus-rect-outline-color-inner: hsl(0deg, 0%, 100%);
+  --_icon-button-color: hsla(0deg, 0%, 0%, 0.896);
+  --_icon-button-background-color: hsla(0deg, 0%, 100%, 0);
+  --_icon-button-hover-background-color: hsla(0deg, 0%, 0%, 0.037);
+  --_icon-button-active-color: hsla(0deg, 0%, 0%, 0.606);
+  --_icon-button-active-background-color: hsla(0deg, 0%, 0%, 0.024);
+  --_icon-button-disabled-color: hsla(0deg, 0%, 0%, 0.361);
+  --_icon-button-disabled-background-color: hsla(0deg, 0%, 0%, 0);
+}
+[data-color-scheme=light] .f-dropdown {
+  background-image: url("data:image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='hsla(0deg, 0%, 0%, 0.606)' d='M2.15 4.65c.2-.2.5-.2.7 0L6 7.79l3.15-3.14a.5.5 0 11.7.7l-3.5 3.5a.5.5 0 01-.7 0l-3.5-3.5a.5.5 0 010-.7z'/></svg>");
+}
+[data-color-scheme=light] .f-dropdown:active {
+  background-image: url("data:image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='hsla(0deg, 0%, 0%, 0.446)' d='M2.15 4.65c.2-.2.5-.2.7 0L6 7.79l3.15-3.14a.5.5 0 11.7.7l-3.5 3.5a.5.5 0 01-.7 0l-3.5-3.5a.5.5 0 010-.7z'/></svg>");
+}
+[data-color-scheme=light] .f-dropdown:disabled {
+  background-image: url("data:image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='hsla(0deg, 0%, 0%, 0.361)' d='M2.15 4.65c.2-.2.5-.2.7 0L6 7.79l3.15-3.14a.5.5 0 11.7.7l-3.5 3.5a.5.5 0 01-.7 0l-3.5-3.5a.5.5 0 010-.7z'/></svg>");
+}
+[data-color-scheme=light] .js-fi--new-tab {
+  background-image: url("data:image/svg+xml, <svg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><path fill='hsla(0deg, 0%, 0%, 0.896)' d='M3 5.5A2.5 2.5 0 015.5 3h9A2.5 2.5 0 0117 5.5v9a2.5 2.5 0 01-2.5 2.5h-9A2.5 2.5 0 013 14.5v-9zM16 6v-.5c0-.83-.67-1.5-1.5-1.5H9v1.5c0 .28.22.5.5.5H16zM8 4H5.5C4.67 4 4 4.67 4 5.5v9c0 .83.67 1.5 1.5 1.5h9c.83 0 1.5-.67 1.5-1.5V7H9.5A1.5 1.5 0 018 5.5V4z'/></svg>");
+}
+[data-color-scheme=light] .js-fi--current-tab {
+  background-image: url("data:image/svg+xml, <svg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><path fill='hsla(0deg, 0%, 0%, 0.896)' d='M5.5 3h9A2.5 2.5 0 0117 5.5v9a2.5 2.5 0 01-2.5 2.5h-9A2.5 2.5 0 013 14.5v-9A2.5 2.5 0 015.5 3zM4 5.5v1.8L7.3 4H5.5C4.67 4 4 4.67 4 5.5zm0 3.2v2.6L11.3 4H8.7L4 8.7zM12.7 4L4 12.7v1.8c0 .23.05.45.15.65l11-11A1.5 1.5 0 0014.5 4h-1.8zm3.15.85l-11 11c.2.1.42.15.65.15h1.8L16 7.3V5.5c0-.23-.05-.45-.15-.65zM16 8.71L8.7 16h2.6l4.7-4.7V8.7zm0 4L12.7 16h1.8c.83 0 1.5-.67 1.5-1.5v-1.8z'/></svg>");
+}
+
+[data-color-scheme=dark] {
+  --_root-background-color: hsl(0 0% 7%);
+  --_section-critical-background-color: hsl(2deg, 28%, 21%);
+  color-scheme: dark;
+  --_button-standard-color: hsl(0deg, 0%, 100%);
+  --_button-standard-background-color: hsla(0deg, 0%, 100%, 0.061);
+  --_button-standard-border-color_1: hsla(0deg, 0%, 100%, 0.093);
+  --_button-standard-border-color_2: hsla(0deg, 0%, 100%, 0.07);
+  --_button-standard-hover-background-color: hsla(0deg, 0%, 100%, 0.084);
+  --_button-standard-active-color: hsla(0deg, 0%, 100%, 0.786);
+  --_button-standard-active-background-color: hsla(0deg, 0%, 100%, 0.033);
+  --_button-standard-active-border-color: hsla(0deg, 0%, 100%, 0.07);
+  --_button-standard-disabled-color: hsla(0deg, 0%, 100%, 0.363);
+  --_button-standard-disabled-background-color: hsla(0deg, 0%, 100%, 0.042);
+  --_button-standard-disabled-border-color: hsla(0deg, 0%, 100%, 0.07);
+  --_button-accent-color: hsl(0deg, 0%, 0%);
+  --_button-accent-background-color: hsl(199deg, 100%, 69%);
+  --_button-accent-border-color_1: hsla(0deg, 0%, 100%, 0.08);
+  --_button-accent-border-color_2: hsla(0deg, 0%, 0%, 0.14);
+  --_button-accent-hover-background-color: hsla(199deg, 100%, 69%, 0.9);
+  --_button-accent-active-color: hsla(0deg, 0%, 0%, 0.5);
+  --_button-accent-active-background-color: hsla(199deg, 100%, 69%, 0.8);
+  --_button-accent-active-border-color: hsla(0deg, 0%, 100%, 0.08);
+  --_button-accent-disabled-color: hsla(0deg, 0%, 100%, 0.53);
+  --_button-accent-disabled-background-color: hsla(0deg, 0%, 100%, 0.158);
+  --_dropdown-color: hsl(0deg, 0%, 100%);
+  --_dropdown-background-color: hsla(0deg, 0%, 100%, 0.061);
+  --_dropdown-border-color_1: hsla(0deg, 0%, 100%, 0.093);
+  --_dropdown-border-color_2: hsla(0deg, 0%, 100%, 0.07);
+  --_dropdown-hover-background-color: hsla(0deg, 0%, 100%, 0.084);
+  --_dropdown-active-color: hsla(0deg, 0%, 100%, 0.786);
+  --_dropdown-active-background-color: hsla(0deg, 0%, 100%, 0.033);
+  --_dropdown-active-border-color: hsla(0deg, 0%, 100%, 0.07);
+  --_dropdown-disabled-color: hsla(0deg, 0%, 100%, 0.363);
+  --_dropdown-disabled-background-color: hsla(0deg, 0%, 100%, 0.042);
+  --_dropdown-disabled-border-color: hsla(0deg, 0%, 100%, 0.07);
+  --_context-menu-color: hsl(0deg, 0%, 100%);
+  --_context-menu-background-color: hsl(0 0% 0%);
+  --_toggle-switch-background-color: hsla(0deg, 0%, 0%, 0.1);
+  --_toggle-switch-border-color: hsla(0deg, 0%, 100%, 0.544);
+  --_toggle-switch-hover-background-color: hsla(0deg, 0%, 100%, 0.042);
+  --_toggle-switch-active-background-color: hsla(0deg, 0%, 100%, 0.07);
+  --_toggle-switch-disabled-background-color: hsla(0deg, 0%, 100%, 0);
+  --_toggle-switch-disabled-border-color: hsla(0deg, 0%, 100%, 0.158);
+  --_toggle-switch-checked-background-color: hsl(199deg, 100%, 69%);
+  --_toggle-switch-checked-hover-background-color: hsla(199deg, 100%, 69%, 0.9);
+  --_toggle-switch-checked-active-background-color: hsla(199deg, 100%, 69%, 0.8);
+  --_toggle-switch-checked-disabled-background-color: hsla(0deg, 0%, 100%, 0.158);
+  --_thumb-background-color: hsla(0deg, 0%, 100%, 0.786);
+  --_thumb-disabled-background-color: hsla(0deg, 0%, 100%, 0.363);
+  --_thumb-checked-background-color: hsl(0deg, 0%, 0%);
+  --_thumb-checked-border-color: hsla(0deg, 0%, 100%, 0.093);
+  --_thumb-checked-disabled-background-color: hsla(0deg, 0%, 100%, 0.53);
+  --_label-color: hsl(0deg, 0%, 100%);
+  --_label-disabled-color: hsla(0deg, 0%, 100%, 0.363);
+  --_text-box-color: hsl(0deg, 0%, 100%);
+  --_text-box-background-color: hsla(0deg, 0%, 100%, 0.061);
+  --_text-box-border-color_1: hsla(0deg, 0%, 100%, 0.08);
+  --_text-box-border-color_2: hsla(0deg, 0%, 100%, 0.544);
+  --_text-box-placeholder-color: hsla(0deg, 0%, 100%, 0.786);
+  --_text-box-selection-color: hsl(0deg, 0%, 100%);
+  --_text-box-selection-background-color: hsl(206deg, 100%, 42%);
+  --_text-box-hover-background-color: hsla(0deg, 0%, 100%, 0.084);
+  --_text-box-active-focus-background-color: hsla(0deg, 0%, 12%, 0.7);
+  --_text-box-active-focus-border-color_1: hsla(0deg, 0%, 100%, 0.07);
+  --_text-box-active-focus-border-color_2: hsl(199deg, 100%, 69%);
+  --_text-box-disabled-color: hsla(0deg, 0%, 100%, 0.363);
+  --_text-box-disabled-background-color: hsla(0deg, 0%, 100%, 0.042);
+  --_text-box-disabled-border-color: hsla(0deg, 0%, 100%, 0.07);
+  --_text-box-disabled-placeholder-color: hsla(0deg, 0%, 100%, 0.363);
+  --_app-surface-base-active-background-color: hsla(0deg, 0%, 13%, 0.8), hsl(0deg, 0%, 13%);
+  --_app-surface-base-active-border-color: hsla(0deg, 0%, 46%, 0.4);
+  --_app-surface-base-active-box-shadow: 0 32px 64px hsla(0deg, 0%, 0%, 0.56), 0 2px 21px hsla(0deg, 0%, 0%, 0.55);
+  --_app-surface-base-inactive-background-color: hsl(0deg, 0%, 13%);
+  --_app-surface-base-inactive-box-shadow: 0 16px 32px hsla(0deg, 0%, 0%, 0.37), 0 2px 10.67px hsla(0deg, 0%, 0%, 0.37);
+  --_app-surface-layer-active-background-color: hsla(0deg, 0%, 23%, 0.3);
+  --_app-surface-layer-active-border-color: hsla(0deg, 0%, 0%, 0.1);
+  --_app-surface-layer-inactive-background-color: hsl(0deg, 0%, 16%);
+  --_focus-rect-outline-color-outer: hsl(0deg, 0%, 100%);
+  --_focus-rect-outline-color-inner: hsla(0deg, 0%, 0%, 0.7);
+  --_icon-button-color: hsl(0deg, 0%, 100%);
+  --_icon-button-background-color: hsla(0deg, 0%, 100%, 0);
+  --_icon-button-hover-background-color: hsla(0deg, 0%, 100%, 0.061);
+  --_icon-button-active-color: hsla(0deg, 0%, 100%, 0.786);
+  --_icon-button-active-background-color: hsla(0deg, 0%, 100%, 0.042);
+  --_icon-button-disabled-color: hsla(0deg, 0%, 100%, 0.363);
+  --_icon-button-disabled-background-color: hsla(0deg, 0%, 100%, 0);
+}
+[data-color-scheme=dark] .f-dropdown {
+  background-image: url("data:image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='hsla(0deg, 0%, 100%, 0.786)' d='M2.15 4.65c.2-.2.5-.2.7 0L6 7.79l3.15-3.14a.5.5 0 11.7.7l-3.5 3.5a.5.5 0 01-.7 0l-3.5-3.5a.5.5 0 010-.7z'/></svg>");
+}
+[data-color-scheme=dark] .f-dropdown:active {
+  background-image: url("data:image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='hsla(0deg, 0%, 100%, 0.544)' d='M2.15 4.65c.2-.2.5-.2.7 0L6 7.79l3.15-3.14a.5.5 0 11.7.7l-3.5 3.5a.5.5 0 01-.7 0l-3.5-3.5a.5.5 0 010-.7z'/></svg>");
+}
+[data-color-scheme=dark] .f-dropdown:disabled {
+  background-image: url("data:image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='hsla(0deg, 0%, 100%, 0.363)' d='M2.15 4.65c.2-.2.5-.2.7 0L6 7.79l3.15-3.14a.5.5 0 11.7.7l-3.5 3.5a.5.5 0 01-.7 0l-3.5-3.5a.5.5 0 010-.7z'/></svg>");
+}
+[data-color-scheme=dark] .js-fi--new-tab {
+  background-image: url("data:image/svg+xml, <svg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><path fill='hsl(0deg, 0%, 100%)' d='M3 5.5A2.5 2.5 0 015.5 3h9A2.5 2.5 0 0117 5.5v9a2.5 2.5 0 01-2.5 2.5h-9A2.5 2.5 0 013 14.5v-9zM16 6v-.5c0-.83-.67-1.5-1.5-1.5H9v1.5c0 .28.22.5.5.5H16zM8 4H5.5C4.67 4 4 4.67 4 5.5v9c0 .83.67 1.5 1.5 1.5h9c.83 0 1.5-.67 1.5-1.5V7H9.5A1.5 1.5 0 018 5.5V4z'/></svg>");
+}
+[data-color-scheme=dark] .js-fi--current-tab {
+  background-image: url("data:image/svg+xml, <svg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><path fill='hsl(0deg, 0%, 100%)' d='M5.5 3h9A2.5 2.5 0 0117 5.5v9a2.5 2.5 0 01-2.5 2.5h-9A2.5 2.5 0 013 14.5v-9A2.5 2.5 0 015.5 3zM4 5.5v1.8L7.3 4H5.5C4.67 4 4 4.67 4 5.5zm0 3.2v2.6L11.3 4H8.7L4 8.7zM12.7 4L4 12.7v1.8c0 .23.05.45.15.65l11-11A1.5 1.5 0 0014.5 4h-1.8zm3.15.85l-11 11c.2.1.42.15.65.15h1.8L16 7.3V5.5c0-.23-.05-.45-.15-.65zM16 8.71L8.7 16h2.6l4.7-4.7V8.7zm0 4L12.7 16h1.8c.83 0 1.5-.67 1.5-1.5v-1.8z'/></svg>");
+}
+
+:root {
+  background-color: var(--_root-background-color);
+}
+
+.f-button,
+.f-dropdown,
+.f-text-box {
+  inline-size: 100%;
+}
+
+.f-button--standard {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.f-label {
+  block-size: 20px;
+  inline-size: 20px;
+}
+
+.f-text-box {
+  padding-inline-end: 11px;
+}
+
+.f-icon-button {
+  block-size: 32px;
+  inline-size: 32px;
+  margin: 0;
+}
+.f-icon-button svg {
+  pointer-events: none;
+}
+
+.l-body {
+  margin: 0;
+}
+
+.l-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  inline-size: 490px;
+  padding: 8px;
+}
+
+.l-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 8px;
+}
+.l-section--row {
+  grid-template-rows: 1fr;
+  column-gap: 8px;
+}
+.l-section--rows {
+  grid-template-rows: repeat(5, 1fr);
+  gap: 8px;
+  transition-property: background-color;
+  transition-duration: 187ms;
+  transition-timing-function: cubic-bezier(0, 0, 0, 1);
+}
+
+.l-toggle-switch-wrapper {
+  align-self: center;
+}
+
+.l-button-options {
+  grid-column: 4/5;
+  justify-self: end;
+}
+
+.l-select-version {
+  grid-column: span 2;
+}
+
+.l-input-url {
+  grid-column: span 3;
+}
+
+.l-button-published-signin {
+  grid-column: 1/2;
+}
+
+.animation-0 {
+  animation-name: slide-down-in, fade-in;
+  animation-duration: 187ms, 83ms;
+  animation-timing-function: cubic-bezier(0, 0, 0, 1), linear;
+  animation-delay: 0ms, 0ms;
+  animation-fill-mode: both, both;
+}
+
+.js-invisible {
+  display: none;
+}
+.js-critical {
+  background-color: var(--_section-critical-background-color);
+}
+
+.js-animation-1 {
+  animation-name: slide-down-in, fade-in;
+  animation-duration: 187ms, 83ms;
+  animation-timing-function: cubic-bezier(0, 0, 0, 1), linear;
+  animation-delay: 83ms, 83ms;
+  animation-fill-mode: both, both;
+}
+
+.js-animation-2 {
+  animation-name: slide-down-in, fade-in;
+  animation-duration: 187ms, 83ms;
+  animation-timing-function: cubic-bezier(0, 0, 0, 1), linear;
+  animation-delay: 166ms, 166ms;
+  animation-fill-mode: both, both;
+}

@@ -1,0 +1,148 @@
+// stylelint-disable declaration-colon-space-after
+
+// TODO: 1. ..._ControlElevation_Border, ..._AccentControlElevation_Border, border-color (gradient) + border-radius
+// TODO: 2. input, type="file", ::file-selector-button
+
+@use "../../../styles/typography";
+@use "../../../styles/color";
+@use "../../controls";
+@use "../../primitives/focus-rect/focus-rect";
+
+@mixin light {
+  --_button-standard-color:                     #{color.$Light_Text_Primary};
+  --_button-standard-background-color:          #{color.$Light_ControlFill_Default};
+  --_button-standard-border-color_1:            #{controls.$Light_ControlElevation_Border_1}; // <- FIXME: 1.
+  --_button-standard-border-color_2:            #{controls.$Light_ControlElevation_Border_2}; // <- FIXME: 1.
+  --_button-standard-hover-background-color:    #{color.$Light_ControlFill_Secondary};
+  --_button-standard-active-color:              #{color.$Light_Text_Secondary};
+  --_button-standard-active-background-color:   #{color.$Light_ControlFill_Tertiary};
+  --_button-standard-active-border-color:       #{color.$Light_ControlStroke_Default};
+  --_button-standard-disabled-color:            #{color.$Light_Text_Disabled};
+  --_button-standard-disabled-background-color: #{color.$Light_ControlFill_Disabled};
+  --_button-standard-disabled-border-color:     #{color.$Light_ControlStroke_Default};
+
+  --_button-accent-color:                       #{color.$Light_TextOnAccent_Primary};
+  --_button-accent-background-color:            #{color.$Light_AccentFill_Default};
+  --_button-accent-border-color_1:              #{controls.$Light_AccentControlElevation_Border_1}; // <- FIXME: 1.
+  --_button-accent-border-color_2:              #{controls.$Light_AccentControlElevation_Border_2}; // <- FIXME: 1.
+  --_button-accent-hover-background-color:      #{color.$Light_AccentFill_Secondary};
+  --_button-accent-active-color:                #{color.$Light_TextOnAccent_Secondary};
+  --_button-accent-active-background-color:     #{color.$Light_AccentFill_Tertiary};
+  --_button-accent-active-border-color:         #{color.$Light_ControlStroke_OnAccentDefault};
+  --_button-accent-disabled-color:              #{color.$Light_TextOnAccent_Disabled};
+  --_button-accent-disabled-background-color:   #{color.$Light_AccentFill_Disabled};
+}
+
+@mixin dark {
+  --_button-standard-color:                     #{color.$Dark_Text_Primary};
+  --_button-standard-background-color:          #{color.$Dark_ControlFill_Default};
+  --_button-standard-border-color_1:            #{controls.$Dark_ControlElevation_Border_1}; // <- FIXME: 1.
+  --_button-standard-border-color_2:            #{controls.$Dark_ControlElevation_Border_2}; // <- FIXME: 1.
+  --_button-standard-hover-background-color:    #{color.$Dark_ControlFill_Secondary};
+  --_button-standard-active-color:              #{color.$Dark_Text_Secondary};
+  --_button-standard-active-background-color:   #{color.$Dark_ControlFill_Tertiary};
+  --_button-standard-active-border-color:       #{color.$Dark_ControlStroke_Default};
+  --_button-standard-disabled-color:            #{color.$Dark_Text_Disabled};
+  --_button-standard-disabled-background-color: #{color.$Dark_ControlFill_Disabled};
+  --_button-standard-disabled-border-color:     #{color.$Dark_ControlStroke_Default};
+
+  --_button-accent-color:                       #{color.$Dark_TextOnAccent_Primary};
+  --_button-accent-background-color:            #{color.$Dark_AccentFill_Default};
+  --_button-accent-border-color_1:              #{controls.$Dark_AccentControlElevation_Border_1}; // <- FIXME: 1.
+  --_button-accent-border-color_2:              #{controls.$Dark_AccentControlElevation_Border_2}; // <- FIXME: 1.
+  --_button-accent-hover-background-color:      #{color.$Dark_AccentFill_Secondary};
+  --_button-accent-active-color:                #{color.$Dark_TextOnAccent_Secondary};
+  --_button-accent-active-background-color:     #{color.$Dark_AccentFill_Tertiary};
+  --_button-accent-active-border-color:         #{color.$Dark_ControlStroke_OnAccentDefault};
+  --_button-accent-disabled-color:              #{color.$Dark_TextOnAccent_Disabled};
+  --_button-accent-disabled-background-color:   #{color.$Dark_AccentFill_Disabled};
+}
+
+@mixin _button {
+  box-sizing: border-box; // user agent stylesheet
+  block-size: 32px;
+  inline-size: 120px;
+  padding-block: 4px 6px;
+  padding-inline: 11px;
+  text-align: center; // windows ui, user agent stylesheet
+  border-style: solid;
+  border-width: 1px;
+  border-radius: controls.$controls-border-radius;
+  cursor: pointer; // bootstrap
+  user-select: none;
+
+  @include typography.body;
+  @include controls.transition;
+
+  // &:enabled { ... }
+
+  &:disabled {
+    pointer-events: none;
+  }
+}
+
+.f-button {
+  @include _button;
+}
+
+.f-button--standard {
+  color: var(--_button-standard-color);
+  background-color: var(--_button-standard-background-color);
+  border-color: var(--_button-standard-border-color_1);
+  border-block-end-color: var(--_button-standard-border-color_2);
+
+  // @include _button;
+
+  &:hover {
+    // color: ; // ..._Text_Primary
+    background-color: var(--_button-standard-hover-background-color);
+    // border-color: ; // ..._ControlElevation_Border
+  }
+
+  &:active {
+    color: var(--_button-standard-active-color);
+    background-color: var(--_button-standard-active-background-color);
+    border-color: var(--_button-standard-active-border-color);
+  }
+
+  &:focus-visible {
+    @include focus-rect.focus-rect;
+  }
+
+  &:disabled {
+    color: var(--_button-standard-disabled-color);
+    background-color: var(--_button-standard-disabled-background-color);
+    border-color: var(--_button-standard-disabled-border-color);
+  }
+}
+
+.f-button--accent {
+  color: var(--_button-accent-color);
+  background-color: var(--_button-accent-background-color);
+  border-color: var(--_button-accent-border-color_1);
+  border-block-end-color: var(--_button-accent-border-color_2);
+
+  // @include _button;
+
+  &:hover {
+    // color: ; // ..._TextOnAccent_Primary
+    background-color: var(--_button-accent-hover-background-color);
+    // border-color: ; // ..._AccentControlElevation_Border
+  }
+
+  &:active {
+    color: var(--_button-accent-active-color);
+    background-color: var(--_button-accent-active-background-color);
+    border-color: var(--_button-accent-active-border-color);
+  }
+
+  &:focus-visible {
+    @include focus-rect.focus-rect;
+  }
+
+  &:disabled {
+    color: var(--_button-accent-disabled-color);
+    background-color: var(--_button-accent-disabled-background-color);
+    border-color: transparent; // none
+  }
+}

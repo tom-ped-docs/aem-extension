@@ -1,0 +1,29 @@
+// Fast Invoke (Position, Scale, Rotation)
+$fast-invoke-duration-1:      187ms;
+$fast-invoke-duration-2:      333ms;
+$fast-invoke-duration-3:      500ms;
+$fast-invoke-timing-function: cubic-bezier(0, 0, 0, 1);
+
+// Strong Invoke (Position, Scale)
+$strong-invoke-duration:        667ms;
+$strong-invoke-timing-function: cubic-bezier(.13, 1.62, 0, .92);
+
+// Fast Dismiss (Position, Scale)
+$fast-dismiss-duration-1:      187ms;
+$fast-dismiss-duration-2:      333ms;
+$fast-dismiss-duration-3:      500ms;
+$fast-dismiss-timing-function: cubic-bezier(0, 0, 0, 1);
+
+// Soft Dismiss (Scale)
+$soft-dismiss-duration:        167ms;
+$soft-dismiss-timing-function: cubic-bezier(1, 0, 1, 1);
+
+// Point to point (Position, Scale, Rotation)
+$point-to-point-duration-1:      187ms;
+$point-to-point-duration-2:      333ms;
+$point-to-point-duration-3:      500ms;
+$point-to-point-timing-function: cubic-bezier(.55, .55, 0, 1);
+
+// Fade in + out (Opacity)
+$fade-in-out-duration:        83ms;
+$fade-in-out-timing-function: linear;

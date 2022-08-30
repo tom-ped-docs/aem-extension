@@ -1,0 +1,340 @@
+// Color Styles
+
+// ... Light Theme Colors
+
+// Text
+
+$Light_Text_Primary:              hsl(0 0% 0% / .896);
+$Light_Text_Secondary:            hsl(0 0% 0% / .606);
+$Light_Text_Tertiary:             hsl(0 0% 0% / .446);
+$Light_Text_Disabled:             hsl(0 0% 0% / .361);
+
+$Light_AccentText_Primary:        hsl(215 100% 29%);
+$Light_AccentText_Secondary:      hsl(225 100% 20%);
+$Light_AccentText_Tertiary:       hsl(209 100% 36%);
+$Light_AccentText_Disabled:       hsl(0 0% 0% / .361);
+
+$Light_TextOnAccent_Primary:      hsl(0 0% 100%);
+$Light_TextOnAccent_Secondary:    hsl(0 0% 100% / .7);
+$Light_TextOnAccent_Disabled:     hsl(0 0% 100%);
+$Light_TextOnAccent_SelectedText: hsl(0 0% 100%);
+
+// Fill
+
+$Light_ControlFill_Default:               hsl(0 0% 100% / .7);
+$Light_ControlFill_Secondary:             hsl(0 0% 98% / .5);
+$Light_ControlFill_Tertiary:              hsl(0 0% 98% / .3);
+$Light_ControlFill_Disabled:              hsl(0 0% 98% / .3);
+$Light_ControlFill_Transparent:           hsl(0 0% 100% / 0);
+$Light_ControlFill_InputActive:           hsl(0 0% 100%);
+
+$Light_ControlAltFill_Transparent:        hsl(0 0% 100% / 0);
+$Light_ControlAltFill_Secondary:          hsl(0 0% 0% / .024);
+$Light_ControlAltFill_Tertiary:           hsl(0 0% 0% / .058);
+$Light_ControlAltFill_Quarternary:        hsl(0 0% 0% / .092);
+$Light_ControlAltFill_Disabled:           hsl(0 0% 100% / 0);
+
+$Light_ControlStrongFill_Default:         hsl(0 0% 0% / .446);
+$Light_ControlStrongFill_Disabled:        hsl(0 0% 0% / .317);
+
+$Light_SubtleFill_Transparent:            hsl(0 0% 100% / 0);
+$Light_SubtleFill_Secondary:              hsl(0 0% 0% / .037);
+$Light_SubtleFill_Tertiary:               hsl(0 0% 0% / .024);
+$Light_SubtleFill_Disabled:               hsl(0 0% 0% / 0);
+
+$Light_ControlOnImageFill_Default:        hsl(0 0% 100% / .79);
+$Light_ControlOnImageFill_Secondary:      hsl(0 0% 95%);
+$Light_ControlOnImageFill_Tertiary:       hsl(0 0% 92%);
+$Light_ControlOnImageFill_Disabled:       hsl(0 0% 100% / 0);
+
+$Light_AccentFill_Default:                hsl(209 100% 36%);
+$Light_AccentFill_Secondary:              hsl(209 100% 36% / .9);
+$Light_AccentFill_Tertiary:               hsl(209 100% 36% / .8);
+$Light_AccentFill_Disabled:               hsl(0 0% 0% / .217);
+$Light_AccentFill_SelectedTextBackground: hsl(206 100% 42%);
+
+$Light_ControlSolidFill_Default:          hsl(0 0% 100%);
+
+// Elevation (gradient strokes)
+
+$Light_ControlElevation_Border:            hsl(0 0% 0% / .058), hsl(0 0% 0% / .162);
+$Light_CircleElevation_Border:             hsl(0 0% 0% / .058), hsl(0 0% 0% / .162);
+$Light_TextControlElevation_Border:        hsl(0 0% 0% / .058), hsl(0 0% 0% / .446);
+$Light_TextControlElevation_BorderFocused: hsl(0 0% 0% / .058), hsl(208 100% 38%);
+$Light_AccentControlElevation_Border:      hsl(0 0% 100% / .08), hsl(0 0% 0% / .4);
+
+// Stroke
+
+$Light_ControlStroke_Default:                  hsl(0 0% 0% / .058);
+$Light_ControlStroke_Secondary:                hsl(0 0% 0% / .162);
+$Light_ControlStroke_OnAccentDefault:          hsl(0 0% 100% / .08);
+$Light_ControlStroke_OnAccentSecondary:        hsl(0 0% 0% / .4);
+$Light_ControlStroke_OnAccentTertiary:         hsl(0 0% 0% / .217);
+$Light_ControlStroke_OnAccentDisabled:         hsl(0 0% 0% / .058);
+$Light_ControlStroke_ForStrongFillWhenOnImage: hsl(0 0% 100% / .35);
+
+$Light_CardStroke_Default:                     hsl(0 0% 0% / .058);
+$Light_CardStroke_DefaultSolid:                hsl(0 0% 92%);
+
+$Light_ControlStrongStroke_Default:            hsl(0 0% 0% / .446);
+$Light_ControlStrongStroke_Disabled:           hsl(0 0% 0% / .217);
+
+$Light_SurfaceStroke_Default:                  hsl(0 0% 46% / .4);
+$Light_SurfaceStroke_Flyout:                   hsl(0 0% 0% / .058);
+
+$Light_DividerStroke_Default:                  hsl(0 0% 0% / .08);
+
+$Light_FocusStroke_Outer:                      hsl(0 0% 0% / .896);
+$Light_FocusStroke_Inner:                      hsl(0 0% 100%);
+
+// Backgrounds
+
+$Light_CardBackground_Default:                 hsl(0 0% 100% / .7);
+$Light_CardBackground_Secondary:               hsl(0 0% 96% / .5);
+$Light_CardBackground_Tertiary:                hsl(0 0% 100%);
+
+$Light_SmokeBackground_Default:                hsl(0 0% 0% / .3);
+
+$Light_LayerBackground_Default:                hsl(0 0% 100% / .5);
+$Light_LayerBackground_Alt:                    hsl(0 0% 100%);
+
+$Light_LayerOnAcrylicBackground_Default:       hsl(0 0% 100% / .25);
+
+$Light_LayerOnAccentAcrylicBackground_Default: hsl(0 0% 100% / .25);
+
+$Light_SolidBackground_Base:                   hsl(0 0% 95%);
+$Light_SolidBackground_Secondary:              hsl(0 0% 93%);
+$Light_SolidBackground_Tertiary:               hsl(0 0% 98%);
+$Light_SolidBackground_Quarternary:            hsl(0 0% 100%);
+
+$Light_MicaBackground_Base:                    hsl(0 0% 95% / .5), hsl(0 0% 95%);
+
+$Light_AcrylicBackground_Base:                 hsl(0 0% 95% / 0), hsl(0 0% 95% / .9);
+$Light_AcrylicBackground_Default:              hsl(0 0% 99% / 0), hsl(0 0% 99% / .85);
+
+$Light_AccentAcrylicBackground_Base:           hsl(192 100% 80% / .8), hsl(192 100% 80% / .9);
+$Light_AccentAcrylicBackground_Default:        hsl(192 100% 80% / .8), hsl(192 100% 80% / .9);
+
+// System
+
+$Light_System_Attention:                hsl(209 100% 36%);
+$Light_System_Success:                  hsl(120 78% 27%);
+$Light_System_Caution:                  hsl(36 100% 31%);
+$Light_System_Critical:                 hsl(5 75% 44%);
+$Light_System_Neutral:                  hsl(0 0% 0% / .446);
+$Light_System_SolidNeutral:             hsl(0 0% 54%);
+$Light_System_AttentionBackground:      hsl(0 0% 96% / .5);
+$Light_System_SuccessBackground:        hsl(115 58% 92%);
+$Light_System_CautionBackground:        hsl(47 100% 90%);
+$Light_System_CriticalBackground:       hsl(355 85% 95%);
+$Light_System_NeutralBackground:        hsl(0 0% 0% / .024);
+$Light_System_SolidNeutralBackground:   hsl(0 0% 95%);
+$Light_System_SolidAttentionBackground: hsl(0 0% 97%);
+
+// ... Dark Theme Colors
+
+// Text
+
+$Dark_Text_Primary:              hsl(0 0% 100%);
+$Dark_Text_Secondary:            hsl(0 0% 100% / .786);
+$Dark_Text_Tertiary:             hsl(0 0% 100% / .544);
+$Dark_Text_Disabled:             hsl(0 0% 100% / .363);
+
+$Dark_AccentText_Primary:        hsl(192 100% 80%);
+$Dark_AccentText_Secondary:      hsl(192 100% 80%);
+$Dark_AccentText_Tertiary:       hsl(199 100% 69%);
+$Dark_AccentText_Disabled:       hsl(0 0% 100% / .363);
+
+$Dark_TextOnAccent_Primary:      hsl(0 0% 0%);
+$Dark_TextOnAccent_Secondary:    hsl(0 0% 0% / .5);
+$Dark_TextOnAccent_Disabled:     hsl(0 0% 100% / .53);
+$Dark_TextOnAccent_SelectedText: hsl(0 0% 100%);
+
+// Fill
+
+$Dark_ControlFill_Default:               hsl(0 0% 100% / .061);
+$Dark_ControlFill_Secondary:             hsl(0 0% 100% / .084);
+$Dark_ControlFill_Tertiary:              hsl(0 0% 100% / .033);
+$Dark_ControlFill_Disabled:              hsl(0 0% 100% / .042);
+$Dark_ControlFill_Transparent:           hsl(0 0% 100% / 0);
+$Dark_ControlFill_InputActive:           hsl(0 0% 12% / .7);
+
+$Dark_ControlAltFill_Transparent:        hsl(0 0% 100% / 0);
+$Dark_ControlAltFill_Secondary:          hsl(0 0% 0% / .1);
+$Dark_ControlAltFill_Tertiary:           hsl(0 0% 100% / .042);
+$Dark_ControlAltFill_Quarternary:        hsl(0 0% 100% / .07);
+$Dark_ControlAltFill_Disabled:           hsl(0 0% 100% / 0);
+
+$Dark_ControlStrongFill_Default:         hsl(0 0% 100% / .544);
+$Dark_ControlStrongFill_Disabled:        hsl(0 0% 100% / .247);
+
+$Dark_SubtleFill_Transparent:            hsl(0 0% 100% / 0);
+$Dark_SubtleFill_Secondary:              hsl(0 0% 100% / .061);
+$Dark_SubtleFill_Tertiary:               hsl(0 0% 100% / .042);
+$Dark_SubtleFill_Disabled:               hsl(0 0% 100% / 0);
+
+$Dark_ControlOnImageFill_Default:        hsl(0 0% 11% / .7);
+$Dark_ControlOnImageFill_Secondary:      hsl(0 0% 10%);
+$Dark_ControlOnImageFill_Tertiary:       hsl(0 0% 7%);
+$Dark_ControlOnImageFill_Disabled:       hsl(0 0% 12% / 0);
+
+$Dark_AccentFill_Default:                hsl(199 100% 69%);
+$Dark_AccentFill_Secondary:              hsl(199 100% 69% / .9);
+$Dark_AccentFill_Tertiary:               hsl(199 100% 69% / .8);
+$Dark_AccentFill_Disabled:               hsl(0 0% 100% / .158);
+$Dark_AccentFill_SelectedTextBackground: hsl(206 100% 42%);
+
+$Dark_ControlSolidFill_Default:          hsl(0 0% 27%);
+
+// Elevation (gradient strokes)
+
+$Dark_ControlElevation_Border:            hsl(0 0% 100% / .093), hsl(0 0% 100% / .07);
+$Dark_CircleElevation_Border:             hsl(0 0% 100% / .093), hsl(0 0% 100% / .07);
+$Dark_TextControlElevation_Border:        hsl(0 0% 100% / .08), hsl(0 0% 100% / .544);
+$Dark_TextControlElevation_BorderFocused: hsl(0 0% 100% / .08), hsl(200 100% 65%);
+$Dark_AccentControlElevation_Border:      hsl(0 0% 100% / .08), hsl(0 0% 0% / .14);
+
+// Stroke
+
+$Dark_ControlStroke_Default:                  hsl(0 0% 100% / .07);
+$Dark_ControlStroke_Secondary:                hsl(0 0% 100% / .093);
+$Dark_ControlStroke_OnAccentDefault:          hsl(0 0% 100% / .08);
+$Dark_ControlStroke_OnAccentSecondary:        hsl(0 0% 0% / .14);
+$Dark_ControlStroke_OnAccentTertiary:         hsl(0 0% 0% / .217);
+$Dark_ControlStroke_OnAccentDisabled:         hsl(0 0% 0% / .2);
+$Dark_ControlStroke_ForStrongFillWhenOnImage: hsl(0 0% 0% / .42);
+
+$Dark_CardStroke_Default:                     hsl(0 0% 0% / .1);
+$Dark_CardStroke_DefaultSolid:                hsl(0 0% 11%);
+
+$Dark_ControlStrongStroke_Default:            hsl(0 0% 100% / .544);
+$Dark_ControlStrongStroke_Disabled:           hsl(0 0% 100% / .158);
+
+$Dark_SurfaceStroke_Default:                  hsl(0 0% 46% / .4);
+$Dark_SurfaceStroke_Flyout:                   hsl(0 0% 0% / .2);
+
+$Dark_DividerStroke_Default:                  hsl(0 0% 100% / .084);
+
+$Dark_FocusStroke_Outer:                      hsl(0 0% 100%);
+$Dark_FocusStroke_Inner:                      hsl(0 0% 0% / .7);
+
+// Backgrounds
+
+$Dark_CardBackground_Default:                 hsl(0 0% 100% / .051);
+$Dark_CardBackground_Secondary:               hsl(0 0% 100% / .033);
+// $Dark_CardBackground_Tertiary: ;
+
+$Dark_SmokeBackground_Default:                hsl(0 0% 0% / .3);
+
+$Dark_LayerBackground_Default:                hsl(0 0% 23% / .3);
+$Dark_LayerBackground_Alt:                    hsl(0 0% 100% / .054);
+
+$Dark_LayerOnAcrylicBackground_Default:       hsl(0 0% 100% / .036);
+
+$Dark_LayerOnAccentAcrylicBackground_Default: hsl(0 0% 100% / .036);
+
+$Dark_SolidBackground_Base:                   hsl(0 0% 13%);
+$Dark_SolidBackground_Secondary:              hsl(0 0% 11%);
+$Dark_SolidBackground_Tertiary:               hsl(0 0% 16%);
+$Dark_SolidBackground_Quarternary:            hsl(0 0% 17%);
+
+$Dark_MicaBackground_Base:                    hsl(0 0% 13% / .8), hsl(0 0% 13%);
+
+$Dark_AcrylicBackground_Base:                 hsl(0 0% 13% / .5), hsl(0 0% 13% / .96);
+$Dark_AcrylicBackground_Default:              hsl(0 0% 17% / .15), hsl(0 0% 17% / .96);
+
+$Dark_AccentAcrylicBackground_Base:           hsl(214 100% 29% / .8), hsl(214 100% 29% / .8);
+$Dark_AccentAcrylicBackground_Default:        hsl(206 100% 42% / .8), hsl(206 100% 42% / .8);
+
+// System
+
+$Dark_System_Attention:                hsl(199 100% 69%);
+$Dark_System_Success:                  hsl(113 51% 58%);
+$Dark_System_Caution:                  hsl(54 100% 49%);
+$Dark_System_Critical:                 hsl(354 100% 80%);
+$Dark_System_Neutral:                  hsl(0 0% 100% / .544);
+$Dark_System_SolidNeutral:             hsl(0 0% 62%);
+$Dark_System_AttentionBackground:      hsl(0 0% 100% / .033);
+$Dark_System_SuccessBackground:        hsl(67 39% 17%);
+$Dark_System_CautionBackground:        hsl(40 46% 18%);
+$Dark_System_CriticalBackground:       hsl(2 28% 21%);
+$Dark_System_NeutralBackground:        hsl(0 0% 100% / .033);
+$Dark_System_SolidNeutralBackground:   hsl(0 0% 18%);
+$Dark_System_SolidAttentionBackground: hsl(0 0% 18%);
+
+// ... Contrast Colors
+
+$Contrast_Aquatic_WindowText:     hsl(0 0% 100%);
+$Contrast_Aquatic_Window:         hsl(0 0% 13%);
+$Contrast_Aquatic_HighlightText:  hsl(210 36% 23%);
+$Contrast_Aquatic_Highlight:      hsl(188 77% 75%);
+$Contrast_Aquatic_ButtonText:     hsl(0 0% 100%);
+$Contrast_Aquatic_Button:         hsl(0 0% 13%);
+$Contrast_Aquatic_Hotlight:       hsl(188 96% 72%);
+$Contrast_Aquatic_GrayText:       hsl(0 0% 65%);
+
+$Contrast_Desert_WindowText:      hsl(0 0% 24%);
+$Contrast_Desert_Window:          hsl(41 100% 97%);
+$Contrast_Desert_HighlightText:   hsl(39 100% 95%);
+$Contrast_Desert_Highlight:       hsl(21 88% 30%);
+$Contrast_Desert_ButtonText:      hsl(0 0% 13%);
+$Contrast_Desert_Button:          hsl(41 100% 97%);
+$Contrast_Desert_Hotlight:        hsl(196 61% 28%);
+$Contrast_Desert_GrayText:        hsl(0 0% 40%);
+
+$Contrast_Dusk_WindowText:        hsl(0 0% 100%);
+$Contrast_Dusk_Window:            hsl(207 9% 19%);
+$Contrast_Dusk_HighlightText:     hsl(212 28% 18%);
+$Contrast_Dusk_Highlight:         hsl(210 73% 81%);
+$Contrast_Dusk_ButtonText:        hsl(174 78% 84%);
+$Contrast_Dusk_Button:            hsl(207 9% 19%);
+$Contrast_Dusk_Hotlight:          hsl(174 75% 68%);
+$Contrast_Dusk_GrayText:          hsl(0 0% 65%);
+
+$Contrast_NightSky_WindowText:    hsl(0 0% 100%);
+$Contrast_NightSky_Window:        hsl(0 0% 0%);
+$Contrast_NightSky_HighlightText: hsl(0 0% 17%);
+$Contrast_NightSky_Highlight:     hsl(268 95% 85%);
+$Contrast_NightSky_ButtonText:    hsl(55 100% 60%);
+$Contrast_NightSky_Button:        hsl(0 0% 0%);
+$Contrast_NightSky_Hotlight:      hsl(240 100% 75%);
+$Contrast_NightSky_GrayText:      hsl(0 0% 65%);
+
+// ... Accent Colors
+
+$Accent_Light_3: hsl(191 98% 80%);
+$Accent_Light_2: hsl(199 99% 69%);
+$Accent_Light_1: hsl(205 100% 49%);
+$Accent_Base:    hsl(206 100% 42%);
+$Accent_Dark_1:  hsl(209 100% 36%);
+$Accent_Dark_2:  hsl(215 100% 29%);
+$Accent_Dark_3:  hsl(226 100% 20%);
+
+// Effect Styles
+
+$Light_Shadow_CardRest:             0 2px 4px hsl(0 0% 0% / .04);
+$Light_Shadow_CardHover:            0 2px 4px hsl(0 0% 0% / .1);
+$Light_Shadow_Tooltip:              0 4px 8px hsl(0 0% 0% / .14);
+$Light_Shadow_Flyout:               0 8px 16px hsl(0 0% 0% / .14);
+$Light_Shadow_Dialog:               0 32px 64px hsl(0 0% 0% / .188), 0 2px 21px hsl(0 0% 0% / .147);
+
+$Light_ShellShadows_InactiveWindow: 0 16px 32px hsl(0 0% 0% / .188), 0 2px 10.67px hsl(0 0% 0% / .147);
+$Light_ShellShadows_ActiveWindow:   0 32px 64px hsl(0 0% 0% / .28), 0 2px 21px hsl(0 0% 0% / .22);
+
+$Dark_Shadow_CardRest:              0 2px 4px hsl(0 0% 0% / .13);
+$Dark_Shadow_CardHover:             0 2px 4px hsl(0 0% 0% / .26);
+$Dark_Shadow_Tooltip:               0 4px 8px hsl(0 0% 0% / .26);
+$Dark_Shadow_Flyout:                0 8px 16px hsl(0 0% 0% / .26);
+$Dark_Shadow_Dialog:                0 32px 64px hsl(0 0% 0% / .37), 0 2px 21px hsl(0 0% 0% / .37);
+
+$Dark_ShellShadows_InactiveWindow:  0 16px 32px hsl(0 0% 0% / .37), 0 2px 10.67px hsl(0 0% 0% / .37);
+$Dark_ShellShadows_ActiveWindow:    0 32px 64px hsl(0 0% 0% / .56), 0 2px 21px hsl(0 0% 0% / .55);
+
+$Blur_Acrylic:                      blur(60px);
+$Blur_Mica:                         blur(240px);
+
+// Grid Styles
+
+// $Margins: 16px;
+// $Margins: 24px;
+// $Margins: 56px;

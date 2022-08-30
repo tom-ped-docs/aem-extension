@@ -1,0 +1,19 @@
+@use "../../../styles/color";
+
+// TODO: 1. outline, outer + inner
+
+@mixin light {
+  --_focus-rect-outline-color-outer: #{color.$Light_FocusStroke_Outer};
+  --_focus-rect-outline-color-inner: #{color.$Light_FocusStroke_Inner};
+}
+
+@mixin dark {
+  --_focus-rect-outline-color-outer: #{color.$Dark_FocusStroke_Outer};
+  --_focus-rect-outline-color-inner: #{color.$Dark_FocusStroke_Inner};
+}
+
+@mixin focus-rect {
+  outline: var(--_focus-rect-outline-color-outer) solid 2px;
+  // outline: var(--_focus-rect-outline-color-inner) solid 3px; // <- FIXME: 1.
+  outline-offset: 1px;
+}

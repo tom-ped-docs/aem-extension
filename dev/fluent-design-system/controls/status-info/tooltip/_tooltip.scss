@@ -1,0 +1,35 @@
+// stylelint-disable declaration-colon-space-after
+
+@use "../../../styles/color";
+@use "../../../styles/typography";
+@use "../../controls";
+
+@mixin light {
+  --_tooltip-color:            #{color.$Light_Text_Primary};
+  --_tooltip-background-color: #{color.$Light_AcrylicBackground_Default};
+  --_tooltip-border-color:     #{color.$Light_SurfaceStroke_Flyout};
+  --_tooltip-box-shadow:       #{color.$Light_Shadow_Tooltip};
+}
+
+@mixin dark {
+  --_tooltip-color:            #{color.$Dark_Text_Primary};
+  --_tooltip-background-color: #{color.$Dark_AcrylicBackground_Default};
+  --_tooltip-border-color:     #{color.$Dark_SurfaceStroke_Flyout};
+  --_tooltip-box-shadow:       #{color.$Dark_Shadow_Tooltip};
+}
+
+.f-tooltip {
+  padding-block: 5px 7px;
+  padding-inline: 8px;
+  color: var(--_tooltip-color);
+  background-image: linear-gradient(0deg, var(--_tooltip-background-color));
+  border-color: var(--_tooltip-border-color);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: controls.$controls-border-radius;
+  box-shadow: var(--_tooltip-box-shadow);
+  background-blend-mode: color;
+  backdrop-filter: color.$Blur_Acrylic;
+
+  @include typography.caption;
+}

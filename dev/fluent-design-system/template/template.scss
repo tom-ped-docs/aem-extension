@@ -1,0 +1,172 @@
+// stylelint-disable declaration-colon-space-after, max-nesting-depth
+
+@use "../styles/typography";
+@use "../styles/color";
+@use "../controls/controls";
+
+:root {
+  --_light-row-color:            #{color.$Light_Text_Primary};
+  --_light-row-background-color: #{color.$Light_SolidBackground_Tertiary};
+  --_light-row-border-color:     #{color.$Light_ControlStroke_Default};
+  --_dark-row-color:             #{color.$Dark_Text_Primary};
+  --_dark-row-background-color:  #{color.$Dark_SolidBackground_Secondary};
+  --_dark-row-border-color:      #{color.$Dark_ControlStroke_Default};
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --_header-background-color:                      #{color.$Light_SolidBackground_Secondary};
+    --_variant-row-content-wrapper-background-color: var(--_light-row-background-color);
+    --_variant-row-content-color:                    #{color.$Light_Text_Secondary};
+    --_variant-row-content-border-color:             var(--_light-row-border-color);
+    --_component-row-badge-background-color:         #{color.$Light_ControlAltFill_Tertiary};
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --_header-background-color:                      #{color.$Dark_SolidBackground_Tertiary};
+    --_variant-row-content-wrapper-background-color: var(--_dark-row-background-color);
+    --_variant-row-content-color:                    #{color.$Dark_Text_Secondary};
+    --_variant-row-content-border-color:             var(--_dark-row-border-color);
+    --_component-row-badge-background-color:         #{color.$Dark_ControlAltFill_Tertiary};
+  }
+}
+
+.body {
+  margin: 0; // reboot, user agent stylesheet
+}
+
+.caption {
+  @include typography.caption;
+}
+
+.subtitle {
+  @include typography.subtitle;
+}
+
+.section-wrapper {
+  // -> template.html
+  // --_content-block-size: 128px;
+  // --_content-rows: 4;
+  // --_content-columns: 3;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  padding: 16px;
+}
+
+.variant-row-wrapper {
+  display: grid;
+  grid-template-rows: 128px;
+  grid-template-columns: 240px auto;
+}
+
+.component-row-wrapper {
+  display: grid;
+  grid-template-rows: repeat(var(--_content-rows), var(--_content-block-size));
+  grid-template-columns: 240px auto;
+}
+
+@mixin _padding {
+  padding-block-start: 24px; // 21px
+  padding-inline-start: 24px;
+}
+
+@mixin _border-radius {
+  border-start-start-radius: #{controls.$surfaces-border-radius};
+  border-end-start-radius: #{controls.$surfaces-border-radius};
+}
+
+.variant-row {
+  &__header {
+    background-color: var(--_header-background-color);
+
+    @include _padding;
+    @include _border-radius;
+  }
+
+  &__content-wrapper {
+    display: grid;
+    grid-template-columns: repeat(var(--_content-columns), 1fr);
+    background-color: var(--_variant-row-content-wrapper-background-color);
+    border-start-end-radius: #{controls.$surfaces-border-radius};
+    border-end-end-radius: #{controls.$surfaces-border-radius};
+  }
+
+  &__content {
+    color: var(--_variant-row-content-color);
+    border-inline-end: 1px solid var(--_variant-row-content-border-color);
+
+    @include _padding;
+
+    &:last-child {
+      border-inline-end-color: transparent;
+    }
+  }
+}
+
+.component-row {
+  &__header-wrapper {
+    display: flex;
+    flex-direction: column;
+    grid-row: span var(--_content-rows);
+    row-gap: 12px;
+    background-color: var(--_header-background-color);
+
+    @include _padding;
+    @include _border-radius;
+  }
+
+  &__badge {
+    padding: 2px 12px 4px; // 1px 12px 3px
+    background-color: var(--_component-row-badge-background-color);
+    // border-color: ; // ..._ControlAltFill_Tertiary
+    border-radius: 999px;
+  }
+
+  &__content-wrapper {
+    display: grid;
+    grid-template-columns: repeat(var(--_content-columns), 1fr);
+    grid-row: span calc(var(--_content-rows) / 2);
+
+    &--light-row {
+      color: var(--_light-row-color);
+      background-color: var(--_light-row-background-color);
+      border-start-end-radius: #{controls.$surfaces-border-radius};
+    }
+
+    &--dark-row {
+      color: var(--_dark-row-color);
+      background-color: var(--_dark-row-background-color);
+      border-end-end-radius: #{controls.$surfaces-border-radius};
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .component-row__content-wrapper--light-row & {
+      border-block-end: 1px solid var(--_light-row-border-color);
+      border-inline-end: 1px solid var(--_light-row-border-color);
+    }
+
+    .component-row__content-wrapper--dark-row & {
+      border-block-end: 1px solid var(--_dark-row-border-color);
+      border-inline-end: 1px solid var(--_dark-row-border-color);
+    }
+
+    // -> template.html
+    // &:nth-child(3n) {
+    //   border-inline-end-color: transparent;
+    // }
+
+    // -> template.html
+    // &:nth-last-child(-n+3) {
+    //   border-block-end-color: transparent;
+    // }
+  }
+}

@@ -1,0 +1,138 @@
+// stylelint-disable declaration-colon-space-after, max-nesting-depth
+
+@use "../../../styles/typography";
+@use "../../../styles/color";
+@use "../../controls";
+
+@mixin light {
+  --_expander-body-color:                      #{color.$Light_Text_Primary};
+  --_expander-caption-color:                   #{color.$Light_Text_Secondary};
+  --_expander-wrapper-parent-background-color: #{color.$Light_CardBackground_Default};
+  --_expander-wrapper-parent-border-color:     #{color.$Light_CardStroke_Default};
+  --_expander-wrapper-child-background-color:  #{color.$Light_CardBackground_Secondary};
+  --_expander-wrapper-child-border-color:      #{color.$Light_CardStroke_Default};
+  --_expander-wrapper-row-border-color:        #{color.$Light_DividerStroke_Default};
+}
+
+@mixin dark {
+  --_expander-body-color:                      #{color.$Dark_Text_Primary};
+  --_expander-caption-color:                   #{color.$Dark_Text_Secondary};
+  --_expander-wrapper-parent-background-color: #{color.$Dark_CardBackground_Default};
+  --_expander-wrapper-parent-border-color:     #{color.$Dark_CardStroke_Default};
+  --_expander-wrapper-child-background-color:  #{color.$Dark_CardBackground_Secondary};
+  --_expander-wrapper-child-border-color:      #{color.$Dark_CardStroke_Default};
+  --_expander-wrapper-row-border-color:        #{color.$Dark_DividerStroke_Default};
+}
+
+.f-expander {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  inline-size: 600px;
+
+  &__wrapper-parent {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 12px;
+    background-color: var(--_expander-wrapper-parent-background-color);
+    border-color: var(--_expander-wrapper-parent-border-color);
+    border-style: solid;
+    border-width: 1px;
+
+  &--collapsed {
+      border-radius: controls.$controls-border-radius;
+
+      .f-fi--chevron::before {
+        content: "\e972"; // ChevronDownMed
+      }
+    }
+
+    &--expanded {
+      border-start-start-radius: controls.$controls-border-radius;
+      border-start-end-radius: controls.$controls-border-radius;
+
+      .f-fi--chevron::before {
+        content: "\e971"; // ChevronUpMed
+      }
+    }
+  }
+
+  &__wrapper-left {
+    display: flex;
+    column-gap: 16px;
+    padding-inline-start: 15px; // & border-width
+    padding-block: 13px; // & border-width
+  }
+
+  &__icon {
+    align-self: center;
+    line-height: 0; // reboot -> user agent stylesheet
+
+    &::before {
+      font-size: 16px;
+      color: var(--_expander-body-color);
+
+      @include typography.fi;
+    }
+
+    svg {
+      path {
+        color: var(--_expander-body-color);
+        fill: currentColor;
+      }
+    }
+  }
+
+  &__wrapper-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .f-body {
+    color: var(--_expander-body-color);
+  }
+
+  .f-caption {
+    color: var(--_expander-caption-color);
+  }
+
+  &__wrapper-right {
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+    padding-inline-end: 3px; // & border-width
+  }
+
+  .f-icon-button {
+    block-size: 30px;
+    inline-size: 30px;
+    margin: 5px;
+  }
+
+  &__wrapper-child {
+    padding-block-start: 1px;
+    background-color: var(--_expander-wrapper-child-background-color);
+    border-color: var(--_expander-wrapper-child-border-color);
+    border-style: solid;
+    border-width: 1px;
+    border-block-start: 0;
+    border-end-start-radius: controls.$controls-border-radius;
+    border-end-end-radius: controls.$controls-border-radius;
+  }
+
+  &__wrapper-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 12px;
+    padding-block: 7px;
+    padding-inline: 47px;
+
+    &--divider {
+      // border-block-end-width: 1px;
+      // border-block-end-style: solid;
+      // border-block-end-color: var(--_expander-wrapper-row-border-color);
+      border-block-end: 1px solid var(--_expander-wrapper-row-border-color);
+    }
+  }
+}

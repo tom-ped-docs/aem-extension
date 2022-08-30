@@ -1,0 +1,121 @@
+// stylelint-disable declaration-colon-space-after, max-nesting-depth
+
+@use "../../../styles/typography";
+@use "../../../styles/color";
+@use "../../controls";
+
+@mixin light {
+  --_info-bar-color:                          #{color.$Light_Text_Primary};
+  --_info-bar-border-color:                   #{color.$Light_CardStroke_Default};
+  --_info-bar-informational-background-color: #{color.$Light_CardBackground_Secondary};
+  --_info-bar-success-background-color:       #{color.$Light_System_SuccessBackground};
+  --_info-bar-warning-background-color:       #{color.$Light_System_CautionBackground};
+  --_info-bar-critical-background-color:      #{color.$Light_System_CriticalBackground};
+}
+
+@mixin dark {
+  --_info-bar-color:                          #{color.$Dark_Text_Primary};
+  --_info-bar-border-color:                   #{color.$Dark_CardStroke_Default};
+  --_info-bar-informational-background-color: #{color.$Dark_CardBackground_Secondary};
+  --_info-bar-success-background-color:       #{color.$Dark_System_SuccessBackground};
+  --_info-bar-warning-background-color:       #{color.$Dark_System_CautionBackground};
+  --_info-bar-critical-background-color:      #{color.$Dark_System_CriticalBackground};
+}
+
+.f-info-bar {
+  display: flex;
+  column-gap: 15px;
+  box-sizing: border-box;
+  inline-size: 600px;
+  border-color: var(--_info-bar-border-color);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: controls.$controls-border-radius;
+
+  &--informational {
+    background-color: var(--_info-bar-informational-background-color);
+  }
+
+  &--success {
+    background-color: var(--_info-bar-success-background-color);
+  }
+
+  &--warning {
+    background-color: var(--_info-bar-warning-background-color);
+  }
+
+  &--critical {
+    background-color: var(--_info-bar-critical-background-color);
+  }
+
+  &--single-line {
+    justify-content: space-between;
+
+    .f-hyperlink-button,
+    .f-button {
+      align-self: center;
+    }
+  }
+
+  &--multi-line {
+    .f-badge,
+    .f-icon-button {
+      flex-shrink: 0;
+    }
+
+    .f-hyperlink-button,
+    .f-button {
+      margin-block-start: 15px;
+    }
+
+    .f-hyperlink-button {
+      inline-size: fit-content;
+      margin-inline-start: -11px;
+    }
+  }
+
+  &__wrapper-left {
+    display: flex;
+    column-gap: 16px;
+    padding-inline-start: 15px; // & border-width
+    padding-block: 13px; // & border-width
+  }
+
+  .f-badge {
+    margin-block-start: 3px;
+  }
+
+  &__wrapper-text {
+    &--single-line {
+      display: flex;
+      column-gap: 12px;
+    }
+
+    &--multi-line {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .f-body-strong,
+  .f-body {
+    color: var(--_info-bar-color);
+  }
+
+  &__wrapper-right {
+    &--single-line {
+      display: flex;
+      column-gap: 4px;
+    }
+  }
+
+  .f-icon-button {
+    block-size: 38px;
+    inline-size: 38px;
+    margin: 5px;
+  }
+
+  .f-fi--chrome-close::before {
+    content: "\e8bb";
+  }
+}

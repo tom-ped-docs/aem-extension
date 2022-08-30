@@ -1,0 +1,24 @@
+// stylelint-disable block-closing-brace-newline-before, block-opening-brace-newline-after, block-opening-brace-space-before
+
+@mixin animation($name, $fade-name, $duration, $fade-duration, $timing-function, $fade-timing-function, $delay, $fade-delay) {
+  animation-name: $name, $fade-name;
+  animation-duration: $duration, $fade-duration;
+  animation-timing-function: $timing-function, $fade-timing-function;
+  animation-delay: calc($delay * 83ms), calc($fade-delay * 83ms);
+  animation-fill-mode: both, both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-up-in {
+  from { transform: translate3d(0, 48px, 0); }
+  to   { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes slide-down-in {
+  from { transform: translate3d(0, -48px, 0); }
+  to   { transform: translate3d(0, 0, 0); }
+}

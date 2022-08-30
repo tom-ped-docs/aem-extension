@@ -1,0 +1,106 @@
+// stylelint-disable declaration-colon-space-after, max-nesting-depth, selector-max-type
+
+@use "../../../styles/typography";
+@use "../../../styles/color";
+@use "../../controls";
+@use "../focus-rect/focus-rect";
+
+@mixin light {
+  --_icon-button-color:                     #{color.$Light_Text_Primary};
+  --_icon-button-background-color:          #{color.$Light_SubtleFill_Transparent};
+  --_icon-button-hover-background-color:    #{color.$Light_SubtleFill_Secondary};
+  --_icon-button-active-color:              #{color.$Light_Text_Secondary};
+  --_icon-button-active-background-color:   #{color.$Light_SubtleFill_Tertiary};
+  --_icon-button-disabled-color:            #{color.$Light_Text_Disabled};
+  --_icon-button-disabled-background-color: #{color.$Light_SubtleFill_Disabled};
+}
+
+@mixin dark {
+  --_icon-button-color:                     #{color.$Dark_Text_Primary};
+  --_icon-button-background-color:          #{color.$Dark_SubtleFill_Transparent};
+  --_icon-button-hover-background-color:    #{color.$Dark_SubtleFill_Secondary};
+  --_icon-button-active-color:              #{color.$Dark_Text_Secondary};
+  --_icon-button-active-background-color:   #{color.$Dark_SubtleFill_Tertiary};
+  --_icon-button-disabled-color:            #{color.$Dark_Text_Disabled};
+  --_icon-button-disabled-background-color: #{color.$Dark_SubtleFill_Disabled};
+}
+
+.f-icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box; // user agent stylesheet
+  block-size: 30px;
+  inline-size: 30px;
+  margin: 5px;
+  padding: 0; // reboot -> user agent stylesheet
+  line-height: 0; // reboot -> user agent stylesheet
+  text-align: center; // windows ui, user agent stylesheet
+  color: var(--_icon-button-color);
+  background-color: var(--_icon-button-background-color);
+  // border-color: ; // ..._SubtleFill_Transparent
+  border: 0 none transparent; // background-color == border-color
+  border-radius: controls.$controls-border-radius;
+  cursor: pointer; // bootstrap
+  user-select: none;
+
+  @include controls.transition;
+
+  &::before {
+    font-size: 16px;
+    color: var(--_icon-button-color);
+
+    @include typography.fi;
+  }
+
+  svg {
+    path {
+      fill: currentColor;
+    }
+  }
+
+  &:hover {
+    // color: ; // ..._Text_Primary
+    background-color: var(--_icon-button-hover-background-color);
+    // border-color: ; // ..._SubtleFill_Secondary
+
+    &::before {
+      // color: ; // ..._Text_Primary
+    }
+  }
+
+  &:active {
+    color: var(--_icon-button-active-color);
+    background-color: var(--_icon-button-active-background-color);
+    // border-color: ; // ..._SubtleFill_Tertiary
+
+    &::before {
+      color: var(--_icon-button-active-color);
+    }
+  }
+
+  &:focus-visible {
+    @include focus-rect.focus-rect;
+  }
+
+  &:disabled {
+    color: var(--_icon-button-disabled-color);
+    background-color: var(--_icon-button-disabled-background-color);
+    // border-color: ; // ..._SubtleFill_Disabled
+    pointer-events: none;
+
+    &::before {
+      color: var(--_icon-button-disabled-color);
+    }
+  }
+}
+
+// $fluent-icons-map: (
+//   "windows-insider": "\f1ad"
+// );
+
+// .f-fi {
+//   &--windows-insider::before {
+//     content: map-get($fluent-icons-map, "windows-insider");
+//   }
+// }

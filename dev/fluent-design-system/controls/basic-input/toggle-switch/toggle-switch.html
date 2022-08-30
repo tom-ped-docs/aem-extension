@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link href="../../../index.css" rel="stylesheet">
+  <link href="../../../template/template.css" rel="stylesheet">
+
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="light dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    .section-wrapper {
+      --_content-block-size: 128px;
+      --_content-rows: 2;
+      --_content-columns: 2;
+    }
+
+    .variant-row__content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .component-row__content {
+      display: flex;
+      flex-direction: column;
+      row-gap: 12px;
+    }
+
+    .component-row__content:nth-child(2n) {
+      border-inline-end-color: transparent;
+    }
+
+    .component-row__content:nth-last-child(-n+2) {
+      border-block-end-color: transparent;
+    }
+
+  </style>
+
+  <title>Toggle Switch</title>
+</head>
+
+<body class="body">
+  <div class="section-wrapper">
+
+    <div class="variant-row-wrapper">
+      <div class="variant-row__header">
+        <span class="subtitle">Toggle Switch</span>
+      </div>
+      <div class="variant-row__content-wrapper">
+        <div class="variant-row__content">
+          <span class="caption">Rest</span>
+          <span class="caption">Rest (checked)</span>
+          <span class="caption">Rest (indeterminate)</span>
+        </div>
+        <div class="variant-row__content">
+          <span class="caption">Disabled</span>
+          <span class="caption">Disabled (checked)</span>
+          <span class="caption">Disabled (indeterminate)</span>
+        </div>
+      </div>
+    </div><!-- variant-row-wrapper -->
+
+    <div class="component-row-wrapper">
+      <div class="component-row__header-wrapper">
+        <div><span class="component-row__badge caption">Base Control</span></div>
+        <div><span class="component-row__badge caption">Text After</span></div>
+        <div><span class="component-row__badge caption">Text Before</span></div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--light-row" color-scheme="light">
+        <div class="component-row__content">
+
+          <div class="f-toggle-switch-wrapper">
+            <input class="f-toggle-switch" id="f-toggle-switch-1" type="checkbox">
+            <label class="f-label" for="f-toggle-switch-1">Off</label>
+          </div>
+
+          <div class="f-toggle-switch-wrapper">
+            <input class="f-toggle-switch" id="f-toggle-switch-2" type="checkbox" checked>
+            <label class="f-label" for="f-toggle-switch-2">On</label>
+          </div>
+
+          <div class="f-toggle-switch-wrapper">
+            <input class="f-toggle-switch js-indeterminate-1" id="f-toggle-switch-3" type="checkbox">
+            <label class="f-label" for="f-toggle-switch-3"></label>
+          </div>
+
+        </div>
+        <div class="component-row__content">
+
+          <div class="f-toggle-switch-wrapper">
+            <label class="f-label f-label--disabled" for="f-toggle-switch-1" disabled>Off</label>
+            <input class="f-toggle-switch" id="f-toggle-switch-1" type="checkbox" disabled>
+          </div>
+
+          <div class="f-toggle-switch-wrapper">
+            <label class="f-label f-label--disabled" for="f-toggle-switch-2">On</label>
+            <input class="f-toggle-switch" id="f-toggle-switch-2" type="checkbox" checked disabled>
+          </div>
+
+          <div class="f-toggle-switch-wrapper">
+            <label class="f-label f-label--disabled" for="f-toggle-switch-3"></label>
+            <input class="f-toggle-switch js-indeterminate-2" id="f-toggle-switch-3" type="checkbox" disabled>
+          </div>
+
+        </div>
+      </div>
+      <div class="component-row__content-wrapper component-row__content-wrapper--dark-row" color-scheme="dark">
+        <div class="component-row__content">
+
+          <div class="f-toggle-switch-wrapper">
+            <input class="f-toggle-switch" id="f-toggle-switch-4" type="checkbox">
+            <label class="f-label" for="f-toggle-switch-4">Off</label>
+          </div>
+
+          <div class="f-toggle-switch-wrapper">
+            <input class="f-toggle-switch" id="f-toggle-switch-5" type="checkbox" checked>
+            <label class="f-label" for="f-toggle-switch-5">On</label>
+          </div>
+
+          <div class="f-toggle-switch-wrapper">
+            <input class="f-toggle-switch js-indeterminate-3" id="f-toggle-switch-6" type="checkbox">
+            <label class="f-label" for="f-toggle-switch-6"></label>
+          </div>
+
+        </div>
+        <div class="component-row__content">
+
+          <div class="f-toggle-switch-wrapper">
+            <label class="f-label f-label--disabled" for="f-toggle-switch-4" disabled>Off</label>
+            <input class="f-toggle-switch" id="f-toggle-switch-4" type="checkbox" disabled>
+          </div>
+
+          <div class="f-toggle-switch-wrapper">
+            <label class="f-label f-label--disabled" for="f-toggle-switch-5">On</label>
+            <input class="f-toggle-switch" id="f-toggle-switch-5" type="checkbox" checked disabled>
+          </div>
+
+          <div class="f-toggle-switch-wrapper">
+            <label class="f-label f-label--disabled" for="f-toggle-switch-6"></label>
+            <input class="f-toggle-switch js-indeterminate-4" id="f-toggle-switch-6" type="checkbox" disabled>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- component-row-wrapper -->
+
+  </div><!-- section-wrapper -->
+
+  <script>
+    document.querySelector('.js-indeterminate-1').indeterminate = true;
+    document.querySelector('.js-indeterminate-2').indeterminate = true;
+    document.querySelector('.js-indeterminate-3').indeterminate = true;
+    document.querySelector('.js-indeterminate-4').indeterminate = true;
+  </script>
+</body>

@@ -1,0 +1,191 @@
+// stylelint-disable max-nesting-depth, no-descending-specificity, selector-max-pseudo-class, selector-max-specificity, selector-pseudo-class-no-unknown
+
+// TODO: 1. Default :hover -> Expanded
+// TODO: 2. Fluent UI System Icons -> Segoe Fluent Icons
+
+// caret_up_12_filled.svg -> eddb CaretUp Solid8
+// caret_down_12_filled.svg -> eddc CaretDown Solid8
+// caret_left_12_filled.svg -> edd9 CaretLeft Solid8
+// caret_right_12_filled.svg -> edda CaretRight Solid8
+
+@use "../../../styles/color";
+
+@mixin light {
+  --_scroll-viewer-thumb-background-color: #{color.$Light_ControlStrongFill_Default};
+  --_scroll-viewer-track-background-color: #{color.$Light_AcrylicBackground_Default};
+}
+
+@mixin light-scroll-viewer-background-image {
+  .f-scroll-viewer--expanded {
+    &::-webkit-scrollbar-button {
+      &:single-button {
+        &:vertical {
+          &:decrement {
+            // caret_up_12_filled.svg
+            background-image: url("data: image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='#{color.$Light_ControlStrongFill_Default}' d='M3.08 7.38A1 1 0 004 8h4a1 1 0 00.7-1.7l-2-2a1 1 0 00-1.4 0l-2 2a1 1 0 00-.22 1.08z'/></svg>");
+          }
+
+          &:increment {
+            // caret_down_12_filled.svg
+            background-image: url("data: image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='#{color.$Light_ControlStrongFill_Default}' d='M3.08 4.62A1 1 0 014 4h4a1 1 0 01.7 1.7l-2 2a1 1 0 01-1.4 0l-2-2a1 1 0 01-.22-1.08z'/></svg>");
+          }
+        }
+
+        &:horizontal {
+          &:decrement {
+            // caret_left_12_filled.svg
+            background-image: url("data: image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='#{color.$Light_ControlStrongFill_Default}' d='M6.3 3.28A1 1 0 018 4v4.02a1 1 0 01-1.7.7l-2.04-2a1 1 0 010-1.42l2.04-2z'/></svg>");
+          }
+
+          &:increment {
+            // caret_right_12_filled.svg
+            background-image: url("data: image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='#{color.$Light_ControlStrongFill_Default}' d='M5.7 3.28A1 1 0 004 4v4.02a1 1 0 001.7.7l2.04-2a1 1 0 000-1.42l-2.04-2z'/></svg>");
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin dark {
+  --_scroll-viewer-thumb-background-color: #{color.$Dark_ControlStrongFill_Default};
+  --_scroll-viewer-track-background-color: #{color.$Dark_AcrylicBackground_Default};
+}
+
+@mixin dark-scroll-viewer-background-image {
+  .f-scroll-viewer--expanded {
+    &::-webkit-scrollbar-button {
+      &:single-button {
+        &:vertical {
+          &:decrement {
+            // caret_up_12_filled.svg
+            background-image: url("data: image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='#{color.$Dark_ControlStrongFill_Default}' d='M3.08 7.38A1 1 0 004 8h4a1 1 0 00.7-1.7l-2-2a1 1 0 00-1.4 0l-2 2a1 1 0 00-.22 1.08z'/></svg>");
+          }
+
+          &:increment {
+            // caret_down_12_filled.svg
+            background-image: url("data: image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='#{color.$Dark_ControlStrongFill_Default}' d='M3.08 4.62A1 1 0 014 4h4a1 1 0 01.7 1.7l-2 2a1 1 0 01-1.4 0l-2-2a1 1 0 01-.22-1.08z'/></svg>");
+          }
+        }
+
+        &:horizontal {
+          &:decrement {
+            // caret_left_12_filled.svg
+            background-image: url("data: image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='#{color.$Dark_ControlStrongFill_Default}' d='M6.3 3.28A1 1 0 018 4v4.02a1 1 0 01-1.7.7l-2.04-2a1 1 0 010-1.42l2.04-2z'/></svg>");
+          }
+
+          &:increment {
+            // caret_right_12_filled.svg
+            background-image: url("data: image/svg+xml, <svg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><path fill='#{color.$Dark_ControlStrongFill_Default}' d='M5.7 3.28A1 1 0 004 4v4.02a1 1 0 001.7.7l2.04-2a1 1 0 000-1.42l-2.04-2z'/></svg>");
+          }
+        }
+      }
+    }
+  }
+}
+
+$_default-track-size: 6px;
+$_default-thumb-size: 2px;
+
+$_expanded-track-size: 12px;
+$_expanded-thumb-size: 6px;
+$_expanded-button-size: 16px;
+// $_expanded-caret-size: 8px;
+
+.f-scroll-viewer {
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+}
+
+.f-scroll-viewer--default {
+  &::-webkit-scrollbar {
+    block-size: $_default-track-size;
+    inline-size: $_default-track-size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    display: block;
+    background-color: var(--_scroll-viewer-thumb-background-color);
+    background-clip: content-box;
+    border-color: transparent;
+    border-style: solid;
+    border-width: $_default-thumb-size;
+    border-radius: 999px;
+  }
+
+  &::-webkit-scrollbar-button {
+    &:single-button {
+      &:vertical {
+        block-size: $_expanded-button-size;
+      }
+
+      &:horizontal {
+        inline-size: $_expanded-button-size;
+      }
+    }
+  }
+}
+
+.f-scroll-viewer--expanded {
+  &::-webkit-scrollbar {
+    block-size: $_expanded-track-size;
+    inline-size: $_expanded-track-size;
+    border-radius: 999px;
+    background-blend-mode: luminosity;
+    backdrop-filter: color.$Blur_Acrylic;
+
+    &:vertical {
+      background-image: linear-gradient(0deg, var(--_scroll-viewer-track-background-color));
+    }
+
+    &:horizontal {
+      background-image: linear-gradient(270deg, var(--_scroll-viewer-track-background-color));
+    }
+  }
+
+  &::-webkit-scrollbar-thumb {
+    display: block;
+    background-color: var(--_scroll-viewer-thumb-background-color);
+    background-clip: content-box;
+    border-color: transparent;
+    border-style: solid;
+    border-width: calc($_expanded-thumb-size / 2);
+    border-radius: 999px;
+  }
+
+  &::-webkit-scrollbar-button {
+    &:single-button {
+      display: block;
+      background-size: 16px; // 12px / 6px (caret_..._12_filled.svg) -> 16px / 8px ($_expanded-caret-size)
+
+      &:vertical {
+        block-size: $_expanded-button-size;
+
+        &:decrement {
+          background-position-x: -2px;
+          // background-position-y: -2px;
+        }
+
+        &:increment {
+          background-position-x: -2px;
+          // background-position-y: 2px;
+        }
+      }
+
+      &:horizontal {
+        inline-size: $_expanded-button-size;
+
+        &:decrement {
+          // background-position-x: -2px;
+          background-position-y: -2px;
+        }
+
+        &:increment {
+          // background-position-x: 2px;
+          background-position-y: -2px;
+        }
+      }
+    }
+  }
+}

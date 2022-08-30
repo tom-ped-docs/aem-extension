@@ -1,0 +1,125 @@
+// stylelint-disable declaration-colon-space-after, value-list-comma-space-after
+
+// Text Styles
+
+@font-face {
+  font-family: "cascadia-code-regular";
+  src:
+    url("../fonts/cascadia-code/woff2/CascadiaCode.woff2") format("woff2"),
+    local("Cascadia Code Regular");
+  font-weight: 400;
+  // font-variation-settings: "wght" 200 300 350 400 600 700;
+}
+
+@font-face {
+  font-family: "cascadia-code-italic";
+  src:
+    url("../fonts/cascadia-code/woff2/CascadiaCodeItalic.woff2") format("woff2"),
+    local("Cascadia Code Italic");
+  font-weight: 400;
+  // font-variation-settings: "wght" 200 300 350 400 600 700;
+}
+
+@font-face {
+  font-family: "segoe-ui-variable";
+  src:
+    url("../fonts/segoe-ui-variable/SegoeUI-VF.ttf") format("truetype") tech("variations"),
+    url("../fonts/segoe-ui-variable/SegoeUI-VF.ttf") format("truetype-variations");
+  font-weight: 300 700;
+  font-optical-sizing: auto;
+  // font-variation-settings: "wght" 300 350 400 600 700, "opsz" 8 10.5 36;
+}
+
+@font-face {
+  font-family: "segoe-fluent-icons";
+  src:
+    url("../fonts/segoe-fluent-icons/Segoe Fluent Icons.ttf") format("truetype"),
+    local("Segoe Fluent Icons");
+}
+
+@mixin caption {
+  font-family: "segoe-ui-variable", "Segoe UI Variable Small", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  // line-height: 133%;
+}
+
+// -> expander, tooltip
+.f-caption {
+  @include caption;
+}
+
+@mixin body {
+  font-family: "segoe-ui-variable", "Segoe UI Variable Text", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  // line-height: 143%;
+}
+
+// -> expander, info-bar
+.f-body {
+  @include body;
+}
+
+@mixin body-strong {
+  font-family: "segoe-ui-variable", "Segoe UI Variable Text Semibold", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  // line-height: 143%;
+}
+
+// -> info-bar
+.f-body-strong {
+  @include body-strong;
+}
+
+@mixin body-large {
+  font-family: "segoe-ui-variable", "Segoe UI Variable Text", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  // line-height: 133%;
+}
+
+@mixin subtitle {
+  font-family: "segoe-ui-variable", "Segoe UI Variable Display Semibold", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  // line-height: 140%;
+}
+
+@mixin title {
+  font-family: "segoe-ui-variable", "Segoe UI Variable Display Semibold", sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 36px;
+  // line-height: 129%;
+}
+
+@mixin title-large {
+  font-family: "segoe-ui-variable", "Segoe UI Variable Display Semibold", sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 52px;
+  // line-height: 130%;
+}
+
+@mixin display {
+  font-family: "segoe-ui-variable", "Segoe UI Variable Display Semibold", sans-serif;
+  font-weight: 600;
+  font-size: 68px;
+  line-height: 92px;
+  // line-height: 135%;
+}
+
+@mixin fi {
+  font-family: "segoe-fluent-icons";
+  font-weight: 400;
+  // font-size: 16px;
+  // line-height: 16px;
+  line-height: 100%;
+}

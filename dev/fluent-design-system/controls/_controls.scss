@@ -1,0 +1,35 @@
+@use "../animation/animation-variables" as var;
+
+$controls-border-radius: 4px;
+$surfaces-border-radius: 8px;
+
+// -> button, dropdown
+$Light_ControlElevation_Border_1:       hsl(0 0% 0% / .058);
+$Light_ControlElevation_Border_2:       hsl(0 0% 0% / .162);
+$Dark_ControlElevation_Border_1:        hsl(0 0% 100% / .093);
+$Dark_ControlElevation_Border_2:        hsl(0 0% 100% / .07);
+
+// -> toggle-switch
+$Light_CircleElevation_Border_1:        hsl(0 0% 0% / .058);
+$Light_CircleElevation_Border_2:        hsl(0 0% 0% / .162);
+$Dark_CircleElevation_Border_1:         hsl(0 0% 100% / .093);
+$Dark_CircleElevation_Border_2:         hsl(0 0% 100% / .07);
+
+// -> text-box
+$Light_TextControlElevation_Border_1:   hsl(0 0% 0% / .058);
+$Light_TextControlElevation_Border_2:   hsl(0 0% 0% / .446);
+$Dark_TextControlElevation_Border_1:    hsl(0 0% 100% / .08);
+$Dark_TextControlElevation_Border_2:    hsl(0 0% 100% / .544);
+
+// -> button
+$Light_AccentControlElevation_Border_1: hsl(0 0% 100% / .08);
+$Light_AccentControlElevation_Border_2: hsl(0 0% 0% / .4);
+$Dark_AccentControlElevation_Border_1:  hsl(0 0% 100% / .08);
+$Dark_AccentControlElevation_Border_2:  hsl(0 0% 0% / .14);
+
+// -> button, dropdown, hyperlink-button, toggle-switch, icon-button, text-box
+@mixin transition {
+  transition-property: color, background-color, border-color;
+  transition-duration: var.$fast-invoke-duration-1, var.$fast-invoke-duration-1, var.$fast-invoke-duration-1;
+  transition-timing-function: var.$fast-invoke-timing-function, var.$fast-invoke-timing-function, var.$fast-invoke-timing-function;
+}
