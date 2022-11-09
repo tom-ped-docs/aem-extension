@@ -114,18 +114,23 @@ const openPublishedPage = () =>
 {
   chrome.storage.local.get( [ 'iqosVersion', 'iqosCatalog', 'iqosUrl' ], ( storage: Storage ) =>
   {
+    let url: string = storage.iqosUrl;
+
+    if ( url.includes( '/home' ) && !url.endsWith( '/home' ) )
+      url = url.replace( '/home', '' );
+
     if ( storage.iqosVersion === 'ppAem' )
     {
       switch ( storage.iqosCatalog )
       {
         case 'catalogIqos':
-          openPage( URLS.ppPublished + storage.iqosUrl + URLS.urlPublished );
+          openPage( URLS.ppPublished + url + URLS.urlPublished );
           break;
         case 'catalogIqosClub':
-          openPage( URLS.ppPublishedClub + storage.iqosUrl + URLS.urlPublished );
+          openPage( URLS.ppPublishedClub + url + URLS.urlPublished );
           break;
         case 'catalogIqosVeev':
-          openPage( URLS.ppPublishedVeev + storage.iqosUrl + URLS.urlPublished );
+          openPage( URLS.ppPublishedVeev + url + URLS.urlPublished );
           break;
       }
     } else
@@ -133,13 +138,13 @@ const openPublishedPage = () =>
       switch ( storage.iqosCatalog )
       {
         case 'catalogIqos':
-          openPage( URLS.pPublished + storage.iqosUrl + URLS.urlPublished );
+          openPage( URLS.pPublished + url + URLS.urlPublished );
           break;
         case 'catalogIqosClub':
-          openPage( URLS.pPublishedClub + storage.iqosUrl + URLS.urlPublished );
+          openPage( URLS.pPublishedClub + url + URLS.urlPublished );
           break;
         case 'catalogIqosVeev':
-          openPage( URLS.pPublishedVeev + storage.iqosUrl + URLS.urlPublished );
+          openPage( URLS.pPublishedVeev + url + URLS.urlPublished );
           break;
       }
     }
@@ -189,6 +194,34 @@ const openAssetsPage = () =>
       ? openPage( URLS[ storage.iqosVersion ] + URLS.urlAssets + '/' + CODES[ CODE ] )
       : openPage( URLS[ storage.iqosVersion ] + URLS.urlAssets );
   } );
+};
+
+const unlockPassword = () =>
+{
+  const f = async () =>
+  {
+    let [ tab ] = await chrome.tabs.query( { active: true } );
+
+    chrome.scripting.executeScript( {
+      target: { tabId: tab.id },
+      func: unlockPassword1,
+    } );
+  };
+
+  f();
+};
+
+const unlockPassword1 = () =>
+{
+  const INPUT_PASSWORD = document.querySelector( 'input[type="password"]' ) as HTMLInputElement;
+
+  if ( INPUT_PASSWORD !== null )
+    INPUT_PASSWORD.value = 'EI9fwDw7cuEA5qEkcrbr';
+
+  const BUTTON_PASSWORD = document.querySelector( 'input[type="submit"]' ) as HTMLButtonElement;
+
+  if ( BUTTON_PASSWORD !== null )
+    BUTTON_PASSWORD.click();
 };
 
 const unlockRegion = () =>
@@ -285,7 +318,7 @@ const unlockAgeGate1 = () =>
 
   // ------------------------- catalogIqos, catalogIqosClub, catalogIqosVeev -------------------------
 
-  const BUTTON_COOKIES = document.querySelector( '#cookies-yes' ) as HTMLButtonElement;
+  const BUTTON_COOKIES = document.querySelector( '#onetrust-accept-btn-handler' ) as HTMLButtonElement;
 
   if ( BUTTON_COOKIES !== null )
     // BUTTON_COOKIES.dispatchEvent( EVENT_CLICK );
@@ -302,6 +335,60 @@ const openHybrisPage = () =>
   } );
 };
 
+const CONDITIONS_INDEX: number = 11;
+const ACTIONS_INDEX: number = 12;
+
+const addConditions = () =>
+{
+  const f = async () =>
+  {
+    let [ tab ] = await chrome.tabs.query( { active: true } );
+
+    chrome.scripting.executeScript( {
+      target: { tabId: tab.id },
+      func: addConditionsActions1,
+      args: [ CONDITIONS_INDEX ]
+    } );
+  };
+
+  f();
+};
+
+const addActions = () =>
+{
+  const f = async () =>
+  {
+    let [ tab ] = await chrome.tabs.query( { active: true } );
+
+    chrome.scripting.executeScript( {
+      target: { tabId: tab.id },
+      func: addConditionsActions1,
+      args: [ ACTIONS_INDEX ]
+    } );
+  };
+
+  f();
+};
+
+const addConditionsActions1 = ( index: number ) =>
+{
+  const DIV_CONDITIONS_ACTIONS = document.querySelectorAll( 'div.z-borderlayout' )[ index ] as HTMLDivElement;;
+
+  if ( DIV_CONDITIONS_ACTIONS !== null )
+  {
+    let height: string = DIV_CONDITIONS_ACTIONS.style.height;
+    height = height.slice( 0, height.indexOf( 'px' ) );
+
+    let heightNumber: number = Number( height );
+    heightNumber = heightNumber + 500;
+
+    let heightString: string = String( heightNumber );
+    heightString = heightString + 'px';
+
+    DIV_CONDITIONS_ACTIONS.style.height = heightString;
+  }
+};
+
 export
 {
   URLS,
@@ -316,7 +403,12 @@ export
   openPublishedPage,
   openSitesPage,
   openAssetsPage,
+
+  unlockPassword,
   unlockRegion,
   unlockAgeGate,
+
   openHybrisPage,
+  addConditions,
+  addActions
 };

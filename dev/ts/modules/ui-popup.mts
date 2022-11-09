@@ -2,6 +2,8 @@ import type { Storage } from './types.mjs';
 
 import { default as sanitizeUrl } from './sanitize.mjs';
 
+import { URLS as IQOS_URLS } from './module-iqos.mjs';
+
 const setSection = ( id: string ) =>
 {
   chrome.storage.local.get( [ 'isSamsungVisible', 'isIqosVisible' ], ( storage: Storage ) =>
@@ -11,13 +13,13 @@ const setSection = ( id: string ) =>
       case 'samsung-section':
         const SAMSUNG_SECTION = document.querySelector( `#${ id }` ) as HTMLElement;
 
-        if ( storage.isSamsungVisible === false )
+        if ( !storage.isSamsungVisible )
           SAMSUNG_SECTION.classList.add( 'js-invisible' );
         break;
       case 'iqos-section':
         const IQOS_SECTION = document.querySelector( `#${ id }` ) as HTMLElement;
 
-        if ( storage.isIqosVisible === false )
+        if ( !storage.isIqosVisible )
           IQOS_SECTION.classList.add( 'js-invisible' );
         break;
     }
@@ -31,10 +33,10 @@ const setAnimations = () =>
     const SAMSUNG_SECTION = document.querySelector( '#samsung-section' ) as HTMLElement;
     const IQOS_SECTION = document.querySelector( '#iqos-section' ) as HTMLElement;
 
-    if ( storage.isSamsungVisible === true && storage.isIqosVisible === false )
+    if ( storage.isSamsungVisible && !storage.isIqosVisible )
       SAMSUNG_SECTION.classList.add( 'js-animation-1' );
     else
-      if ( storage.isSamsungVisible === false && storage.isIqosVisible === true )
+      if ( !storage.isSamsungVisible && storage.isIqosVisible )
         IQOS_SECTION.classList.add( 'js-animation-1' );
       else
       {
@@ -51,10 +53,10 @@ const setAutofocus = () =>
     const SAMSUNG_INPUT = document.querySelector( '#samsung-input-url' ) as HTMLInputElement;
     const IQOS_INPUT = document.querySelector( '#iqos-input-url' ) as HTMLInputElement;
 
-    if ( storage.isSamsungVisible === true && storage.isIqosVisible === false )
+    if ( storage.isSamsungVisible && !storage.isIqosVisible )
       SAMSUNG_INPUT.focus();
     else
-      if ( storage.isSamsungVisible === false && storage.isIqosVisible === true )
+      if ( !storage.isSamsungVisible && storage.isIqosVisible )
         IQOS_INPUT.focus();
       else
       {
@@ -70,7 +72,7 @@ const setInputSwitch = () =>
     const INPUT_SWITCH = document.querySelector( '#input-switch' ) as HTMLInputElement;
     // const LABEL_SWITCH = document.querySelector( '#label-switch' ) as HTMLLabelElement;
 
-    if ( storage.isSamsungVisible === false && storage.isIqosVisible === false )
+    if ( !storage.isSamsungVisible && !storage.isIqosVisible )
     {
       INPUT_SWITCH.disabled = true;
       // LABEL_SWITCH.classList.add( 'f-label--disabled' );
@@ -132,12 +134,43 @@ const updateInputClipboard = ( id: 'samsung-input-url' | 'iqos-input-url' ) =>
     if ( id === 'samsung-input-url' )
       chrome.storage.local.set( { samsungUrl: SANITIZED_URL } );
     else
+    {
       chrome.storage.local.set( { iqosUrl: SANITIZED_URL } );
+
+      if ( tab.url.includes( IQOS_URLS.ppPublished ) || tab.url.includes( IQOS_URLS.pPublished ) || tab.url.includes( IQOS_URLS.catalogIqos ) )
+      {
+        chrome.storage.local.set( { iqosCatalog: 'catalogIqos' } );
+        setSelect( 'iqos-select-catalog' );
+      } else
+        if ( tab.url.includes( IQOS_URLS.ppPublishedClub ) || tab.url.includes( IQOS_URLS.pPublishedClub ) || tab.url.includes( IQOS_URLS.catalogIqosClub ) )
+        {
+          chrome.storage.local.set( { iqosCatalog: 'catalogIqosClub' } );
+          setSelect( 'iqos-select-catalog' );
+        } else
+          if ( tab.url.includes( IQOS_URLS.ppPublishedVeev ) || tab.url.includes( IQOS_URLS.pPublishedVeev ) || tab.url.includes( IQOS_URLS.catalogIqosVeev ) )
+          {
+            chrome.storage.local.set( { iqosCatalog: 'catalogIqosVeev' } );
+            setSelect( 'iqos-select-catalog' );
+          }
+    }
 
     updateInput( id );
   };
 
   f();
+};
+
+const updateInputHome = ( id: 'iqos-input-url' ) =>
+{
+  chrome.storage.local.get( 'iqosUrl', ( storage: Storage ) =>
+  {
+    let url: string = storage.iqosUrl;
+    url = url.slice( 0, 5 ) + '/home' + url.slice( 5 );
+
+    chrome.storage.local.set( { iqosUrl: url } );
+
+    updateInput( id );
+  } );
 };
 
 const toggleLabelSwitch = () =>
@@ -223,6 +256,7 @@ export
   setSelect,
   updateInput,
   updateInputClipboard,
+  updateInputHome,
   toggleLabelSwitch,
   toggleCritical,
   toggleButton

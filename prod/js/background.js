@@ -1,6 +1,6 @@
 // web.dev / ... / ES modules in service workers https://web.dev/es-modules-in-sw
 // import type { Changes } from './modules/types.mjs';
-import { unlockRegion, unlockAgeGate } from './modules/module-iqos.mjs';
+import { unlockPassword, unlockRegion, unlockAgeGate } from './modules/module-iqos.mjs';
 chrome.runtime.onInstalled.addListener(() => {
     chrome.storage.local.set({
         colorScheme: 'automatic',
@@ -25,6 +25,9 @@ chrome.runtime.onInstalled.addListener(() => {
 // } );
 chrome.commands.onCommand.addListener((command) => {
     switch (command) {
+        case 'unlock_password':
+            unlockPassword();
+            break;
         case 'unlock_region':
             unlockRegion();
             break;

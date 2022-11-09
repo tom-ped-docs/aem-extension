@@ -442,7 +442,7 @@
 }
 @media (prefers-color-scheme: light) {
   :root {
-    --_root-background-color: hsl(0 0% 93%);
+    --_root-background-color: hsl(0 0% 97%);
     --_section-critical-background-color: hsl(355deg, 85%, 95%);
     color-scheme: light;
     --_button-standard-color: hsla(0deg, 0%, 0%, 0.896);
@@ -547,7 +547,7 @@
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --_root-background-color: hsl(0 0% 7%);
+    --_root-background-color: hsl(0 0% 20%);
     --_section-critical-background-color: hsl(2deg, 28%, 21%);
     color-scheme: dark;
     --_button-standard-color: hsl(0deg, 0%, 100%);
@@ -651,7 +651,7 @@
   }
 }
 [data-color-scheme=light] {
-  --_root-background-color: hsl(0 0% 93%);
+  --_root-background-color: hsl(0 0% 97%);
   --_section-critical-background-color: hsl(355deg, 85%, 95%);
   color-scheme: light;
   --_button-standard-color: hsla(0deg, 0%, 0%, 0.896);
@@ -755,7 +755,7 @@
 }
 
 [data-color-scheme=dark] {
-  --_root-background-color: hsl(0 0% 7%);
+  --_root-background-color: hsl(0 0% 20%);
   --_section-critical-background-color: hsl(2deg, 28%, 21%);
   color-scheme: dark;
   --_button-standard-color: hsl(0deg, 0%, 100%);
@@ -938,8 +938,15 @@
   grid-column: span 3;
 }
 
-.l-button-published-signin {
+.l-button-published-signin,
+.l-button-hybris {
   grid-column: 1/2;
+}
+
+.l-buttons-url,
+.l-buttons-promotions {
+  display: flex;
+  column-gap: 8px;
 }
 
 .animation-0 {

@@ -17,7 +17,7 @@
 @use "../scss/modules/animation";
 
 @mixin _light {
-  --_root-background-color:                hsl(0 0% 93%); // <- FIXME: 2.
+  --_root-background-color:             hsl(0 0% 97%); // <- FIXME: 2.
   --_section-critical-background-color: #{color.$Light_System_CriticalBackground};
 
   color-scheme: light;
@@ -33,7 +33,7 @@
 }
 
 @mixin _dark {
-  --_root-background-color:                hsl(0 0% 7%); // <- FIXME: 2.
+  --_root-background-color:             hsl(0 0% 20%); // <- FIXME: 2.
   --_section-critical-background-color: #{color.$Dark_System_CriticalBackground};
 
   color-scheme: dark;
@@ -205,8 +205,15 @@ $_column-size: calc(32px * 3 + $_spacing * 2);
   grid-column: span 3;
 }
 
-.l-button-published-signin {
+.l-button-published-signin,
+.l-button-hybris {
   grid-column: 1 / 2;
+}
+
+.l-buttons-url,
+.l-buttons-promotions {
+  display: flex;
+  column-gap: $_spacing;
 }
 
 // ------------------------- a == animation -------------------------

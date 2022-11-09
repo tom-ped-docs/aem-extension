@@ -715,7 +715,7 @@
 @media (prefers-color-scheme: light) {
   :root {
     --_root-color: hsla(0deg, 0%, 0%, 0.896);
-    --_root-background-color: hsl(0 0% 93%);
+    --_root-background-color: hsl(0 0% 97%);
     --_code-background-color: hsl(30 40% 96%);
     --_code-border-color: hsl(0 0% 0% / .1);
     color-scheme: light;
@@ -850,7 +850,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --_root-color: hsl(0deg, 0%, 100%);
-    --_root-background-color: hsl(0 0% 7%);
+    --_root-background-color: hsl(0 0% 20%);
     --_code-background-color: hsl(30 40% 4%);
     --_code-border-color: hsl(0 0% 0% / .99);
     color-scheme: dark;
@@ -984,7 +984,7 @@
 }
 [data-color-scheme=light] {
   --_root-color: hsla(0deg, 0%, 0%, 0.896);
-  --_root-background-color: hsl(0 0% 93%);
+  --_root-background-color: hsl(0 0% 97%);
   --_code-background-color: hsl(30 40% 96%);
   --_code-border-color: hsl(0 0% 0% / .1);
   color-scheme: light;
@@ -1118,7 +1118,7 @@
 
 [data-color-scheme=dark] {
   --_root-color: hsl(0deg, 0%, 100%);
-  --_root-background-color: hsl(0 0% 7%);
+  --_root-background-color: hsl(0 0% 20%);
   --_code-background-color: hsl(30 40% 4%);
   --_code-border-color: hsl(0 0% 0% / .99);
   color-scheme: dark;

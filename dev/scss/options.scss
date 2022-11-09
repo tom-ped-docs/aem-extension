@@ -21,7 +21,7 @@
 
 @mixin _light {
   --_root-color:              #{color.$Light_Text_Primary};
-  --_root-background-color: hsl(0 0% 93%); // <- FIXME: 1.
+  --_root-background-color: hsl(0 0% 97%); // <- FIXME: 1.
   --_code-background-color: hsl(30 40% 96%);
   --_code-border-color:     hsl(0 0% 0% / .1);
 
@@ -42,7 +42,7 @@
 
 @mixin _dark {
   --_root-color:              #{color.$Dark_Text_Primary};
-  --_root-background-color: hsl(0 0% 7%); // <- FIXME: 1.
+  --_root-background-color: hsl(0 0% 20%); // <- FIXME: 1.
   --_code-background-color: hsl(30 40% 4%);
   --_code-border-color:     hsl(0 0% 0% / .99);
 

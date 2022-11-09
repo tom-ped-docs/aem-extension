@@ -16,8 +16,7 @@
   "author": "Tomasz Pędzich",
   "license": "ISC",
   "devDependencies": {
-    "@fluentui/svg-icons": "^1.x",
-    "@popperjs/core": "^2.11.5",
+    "@popperjs/core": "2.x",
     "@types/chrome": "0.x",
     "postcss": "8.x",
     "postcss-scss": "4.x",

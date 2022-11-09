@@ -113,6 +113,10 @@ document.body.addEventListener( 'click', ( event: Event ) =>
       Iqos.unlockRegion();
       window.close;
       break;
+    case 'iqos-button-password':
+      Iqos.unlockPassword();
+      window.close;
+      break;
     case 'iqos-button-agegate':
       Iqos.unlockAgeGate();
       window.close;
@@ -123,6 +127,16 @@ document.body.addEventListener( 'click', ( event: Event ) =>
     case 'iqos-button-clipboard':
       UI.updateInputClipboard( 'iqos-input-url' );
       // -> updateInput
+      break;
+    case 'iqos-button-home':
+      UI.updateInputHome( 'iqos-input-url' );
+      // -> updateInput
+      break;
+    case 'iqos-button-conditions':
+      Iqos.addConditions();
+      break;
+    case 'iqos-button-actions':
+      Iqos.addActions();
       break;
 
     // default:

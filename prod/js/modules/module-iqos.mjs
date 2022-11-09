@@ -87,29 +87,32 @@ const openPublishedSignInPage = () => {
 };
 const openPublishedPage = () => {
     chrome.storage.local.get(['iqosVersion', 'iqosCatalog', 'iqosUrl'], (storage) => {
+        let url = storage.iqosUrl;
+        if (url.includes('/home') && !url.endsWith('/home'))
+            url = url.replace('/home', '');
         if (storage.iqosVersion === 'ppAem') {
             switch (storage.iqosCatalog) {
                 case 'catalogIqos':
-                    openPage(URLS.ppPublished + storage.iqosUrl + URLS.urlPublished);
+                    openPage(URLS.ppPublished + url + URLS.urlPublished);
                     break;
                 case 'catalogIqosClub':
-                    openPage(URLS.ppPublishedClub + storage.iqosUrl + URLS.urlPublished);
+                    openPage(URLS.ppPublishedClub + url + URLS.urlPublished);
                     break;
                 case 'catalogIqosVeev':
-                    openPage(URLS.ppPublishedVeev + storage.iqosUrl + URLS.urlPublished);
+                    openPage(URLS.ppPublishedVeev + url + URLS.urlPublished);
                     break;
             }
         }
         else {
             switch (storage.iqosCatalog) {
                 case 'catalogIqos':
-                    openPage(URLS.pPublished + storage.iqosUrl + URLS.urlPublished);
+                    openPage(URLS.pPublished + url + URLS.urlPublished);
                     break;
                 case 'catalogIqosClub':
-                    openPage(URLS.pPublishedClub + storage.iqosUrl + URLS.urlPublished);
+                    openPage(URLS.pPublishedClub + url + URLS.urlPublished);
                     break;
                 case 'catalogIqosVeev':
-                    openPage(URLS.pPublishedVeev + storage.iqosUrl + URLS.urlPublished);
+                    openPage(URLS.pPublishedVeev + url + URLS.urlPublished);
                     break;
             }
         }
@@ -151,6 +154,24 @@ const openAssetsPage = () => {
             ? openPage(URLS[storage.iqosVersion] + URLS.urlAssets + '/' + CODES[CODE])
             : openPage(URLS[storage.iqosVersion] + URLS.urlAssets);
     });
+};
+const unlockPassword = () => {
+    const f = async () => {
+        let [tab] = await chrome.tabs.query({ active: true });
+        chrome.scripting.executeScript({
+            target: { tabId: tab.id },
+            func: unlockPassword1,
+        });
+    };
+    f();
+};
+const unlockPassword1 = () => {
+    const INPUT_PASSWORD = document.querySelector('input[type="password"]');
+    if (INPUT_PASSWORD !== null)
+        INPUT_PASSWORD.value = 'EI9fwDw7cuEA5qEkcrbr';
+    const BUTTON_PASSWORD = document.querySelector('input[type="submit"]');
+    if (BUTTON_PASSWORD !== null)
+        BUTTON_PASSWORD.click();
 };
 const unlockRegion = () => {
     const f = async () => {
@@ -213,7 +234,7 @@ const unlockAgeGate1 = () => {
     if (BUTTON_SUBMIT_VEEV !== null)
         BUTTON_SUBMIT_VEEV.dispatchEvent(EVENT_CLICK);
     // ------------------------- catalogIqos, catalogIqosClub, catalogIqosVeev -------------------------
-    const BUTTON_COOKIES = document.querySelector('#cookies-yes');
+    const BUTTON_COOKIES = document.querySelector('#onetrust-accept-btn-handler');
     if (BUTTON_COOKIES !== null)
         // BUTTON_COOKIES.dispatchEvent( EVENT_CLICK );
         BUTTON_COOKIES.click();
@@ -225,4 +246,41 @@ const openHybrisPage = () => {
             : openPage(URLS.pHybris);
     });
 };
-export { URLS, START_KEYS, END_KEYS, openSignInPage, openEditorPage, openPreviewPage, openPropertiesPage, openPublishedSignInPage, openPublishedPage, openSitesPage, openAssetsPage, unlockRegion, unlockAgeGate, openHybrisPage, };
+const CONDITIONS_INDEX = 11;
+const ACTIONS_INDEX = 12;
+const addConditions = () => {
+    const f = async () => {
+        let [tab] = await chrome.tabs.query({ active: true });
+        chrome.scripting.executeScript({
+            target: { tabId: tab.id },
+            func: addConditionsActions1,
+            args: [CONDITIONS_INDEX]
+        });
+    };
+    f();
+};
+const addActions = () => {
+    const f = async () => {
+        let [tab] = await chrome.tabs.query({ active: true });
+        chrome.scripting.executeScript({
+            target: { tabId: tab.id },
+            func: addConditionsActions1,
+            args: [ACTIONS_INDEX]
+        });
+    };
+    f();
+};
+const addConditionsActions1 = (index) => {
+    const DIV_CONDITIONS_ACTIONS = document.querySelectorAll('div.z-borderlayout')[index];
+    ;
+    if (DIV_CONDITIONS_ACTIONS !== null) {
+        let height = DIV_CONDITIONS_ACTIONS.style.height;
+        height = height.slice(0, height.indexOf('px'));
+        let heightNumber = Number(height);
+        heightNumber = heightNumber + 500;
+        let heightString = String(heightNumber);
+        heightString = heightString + 'px';
+        DIV_CONDITIONS_ACTIONS.style.height = heightString;
+    }
+};
+export { URLS, START_KEYS, END_KEYS, openSignInPage, openEditorPage, openPreviewPage, openPropertiesPage, openPublishedSignInPage, openPublishedPage, openSitesPage, openAssetsPage, unlockPassword, unlockRegion, unlockAgeGate, openHybrisPage, addConditions, addActions };

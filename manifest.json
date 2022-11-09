@@ -16,13 +16,17 @@
       "global": true,
       "suggested_key": "Alt+1"
     },
-    "unlock_age_gate": {
-      "description": "IQOS AEM: Unlock Age Gate & Cookies",
+    "unlock_password": {
+      "description": "IQOS AEM: Unlock Password (PRE PROD 'Published Sign In' Page)",
       "suggested_key": "Alt+2"
     },
     "unlock_region": {
       "description": "IQOS AEM: Unlock Region ('?gr = false')",
       "suggested_key": "Alt+3"
+    },
+    "unlock_age_gate": {
+      "description": "IQOS AEM: Unlock Age Gate & Cookies",
+      "suggested_key": "Alt+4"
     }
   },
   "description": "Adobe Experience Manager (AEM) extension",

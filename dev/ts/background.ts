@@ -2,7 +2,7 @@
 
 // import type { Changes } from './modules/types.mjs';
 
-import { unlockRegion, unlockAgeGate } from './modules/module-iqos.mjs';
+import { unlockPassword, unlockRegion, unlockAgeGate } from './modules/module-iqos.mjs';
 
 chrome.runtime.onInstalled.addListener( () =>
 {
@@ -37,6 +37,9 @@ chrome.commands.onCommand.addListener( ( command: string ) =>
 {
   switch ( command )
   {
+    case 'unlock_password':
+      unlockPassword();
+      break;
     case 'unlock_region':
       unlockRegion();
       break;

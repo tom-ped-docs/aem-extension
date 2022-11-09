@@ -4,7 +4,7 @@ const openPage = ( url: string ) =>
 {
   chrome.storage.local.get( 'inNewPage', ( storage: Storage ) =>
   {
-    storage.inNewPage === true
+    storage.inNewPage
       ? chrome.tabs.create( { url: url } )
       : chrome.tabs.update( { url: url } ); // <- tabId: Tab.highlighted
 

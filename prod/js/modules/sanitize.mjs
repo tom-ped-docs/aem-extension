@@ -20,10 +20,18 @@ const sanitizeUrl = (url) => {
     let sanitizedUrl = url;
     sanitizedUrl = sanitizedUrl.trim();
     sanitizedUrl = sanitizedUrl.toLowerCase();
-    SAMSUNG_START_KEYS.forEach((key) => { sanitizedUrl = sanitizeStart(sanitizedUrl, key, SAMSUNG_URLS); });
-    IQOS_START_KEYS.forEach((key) => { sanitizedUrl = sanitizeStart(sanitizedUrl, key, IQOS_URLS); });
-    SAMSUNG_END_KEYS.forEach((key) => { sanitizedUrl = sanitizeEnd(sanitizedUrl, key, SAMSUNG_URLS); });
-    IQOS_END_KEYS.forEach((key) => { sanitizedUrl = sanitizeEnd(sanitizedUrl, key, IQOS_URLS); });
+    SAMSUNG_START_KEYS.forEach((key) => {
+        sanitizedUrl = sanitizeStart(sanitizedUrl, key, SAMSUNG_URLS);
+    });
+    IQOS_START_KEYS.forEach((key) => {
+        sanitizedUrl = sanitizeStart(sanitizedUrl, key, IQOS_URLS);
+    });
+    SAMSUNG_END_KEYS.forEach((key) => {
+        sanitizedUrl = sanitizeEnd(sanitizedUrl, key, SAMSUNG_URLS);
+    });
+    IQOS_END_KEYS.forEach((key) => {
+        sanitizedUrl = sanitizeEnd(sanitizedUrl, key, IQOS_URLS);
+    });
     return sanitizedUrl;
 };
 export default sanitizeUrl;

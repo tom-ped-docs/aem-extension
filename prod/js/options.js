@@ -41,13 +41,13 @@ const updateStorage = (id, value = '') => {
             break;
         case 'samsung-input-visibility':
             const SAMSUNG_INPUT_VISIBILITY = document.querySelector(`#${id}`);
-            SAMSUNG_INPUT_VISIBILITY.checked === true
+            SAMSUNG_INPUT_VISIBILITY.checked
                 ? chrome.storage.local.set({ isSamsungVisible: true })
                 : chrome.storage.local.set({ isSamsungVisible: false });
             break;
         case 'iqos-input-visibility':
             const IQOS_INPUT_VISIBILITY = document.querySelector(`#${id}`);
-            IQOS_INPUT_VISIBILITY.checked === true
+            IQOS_INPUT_VISIBILITY.checked
                 ? chrome.storage.local.set({ isIqosVisible: true })
                 : chrome.storage.local.set({ isIqosVisible: false });
             break;
